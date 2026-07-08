@@ -65,7 +65,18 @@ export async function getService(slug: string): Promise<ServiceData | null> {
   return all.find((s) => s.slug === slug) ?? null;
 }
 
-export type CaseStudyData = (typeof SEED_CASE_STUDIES)[number] & {
+export type CaseStudyData = {
+  slug: string;
+  title: string;
+  client: string;
+  industry: string;
+  summary: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  image: string;
+  imageAlt: string;
+  tags: string[];
   seoTitle?: string;
   seoDesc?: string;
 };
