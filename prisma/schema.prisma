@@ -1,0 +1,122 @@
+// CompuBlue CMS schema
+// Local dev: SQLite. Production: switch provider to "postgresql" and set DATABASE_URL.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String   @default("Admin")
+  createdAt    DateTime @default(now())
+}
+
+model Page {
+  id          String   @id @default(cuid())
+  slug        String   @unique // "" for home
+  name        String // label in admin
+  // Editable content fields as JSON: { key: { label, type: "text"|"textarea", value } }
+  content     String   @default("{}")
+  // SEO
+  seoTitle    String   @default("")
+  seoDesc     String   @default("")
+  ogImage     String   @default("")
+  canonical   String   @default("")
+  schemaJson  String   @default("") // extra JSON-LD to inject (optional)
+  noindex     Boolean  @default(false)
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  title      String
+  excerpt    String
+  body       String // markdown-ish paragraphs, split on blank lines
+  bullets    String   @default("[]") // JSON array of "What you get" bullets
+  icon       String   @default("spark") // icon key
+  image      String   @default("")
+  imageAlt   String   @default("")
+  faqs       String   @default("[]") // JSON [{q,a}]
+  order      Int      @default(0)
+  published  Boolean  @default(true)
+  seoTitle   String   @default("")
+  seoDesc    String   @default("")
+  ogImage    String   @default("")
+  canonical  String   @default("")
+  updatedAt  DateTime @updatedAt
+}
+
+model CaseStudy {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  client    String   @default("")
+  industry  String   @default("")
+  summary   String
+  challenge String   @default("")
+  solution  String   @default("")
+  results   String   @default("[]") // JSON array of result bullets
+  image     String   @default("")
+  imageAlt  String   @default("")
+  tags      String   @default("[]")
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  seoTitle  String   @default("")
+  seoDesc   String   @default("")
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id        String    @id @default(cuid())
+  slug      String    @unique
+  title     String
+  excerpt   String
+  body      String
+  image     String    @default("")
+  imageAlt  String    @default("")
+  author    String    @default("CompuBlue Team")
+  tags      String    @default("[]")
+  published Boolean   @default(true)
+  publishedAt DateTime @default(now())
+  seoTitle  String    @default("")
+  seoDesc   String    @default("")
+  ogImage   String    @default("")
+  canonical String    @default("")
+  updatedAt DateTime  @updatedAt
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String   @default("")
+  company   String   @default("")
+  service   String   @default("")
+  budget    String   @default("")
+  message   String
+  page      String   @default("")
+  ip        String   @default("")
+  status    String   @default("new") // new | contacted | closed
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  key   String @id
+  value String @default("")
+}
+
+model MediaImage {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String   @default("")
+  credit    String   @default("")
+  createdAt DateTime @default(now())
+}
