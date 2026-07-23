@@ -18,8 +18,9 @@ export function Footer({
         <div>
           <Logo />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-            AI automation, SaaS product development and data platforms —
-            engineered around your bottom line.
+            Aligning strategy, operations, governance, technology, and execution —
+            helping organizations translate strategic objectives into measurable
+            business outcomes.
           </p>
           <ul className="mt-6 space-y-3 text-sm">
             <li>
@@ -68,11 +69,9 @@ export function Footer({
           <h2 className="text-sm font-semibold uppercase tracking-wider text-ink">Company</h2>
           <ul className="mt-4 space-y-2.5">
             {[
-              ["About", "/about"],
-              ["SaaS Solutions", "/saas-solutions"],
-              ["AI Solutions", "/ai-solutions"],
-              ["Case Studies", "/case-studies"],
-              ["Insights", "/blog"],
+              ["Our Approach", "/our-approach"],
+              ["About Us", "/about"],
+              ["Services", "/services"],
               ["Contact", "/contact"],
             ].map(([label, href]) => (
               <li key={href}>
@@ -86,14 +85,14 @@ export function Footer({
 
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-wider text-ink">
-            Start a project
+            Start the conversation
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted">
-            Tell us what you want to automate or build. We reply within one
-            business day.
+            Tell us about your organization and objectives. We welcome the
+            opportunity to discuss how we can help.
           </p>
           <Link href="/contact" className="btn-primary mt-5">
-            Book a free consultation
+            Contact us
           </Link>
         </div>
       </div>

@@ -9,11 +9,8 @@ import { Icon } from "./Icons";
 type ServiceLink = { title: string; slug: string };
 
 const NAV = [
-  { href: "/about", label: "About" },
-  { href: "/saas-solutions", label: "SaaS Solutions" },
-  { href: "/ai-solutions", label: "AI Solutions" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/blog", label: "Insights" },
+  { href: "/our-approach", label: "Our Approach" },
+  { href: "/about", label: "About Us" },
 ];
 
 export function Header({ services }: { services: ServiceLink[] }) {

@@ -7,366 +7,301 @@ import { IMAGES } from "./images";
 
 export const SEED_SERVICES = [
   {
-    slug: "ai-automation-solutions",
-    title: "AI Automation Solutions",
+    slug: "enterprise-transformation-operational-readiness",
+    title: "Enterprise Transformation & Operational Readiness",
     icon: "workflow",
-    image: IMAGES.tradingDesk.src,
-    imageAlt: IMAGES.tradingDesk.alt,
+    image: IMAGES.heroOffice.src,
+    imageAlt: "Leadership team aligning on an enterprise transformation initiative",
     excerpt:
-      "Turn repetitive, error-prone workflows into reliable automated systems powered by AI — from document processing to end-to-end operations.",
-    body: `Most teams lose hundreds of hours a month to work a machine should be doing: copying data between systems, triaging inboxes, processing documents, chasing approvals. We identify those workflows, measure what they cost you, and replace them with AI-driven automation that runs around the clock.
+      "A structured effort to strengthen operational effectiveness, execution capability, and strategic alignment across the enterprise — preparing organizations to execute against evolving business objectives.",
+    body: `## Our Approach
 
-Our approach is deliberately pragmatic. We start with a paid-back-in-months automation — not a moonshot — and expand from there. Every system we ship includes monitoring, human-in-the-loop review where judgment matters, and a dashboard that shows exactly how many hours and dollars the automation is returning.
+We approach organizational transformation as a structured effort to strengthen operational effectiveness, execution capability, and strategic alignment across the enterprise. Organizations often face growth constraints, execution inefficiencies, fragmented operations, or structural limitations that reduce scalability and impair long-term performance. Our focus is on helping organizations become operationally stronger, strategically aligned, and better prepared to execute against evolving business objectives.
 
-Because we are engineers first, the automations we build are production-grade: version-controlled, tested, secured and documented — not brittle no-code experiments that break the first time an input changes.`,
+We recognize that operational readiness is not limited to a single event or transaction. Whether supporting growth initiatives, organizational restructuring, modernization efforts, leadership transitions, or acquisition readiness, we help organizations establish the structures, processes, governance, and execution disciplines required to operate more effectively and respond more efficiently to changing business demands.
+
+## What We Do
+
+We help organizations assess, structure, and improve operational and execution environments to support sustainable growth, organizational scalability, and strategic execution. This includes evaluating operational effectiveness, identifying structural and execution gaps, aligning initiatives and responsibilities, improving coordination across functions, and establishing management and reporting frameworks that support informed decision-making and measurable operational performance.
+
+We also support organizations in preparing for significant business transitions and transformation initiatives, including growth expansion, restructuring efforts, operational modernization, acquisition readiness, and enterprise-wide execution improvement.
+
+## How We Deliver
+
+We apply a disciplined and methodical approach to organizational assessment, operational alignment, and execution improvement. This includes evaluating current operating environments, identifying organizational and operational constraints, defining transformation priorities, and establishing structured implementation and governance frameworks that enable coordinated execution across the enterprise.
+
+We work across operational, technical, organizational, and business functions to improve visibility, accountability, coordination, and performance management throughout the organization. Our approach focuses on creating operational environments that are scalable, measurable, execution-oriented, and aligned with long-term strategic objectives — enabling organizations to improve operational performance while increasing readiness for future growth, transformation, or transaction opportunities.`,
     bullets: [
-      "Workflow audit that identifies and prices your top automation opportunities",
-      "Document intelligence: extract, classify and route invoices, forms and contracts",
-      "Email and ticket triage with AI classification and smart routing",
-      "Human-in-the-loop approval steps where judgment is required",
-      "Integration with the tools you already use (CRM, ERP, spreadsheets, email)",
-      "ROI dashboard showing hours saved and error rates in real time",
+      "Operational effectiveness and execution-gap assessment",
+      "Alignment of initiatives, responsibilities, and cross-functional coordination",
+      "Management and reporting frameworks for informed decision-making",
+      "Readiness for growth, restructuring, and operational modernization",
+      "Acquisition readiness and enterprise-wide execution improvement",
     ],
-    faqs: [
-      {
-        q: "How do we know what to automate first?",
-        a: "We run a short workflow audit: we map your recurring processes, measure volume and time spent, and rank opportunities by payback period. You get the full list even if you only automate one.",
-      },
-      {
-        q: "What happens when the AI is unsure?",
-        a: "Uncertain cases are routed to a human review queue with full context. The system learns from those decisions, so the share of work needing review keeps shrinking.",
-      },
-      {
-        q: "Do we need our data to be perfectly organized first?",
-        a: "No. Messy inputs are normal — handling them well is part of the engineering. We build validation and exception handling into every automation.",
-      },
-    ],
+    faqs: [],
   },
   {
-    slug: "saas-product-development",
-    title: "SaaS Product Development",
+    slug: "portfolio-program-management",
+    title: "Strategic Portfolio & Program Management",
     icon: "layers",
-    image: IMAGES.devTeam.src,
-    imageAlt: IMAGES.devTeam.alt,
+    image: IMAGES.presentation.src,
+    imageAlt: "Portfolio and program leaders reviewing initiative dependencies",
     excerpt:
-      "Design, build and launch subscription software — from validated MVP to multi-tenant platform with billing, analytics and enterprise-grade security.",
-    body: `A SaaS product is a business, not just an app. We have built subscription software for decades — long before it was called SaaS — and we bring the full playbook: product strategy, architecture, design system, development, launch and iteration.
+      "Structured program and portfolio frameworks that align execution with strategic priorities — enabling integrated governance, clearer prioritization, and full visibility into interdependencies.",
+    body: `## Our Approach
 
-For new products we focus on speed to validation: a sharply-scoped MVP in weeks, instrumented from day one so you learn what users actually do. For established products we modernize legacy platforms into scalable multi-tenant architectures without disrupting existing customers.
+While we approach management with the rigor and discipline of a science, we recognize that enterprise initiatives rarely conform to rigid structures. Programs and projects often function as shared capabilities that support multiple strategic objectives simultaneously. Rather than forcing artificial hierarchies, we design program and portfolio models that reflect these cross-cutting realities — enabling integrated governance, clearer prioritization, and full visibility into interdependencies.
 
-Everything ships with the fundamentals investors and enterprise buyers expect: role-based access control, audit logs, SSO-readiness, usage analytics, subscription billing and a deployment pipeline your future team will thank you for.`,
+## What We Do
+
+We assess enterprise initiative landscapes and design structured program and portfolio frameworks that align execution with strategic priorities. By organizing interdependent initiatives into coherent programs and aligning investments within portfolios, we enable improved prioritization, optimized resource utilization, and measurable value realization across the organization.
+
+## How We Deliver
+
+We apply a disciplined and methodical approach to evaluating initiatives, dependencies, and strategic alignment across the enterprise. This includes assessing active and planned efforts, mapping interdependencies, and structuring initiatives into programs and portfolios that reflect both execution realities and business objectives.
+
+We establish governance models, prioritization frameworks, and performance management disciplines that enable coordinated decision-making and transparent execution. This ensures that resources are allocated effectively, dependencies are actively managed, and leadership has clear visibility into progress, risks, and outcomes across the initiative landscape.`,
     bullets: [
-      "Product discovery, scoping and technical architecture",
-      "Multi-tenant SaaS architecture with role-based access control",
-      "Subscription billing integration (Stripe and others)",
-      "Design system and polished, responsive UI",
-      "Usage analytics and product instrumentation from day one",
-      "CI/CD pipeline, automated testing and documentation",
+      "Structured program and portfolio frameworks aligned to strategy",
+      "Interdependency mapping across enterprise initiatives",
+      "Governance models and prioritization frameworks",
+      "Optimized resource utilization and value realization",
+      "Executive visibility into progress, risks, and outcomes",
     ],
-    faqs: [
-      {
-        q: "How long does an MVP take?",
-        a: "A focused MVP typically takes 8–14 weeks depending on scope. We deliberately cut scope to the smallest product that can validate your core assumption.",
-      },
-      {
-        q: "Can you take over an existing codebase?",
-        a: "Yes. We start with a technical audit, stabilize the highest-risk areas, and then modernize incrementally — no risky big-bang rewrites unless the audit genuinely justifies one.",
-      },
-      {
-        q: "Who owns the code?",
-        a: "You do. Full source code, infrastructure and documentation are yours, in your own repositories and cloud accounts.",
-      },
-    ],
+    faqs: [],
   },
   {
-    slug: "custom-business-dashboards",
-    title: "Custom Business Dashboards",
+    slug: "strategic-initiative-assessment-structuring",
+    title: "Strategic Initiative Assessment & Structuring",
+    icon: "spark",
+    image: IMAGES.meeting.src,
+    imageAlt: "Advisors assessing and structuring a portfolio of initiatives",
+    excerpt:
+      "Bringing clarity and structure to initiative landscapes before execution begins — assessing alignment, dependencies, and the right structures for coordinated delivery.",
+    body: `## Our Approach
+
+We approach initiative assessment as a critical first step in effective execution. Organizations often initiate projects without fully understanding their alignment, dependencies, or impact. We focus on bringing clarity and structure to initiative landscapes before execution begins.
+
+## What We Do
+
+We assess existing and proposed initiatives to determine alignment with strategic objectives, identify dependencies, and define appropriate structures for execution. This includes grouping initiatives into logical constructs such as projects, programs, and portfolios.
+
+## How We Deliver
+
+We perform structured assessments, analyze relationships between initiatives, and define execution models that enable coordinated delivery. This ensures that organizations move forward with clarity, alignment, and a well-defined path to execution.`,
+    bullets: [
+      "Alignment assessment against strategic objectives",
+      "Dependency and impact analysis",
+      "Grouping into projects, programs, and portfolios",
+      "Execution models for coordinated delivery",
+      "A clear, well-defined path to execution",
+    ],
+    faqs: [],
+  },
+  {
+    slug: "pmo-design-transformation",
+    title: "PMO Design & Transformation",
+    icon: "gauge",
+    image: IMAGES.fourPeople.src,
+    imageAlt: "Team designing a project management office operating model",
+    excerpt:
+      "PMOs designed as execution systems — not just reporting functions — that align strategy with delivery, enforce discipline, and provide the visibility leaders need to decide.",
+    body: `## Our Approach
+
+We view the PMO as an execution system — not just a reporting function. A well-designed PMO aligns strategy with delivery, enforces discipline, and provides the visibility required for effective decision-making. Our focus is on building PMOs that are practical, scalable, and tailored to the organization's specific needs.
+
+## What We Do
+
+We design and transform Project Management Offices to provide structured governance, standardized processes, and enterprise-level visibility into initiatives. This includes defining roles, processes, and reporting frameworks that enable coordinated execution across projects and programs.
+
+## How We Deliver
+
+We assess existing capabilities, identify gaps, and implement PMO structures that support consistent planning, prioritization, and reporting. We establish governance models, define operating procedures, and ensure that the PMO functions as a central coordination point for execution across the organization.`,
+    bullets: [
+      "PMO structure, roles, and operating procedures",
+      "Standardized processes and reporting frameworks",
+      "Governance models and enterprise-level visibility",
+      "Consistent planning, prioritization, and reporting",
+      "A central coordination point for execution",
+    ],
+    faqs: [],
+  },
+  {
+    slug: "project-governance-delivery-management",
+    title: "Project Governance & Delivery Management",
+    icon: "shield",
+    image: IMAGES.codeReview.src,
+    imageAlt: "Sponsors and delivery leaders coordinating project governance",
+    excerpt:
+      "Disciplined governance, clear accountability, and consistent executive visibility that guide projects through complexity and keep delivery aligned with business objectives.",
+    body: `## Our Approach
+
+Successful project delivery requires more than detailed plans and schedules. It requires disciplined governance, clear accountability, effective communication, and consistent executive visibility throughout the project lifecycle. We approach project delivery as a structured management process that aligns stakeholders, supports informed decision-making, and ensures that execution activities remain focused on achieving business objectives.
+
+Our focus is on establishing the leadership, governance, and oversight mechanisms necessary to guide projects through complexity, manage competing priorities, and maintain alignment between delivery activities and organizational goals.
+
+## What We Do
+
+We provide project governance and delivery management services that help organizations maintain control, visibility, and accountability throughout project execution. This includes establishing governance structures, defining decision-making processes, coordinating stakeholder engagement, managing issue escalation paths, and ensuring that project teams remain aligned with business objectives and delivery commitments.
+
+We help leadership teams gain meaningful visibility into project status, risks, dependencies, and key decisions while ensuring that execution activities remain coordinated, disciplined, and outcome-focused.
+
+## How We Deliver
+
+We establish governance frameworks that define roles, responsibilities, communication structures, reporting expectations, and decision-making authorities across the project environment. Working closely with sponsors, stakeholders, project teams, and organizational leadership, we facilitate alignment, accountability, and proactive management of issues that may impact delivery outcomes.
+
+Our approach emphasizes executive visibility, stakeholder coordination, disciplined oversight, and effective communication, enabling organizations to make timely decisions, maintain project momentum, and successfully navigate complex delivery environments.`,
+    bullets: [
+      "Governance structures and decision-making processes",
+      "Stakeholder engagement and issue escalation paths",
+      "Executive visibility into status, risks, and dependencies",
+      "Alignment of delivery with business objectives",
+      "Disciplined oversight and effective communication",
+    ],
+    faqs: [],
+  },
+  {
+    slug: "project-controls-performance-management",
+    title: "Project Controls & Performance Management",
     icon: "chart",
     image: IMAGES.analyticsChart.src,
-    imageAlt: IMAGES.analyticsChart.alt,
+    imageAlt: "Analyst reviewing project performance baselines and variances",
     excerpt:
-      "One screen with the numbers that run your business — pulled automatically from every system you use, updated in real time.",
-    body: `If your monthly numbers live in six systems and one overworked spreadsheet, decisions get made late and on gut feel. We build dashboards that pull from your CRM, accounting platform, ad accounts, databases and spreadsheets automatically — so the truth is one URL away.
+      "Objective visibility into project performance — the planning, measurement, reporting, and control mechanisms that reveal project health and emerging risks before they become business problems.",
+    body: `## Our Approach
 
-We start with the decisions you need to make, not the charts that look good. Each dashboard is designed around a handful of questions — Is revenue on track? Where is the pipeline leaking? Which customers are at risk? — and every widget earns its place.
+Effective project execution requires objective visibility into project performance. We approach project controls as a disciplined management capability that transforms project plans into measurable performance information, enabling organizations to understand project health, identify emerging risks, and make informed decisions before issues become business problems.
 
-Dashboards are built on your data infrastructure, not locked in a third-party tool: you own the pipelines, the models and the presentation layer, and they can grow into full analytics products.`,
+Our focus is on establishing the planning, measurement, reporting, and control mechanisms required to maintain transparency, predictability, and accountability throughout the project lifecycle.
+
+## What We Do
+
+We help organizations establish and operate the project controls and performance management capabilities required to monitor, measure, forecast, and control project execution. This includes development of work breakdown structures, integrated schedules, delivery baselines, dependency management processes, performance measurement frameworks, status reporting structures, and integrated change control procedures.
+
+We provide the visibility and analytical capabilities necessary to evaluate project health, identify variances, assess trends, and support proactive decision-making throughout execution.
+
+## How We Deliver
+
+We apply structured project controls methodologies to establish measurable performance baselines and objective reporting mechanisms across project activities. Beginning with scope definition and execution planning, we help organizations develop integrated schedules, define performance metrics, establish reporting frameworks, and implement controls that provide visibility into progress, risks, dependencies, and delivery outcomes.
+
+Our approach incorporates schedule management, variance analysis, forecasting, performance measurement, status reporting, and integrated change control processes that support disciplined execution and informed decision-making throughout the delivery lifecycle.`,
     bullets: [
-      "KPI definition workshops — measure what actually drives the business",
-      "Automated data pipelines from CRM, ERP, ads, finance and databases",
-      "Real-time and scheduled refresh with data-quality alerts",
-      "Role-based views for executives, managers and teams",
-      "Drill-down from headline number to underlying records",
-      "Runs on your infrastructure — no per-seat tool lock-in",
+      "Work breakdown structures and integrated schedules",
+      "Performance baselines and measurement frameworks",
+      "Status reporting and integrated change control",
+      "Variance analysis and forecasting",
+      "Dependency management across project activities",
     ],
-    faqs: [
-      {
-        q: "Can you combine data from systems that don't talk to each other?",
-        a: "That is the core of the job. We build connectors and a small data warehouse layer so every source lands in one consistent model.",
-      },
-      {
-        q: "How is this different from Power BI or Looker?",
-        a: "Those are excellent presentation tools, and we can build on them. The hard part is the data plumbing and metric definitions underneath — that is what we engineer, whichever front end you prefer.",
-      },
-      {
-        q: "What does maintenance look like?",
-        a: "Pipelines are monitored with automatic alerts. Most clients choose a light monthly retainer; others take full handover with documentation and training.",
-      },
-    ],
+    faqs: [],
   },
   {
-    slug: "ai-chatbots-virtual-assistants",
-    title: "AI Chatbots & Virtual Assistants",
-    icon: "chat",
-    image: IMAGES.womanLaptop.src,
-    imageAlt: IMAGES.womanLaptop.alt,
-    excerpt:
-      "Assistants trained on your business that answer customers, qualify leads and support staff — accurately, on-brand and around the clock.",
-    body: `A good AI assistant deflects the tickets your team dreads, answers at 2 a.m., and hands hot leads to sales while competitors sleep. A bad one hallucinates refund policies. The difference is engineering.
-
-We build assistants grounded in your actual content — help docs, policies, product data, past conversations — with retrieval that cites its sources and guardrails that keep answers inside what the assistant truly knows. When a conversation needs a human, it hands off gracefully with full context.
-
-Assistants can live on your website, inside WhatsApp or Messenger, in your support desk or behind the scenes helping your own staff find answers faster. Every deployment includes an analytics view: deflection rate, resolution quality, captured leads and the questions your customers actually ask.`,
-    bullets: [
-      "Trained on your docs, policies and product catalogue — with source citations",
-      "Website, WhatsApp, Messenger and helpdesk deployments",
-      "Lead capture and qualification built into conversations",
-      "Graceful human handoff with full conversation context",
-      "Guardrails against hallucination and off-brand answers",
-      "Analytics: deflection rate, satisfaction, top questions, captured leads",
-    ],
-    faqs: [
-      {
-        q: "Will it make things up?",
-        a: "We ground every answer in your approved content and constrain the assistant to it. When it doesn't know, it says so and offers a human handoff — that behavior is tested before launch.",
-      },
-      {
-        q: "How long until it's live?",
-        a: "A website assistant grounded in existing help content typically launches in 3–5 weeks, including testing and tuning.",
-      },
-      {
-        q: "Can it qualify leads, not just answer questions?",
-        a: "Yes — the assistant can ask qualifying questions naturally in conversation and push qualified leads into your CRM with a summary.",
-      },
-    ],
-  },
-  {
-    slug: "crm-erp-automation",
-    title: "CRM / ERP Automation",
-    icon: "database",
-    image: IMAGES.fourPeople.src,
-    imageAlt: IMAGES.fourPeople.alt,
-    excerpt:
-      "Make your CRM and ERP work for people instead of the other way around — clean data, automated updates, and systems that finally talk to each other.",
-    body: `CRMs and ERPs promise a single source of truth and usually deliver a data-entry burden. We automate the busywork: records that update themselves from email and calendar activity, quotes that generate from templates, orders that flow to fulfillment without re-keying, and alerts that fire when a deal or delivery goes quiet.
-
-We work across the major platforms — Salesforce, HubSpot, Zoho, Dynamics, NetSuite, Odoo and others — and specialize in the unglamorous, high-value work of integration: connecting your CRM to your ERP, your ERP to your e-commerce, and everything to your reporting.
-
-The result is measured in adoption. When the system does the typing, your team actually uses it — and the data becomes reliable enough to automate against.`,
-    bullets: [
-      "Automated data entry from email, calendar, calls and forms",
-      "CRM ↔ ERP ↔ e-commerce integration without re-keying",
-      "Quote, invoice and order workflow automation",
-      "Data cleaning and deduplication with ongoing hygiene rules",
-      "Smart alerts: stalled deals, at-risk accounts, delayed orders",
-      "Works with Salesforce, HubSpot, Zoho, Dynamics, NetSuite, Odoo and more",
-    ],
-    faqs: [
-      {
-        q: "Our CRM data is a mess. Is that a blocker?",
-        a: "It's the usual starting point. We begin with a cleanup pass — deduplication, normalization, enrichment — and add rules that keep it clean automatically.",
-      },
-      {
-        q: "Do we have to switch platforms?",
-        a: "Almost never. We make the platform you own work properly before recommending anything new. If a migration truly is justified, we handle it end to end.",
-      },
-      {
-        q: "Can AI help here too?",
-        a: "Yes — AI drafts follow-ups, summarizes account history, scores leads and flags churn risk directly inside your CRM.",
-      },
-    ],
-  },
-  {
-    slug: "website-web-app-development",
-    title: "Website & Web App Development",
+    slug: "operational-execution-performance-management",
+    title: "Operational Execution & Performance Management",
     icon: "globe",
-    image: IMAGES.codeReview.src,
-    imageAlt: IMAGES.codeReview.alt,
+    image: IMAGES.devTeam.src,
+    imageAlt: "Operations team coordinating execution across functions",
     excerpt:
-      "Fast, accessible, SEO-ready websites and web applications built on modern frameworks — engineered to convert and easy to manage.",
-    body: `Your website is your hardest-working salesperson — or your most expensive brochure. We build sites and web applications that load fast, rank well, meet accessibility standards, and are engineered around one job: turning visitors into enquiries.
+      "Structured execution environments where operational activities are aligned, measured, and continuously improved — turning fragmented effort into coordinated performance.",
+    body: `## Our Approach
 
-We work with modern frameworks (Next.js, React) and build with performance and search as first-class requirements: server-side rendering, image optimization, structured data, semantic markup and Core Web Vitals budgets that survive launch.
+We recognize that operational performance is driven by the effectiveness of execution systems. Organizations often struggle not because of strategy, but because execution is fragmented and lacks coordination. We focus on creating structured environments where activities are aligned, measured, and continuously improved.
 
-Beyond marketing sites, we build full web applications — customer portals, booking systems, internal tools — with the same engineering standards we apply to SaaS products: authentication, role-based access, testing and clean deployment pipelines.`,
+## What We Do
+
+We design and implement execution frameworks that align operational activities with business objectives. This includes defining performance measures, structuring workflows, and ensuring that execution is coordinated across functions.
+
+## How We Deliver
+
+We establish performance management systems, reporting structures, and operational controls that provide visibility into outcomes and enable informed decision-making. This ensures that execution is not only efficient but also aligned with strategic priorities.`,
     bullets: [
-      "Modern stack: Next.js / React with server-side rendering",
-      "Core Web Vitals performance budgets and image optimization",
-      "WCAG accessibility and semantic, SEO-friendly markup",
-      "Content management so your team can edit without a developer",
-      "Customer portals, booking systems and internal tools",
-      "Analytics, conversion tracking and A/B-test readiness",
+      "Execution frameworks aligned to business objectives",
+      "Performance measures and structured workflows",
+      "Performance management systems and operational controls",
+      "Coordination of execution across functions",
+      "Visibility into outcomes for informed decision-making",
     ],
-    faqs: [
-      {
-        q: "Can you redesign without losing our search rankings?",
-        a: "Yes — we map every existing URL, preserve or redirect it correctly, and usually improve rankings because the new site is faster and better structured.",
-      },
-      {
-        q: "Will we be able to edit content ourselves?",
-        a: "Yes. Every site ships with a content dashboard for pages, posts, images and SEO fields — no developer needed for day-to-day changes.",
-      },
-      {
-        q: "Do you also handle hosting?",
-        a: "We set up fast, modern hosting with SSL, CDN and automatic deployments, and either manage it for you or hand it over fully documented.",
-      },
-    ],
+    faqs: [],
   },
   {
-    slug: "data-analytics-reporting",
-    title: "Data Analytics & Reporting",
-    icon: "gauge",
-    image: IMAGES.tabletAnalytics.src,
-    imageAlt: IMAGES.tabletAnalytics.alt,
-    excerpt:
-      "From scattered spreadsheets to a trusted analytics layer: pipelines, metrics and reports your whole team can rely on — plus AI that explains the 'why'.",
-    body: `Companies rarely lack data; they lack numbers everyone trusts. We build the analytics layer that fixes that: automated pipelines that collect data from every system, a metrics layer where each KPI has one agreed definition, and reporting that reaches people where they work — dashboards, scheduled emails, Slack digests.
-
-Once the foundation is trustworthy, we add intelligence: anomaly detection that flags unusual movement before month-end, forecasting for revenue and demand, and AI-generated narratives that explain what changed and why in plain language.
-
-Engagements scale to fit: from a two-week reporting cleanup for a small team to a full data-warehouse build. In every case, you own the stack.`,
-    bullets: [
-      "Automated pipelines replacing manual exports and copy-paste",
-      "Single-definition metrics layer — one truth per KPI",
-      "Dashboards, scheduled reports and Slack/email digests",
-      "Anomaly detection and forecasting on your core metrics",
-      "AI-written plain-language summaries of what changed and why",
-      "Built on open, portable tools you own",
-    ],
-    faqs: [
-      {
-        q: "We mostly run on spreadsheets. Too early for this?",
-        a: "Not at all — spreadsheets are a fine starting point. We automate the feeds into them first, then graduate to dashboards when you're ready.",
-      },
-      {
-        q: "How do you handle data privacy?",
-        a: "Data stays in your accounts and infrastructure. We work under NDA, apply least-privilege access, and document every pipeline we build.",
-      },
-      {
-        q: "What is the typical first deliverable?",
-        a: "Usually a working revenue or operations dashboard on automated data within 3–4 weeks — something your team uses every week from day one.",
-      },
-    ],
-  },
-  {
-    slug: "cloud-integration-api-development",
-    title: "Cloud Integration & API Development",
-    icon: "cloud",
-    image: IMAGES.dataCenter.src,
-    imageAlt: IMAGES.dataCenter.alt,
-    excerpt:
-      "Connect your systems with robust APIs and cloud infrastructure — secure, documented, monitored, and built to survive growth.",
-    body: `Every modern business runs on connections: website to CRM, store to warehouse, app to payment provider, everything to reporting. When those connections are ad-hoc scripts and manual exports, growth turns them into fire hazards. We replace them with engineered integrations and clean APIs.
-
-We design and build REST and GraphQL APIs with proper authentication, versioning, rate limiting and documentation — the kind your partners and future developers can build on. On the infrastructure side, we set up cloud environments (AWS, Azure, Google Cloud) with infrastructure-as-code, monitoring, backups and sensible costs.
-
-Legacy systems are a specialty inherited from our consulting roots: we routinely wrap decades-old software in modern APIs, extending its life while you modernize at your own pace.`,
-    bullets: [
-      "REST / GraphQL API design, build and documentation",
-      "Third-party integrations: payments, shipping, marketing, accounting",
-      "Cloud architecture on AWS, Azure or Google Cloud",
-      "Infrastructure-as-code, CI/CD and environment automation",
-      "Monitoring, alerting, backups and cost optimization",
-      "Legacy system wrapping — modern APIs over existing software",
-    ],
-    faqs: [
-      {
-        q: "Our core system is 15 years old. Can you integrate it?",
-        a: "Almost certainly. Between database-level access, file exports and screen-level automation, we have yet to meet a system that couldn't be wrapped in a safe modern API.",
-      },
-      {
-        q: "Which cloud should we use?",
-        a: "The one that fits your workload, team and budget — we're certified across AWS, Azure and GCP and have no reseller incentives.",
-      },
-      {
-        q: "How do you keep integrations from silently breaking?",
-        a: "Every integration ships with monitoring, retry logic and alerting. You hear about problems from the system, not from a customer.",
-      },
-    ],
-  },
-  {
-    slug: "digital-marketing-automation",
-    title: "Digital Marketing Automation",
-    icon: "megaphone",
-    image: IMAGES.marketing.src,
-    imageAlt: IMAGES.marketing.alt,
-    excerpt:
-      "Email journeys, lead nurture, ad syncing and attribution — a marketing engine that runs itself and reports its own ROI.",
-    body: `Marketing teams drown in repetitive work: exporting audiences, syncing leads to ad platforms, sending the same follow-up sequence, assembling the monthly report. We automate the machinery so your team spends its time on strategy and creative.
-
-We build nurture journeys triggered by real behavior — pages visited, emails opened, trials started — and connect your website, CRM, email platform and ad accounts so every audience and conversion syncs automatically. Pixels and server-side tracking are configured correctly, which alone often pays for the project in improved ad optimization.
-
-Attribution comes standard: a reporting view that ties spend to pipeline so you can see which channels create customers, not just clicks.`,
-    bullets: [
-      "Behavior-triggered email and SMS nurture journeys",
-      "Lead scoring and automatic routing to sales",
-      "Meta, TikTok and Google pixel + server-side tracking done right",
-      "Audience syncing between CRM and ad platforms",
-      "Automated campaign and funnel reporting",
-      "Spend-to-pipeline attribution dashboards",
-    ],
-    faqs: [
-      {
-        q: "Which platforms do you work with?",
-        a: "HubSpot, Mailchimp, Klaviyo, ActiveCampaign, Customer.io and most major ad platforms — plus custom integrations when a connector doesn't exist.",
-      },
-      {
-        q: "Can you fix our conversion tracking?",
-        a: "Yes — broken or double-counted tracking is one of the most common and highest-ROI fixes we make. We audit, repair and document your full measurement setup.",
-      },
-      {
-        q: "Do you also run the ads?",
-        a: "We focus on the engineering: tracking, automation and reporting. We partner well with your media buyer or agency and make their work measurable.",
-      },
-    ],
-  },
-  {
-    slug: "ai-powered-lead-generation",
-    title: "AI-Powered Lead Generation",
+    slug: "ma-integration-transformation",
+    title: "M&A Integration & Transformation",
     icon: "magnet",
-    image: IMAGES.meeting.src,
-    imageAlt: IMAGES.meeting.alt,
+    image: IMAGES.aboutTeam.src,
+    imageAlt: "Integration team coordinating cross-functional M&A activities",
     excerpt:
-      "Fill the pipeline with qualified prospects: AI-driven research, enrichment, scoring and personalized outreach that books meetings.",
-    body: `Great salespeople shouldn't spend their day researching prospects and writing first-touch emails. We build AI-powered systems that do the heavy lifting: identifying companies that match your ideal customer profile, enriching contacts with verified data, scoring intent, and drafting genuinely personalized outreach for humans to review and send.
+      "M&A managed as integrated business transformation — early assessment, structured planning, disciplined execution, and continuous visibility across the full integration lifecycle.",
+    body: `## Our Approach
 
-On the inbound side, we make sure nothing leaks: instant AI qualification of every form fill and chat conversation, automatic routing to the right rep, and follow-up sequences that keep prospects warm without spamming them.
+We approach mergers and acquisitions as integrated business transformation initiatives that begin well before a transaction is finalized and continue through operational stabilization and long-term value realization. Successful M&A execution requires more than post-close coordination — it requires early assessment, structured planning, disciplined execution, and continuous visibility into cross-functional dependencies.
 
-Everything reports into one pipeline view, so you can see cost per qualified lead by source and double down on what works. Guardrails matter here: outreach is compliant, rate-limited and always human-approved.`,
+Our focus is on enabling organizations to navigate the full integration lifecycle with clarity, coordination, and operational control, ensuring that strategic objectives are effectively translated into executable integration plans and measurable business outcomes.
+
+## What We Do
+
+We support organizations across the M&A lifecycle by helping assess, structure, coordinate, and execute integration and transformation activities associated with acquisitions, mergers, divestitures, and organizational realignments.
+
+This includes:
+
+- Pre-acquisition assessment and operational readiness evaluation
+- Dependency and impact analysis
+- Transition and integration planning
+- Cross-functional coordination
+- Integration execution oversight
+- Operational stabilization
+- Transformation alignment and performance visibility
+
+We help organizations establish the structure, governance, and execution disciplines required to manage complex integration efforts with reduced disruption and improved strategic alignment.
+
+## How We Deliver
+
+We apply a structured and methodical approach to integration planning and execution, establishing governance frameworks, integration roadmaps, reporting structures, and execution controls that provide visibility into priorities, dependencies, risks, and progress across the organization.
+
+We coordinate activities across operational, technical, organizational, and business functions to ensure that integration efforts remain aligned, measurable, and execution-focused throughout the transition lifecycle. This enables leadership teams to make informed decisions, proactively manage risks, and maintain operational continuity while advancing long-term transformation objectives.`,
     bullets: [
-      "Ideal-customer-profile targeting and AI prospect research",
-      "Contact enrichment and verification",
-      "Intent scoring and lead prioritization",
-      "AI-drafted, human-approved personalized outreach",
-      "Instant qualification and routing of inbound leads",
-      "Cost-per-qualified-lead reporting by channel",
+      "Pre-acquisition assessment and operational readiness evaluation",
+      "Dependency and impact analysis",
+      "Transition and integration planning",
+      "Cross-functional coordination and execution oversight",
+      "Operational stabilization and transformation alignment",
     ],
-    faqs: [
-      {
-        q: "Is AI outreach compliant with spam laws?",
-        a: "Our systems are built for compliance: proper consent handling, opt-outs, sending limits and human review before anything goes out.",
-      },
-      {
-        q: "How quickly does this show results?",
-        a: "Inbound qualification improves response times immediately. Outbound pipelines typically produce booked meetings within the first 4–6 weeks.",
-      },
-      {
-        q: "Does this replace our sales team?",
-        a: "No — it feeds them. The AI removes research and admin work so your closers spend their time in conversations.",
-      },
-    ],
+    faqs: [],
   },
 ];
+
+/**
+ * Service groupings for the three engagement layers used across the site
+ * (home "Our Services" section and the Services index). Slugs map to
+ * SEED_SERVICES / the Service table.
+ */
+export const SERVICE_LAYERS = [
+  {
+    name: "Strategic Layer",
+    blurb:
+      "Aligning strategic objectives with the structures and portfolios required to execute them.",
+    slugs: [
+      "enterprise-transformation-operational-readiness",
+      "portfolio-program-management",
+      "strategic-initiative-assessment-structuring",
+    ],
+  },
+  {
+    name: "Governance and Execution Layer",
+    blurb:
+      "Creating, operating, and measuring the systems that turn strategy into disciplined delivery.",
+    slugs: [
+      "pmo-design-transformation",
+      "project-governance-delivery-management",
+      "project-controls-performance-management",
+      "operational-execution-performance-management",
+    ],
+  },
+  {
+    name: "Enterprise Transition Layer",
+    blurb:
+      "Guiding organizations through mergers, acquisitions, and large-scale transitions.",
+    slugs: ["ma-integration-transformation"],
+  },
+] as const;
 
 export const SEED_CASE_STUDIES = [
   {

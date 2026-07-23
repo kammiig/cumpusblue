@@ -50,7 +50,7 @@ export default async function AdminLeads() {
                   <dd className="mt-0.5 text-ink">{l.company || "—"}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-wider text-muted">Budget</dt>
+                  <dt className="text-xs uppercase tracking-wider text-muted">Preferred contact</dt>
                   <dd className="mt-0.5 text-ink">{l.budget || "—"}</dd>
                 </div>
                 <div>

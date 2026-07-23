@@ -18,6 +18,31 @@ function rateLimited(ip: string) {
   return false;
 }
 
+/**
+ * Verify a reCAPTCHA v3 token with Google. Returns true when verification
+ * passes — or when no secret key is configured (so local/dev still works).
+ */
+async function verifyRecaptcha(token: string, ip: string): Promise<boolean> {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret) return true; // Not configured — skip gracefully.
+  if (!token) return false;
+  try {
+    const params = new URLSearchParams({ secret, response: token });
+    if (ip && ip !== "unknown") params.set("remoteip", ip);
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
+    });
+    const data = (await res.json()) as { success?: boolean; score?: number; action?: string };
+    const minScore = Number(process.env.RECAPTCHA_MIN_SCORE || "0.5");
+    return Boolean(data.success) && (data.score ?? 0) >= minScore;
+  } catch (e) {
+    console.error("[contact] recaptcha verify failed:", e);
+    return false;
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -38,13 +63,31 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const name = String(body.name || "").trim().slice(0, 200);
+    // reCAPTCHA v3 verification (no-op when not configured)
+    const passedCaptcha = await verifyRecaptcha(String(body.recaptchaToken || ""), ip);
+    if (!passedCaptcha) {
+      return NextResponse.json(
+        { error: "We couldn't verify that you're human. Please try again." },
+        { status: 400 }
+      );
+    }
+
+    // Support both the current (first/last + interests) and legacy (name/service) shapes.
+    const firstName = String(body.firstName || "").trim();
+    const lastName = String(body.lastName || "").trim();
+    const name = (String(body.name || "").trim() || `${firstName} ${lastName}`.trim()).slice(0, 200);
     const email = String(body.email || "").trim().slice(0, 200);
     const message = String(body.message || "").trim().slice(0, 5000);
 
+    const interests = Array.isArray(body.interests)
+      ? body.interests.map((s: unknown) => String(s)).filter(Boolean)
+      : [];
+    const service = (interests.length ? interests.join(", ") : String(body.service || "")).slice(0, 300);
+    const preferredContact = String(body.preferredContact || body.budget || "").slice(0, 100);
+
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Please fill in your name, email and project details." },
+        { error: "Please fill in your name, email and message." },
         { status: 400 }
       );
     }
@@ -58,8 +101,8 @@ export async function POST(req: NextRequest) {
         email,
         phone: String(body.phone || "").slice(0, 50),
         company: String(body.company || "").slice(0, 200),
-        service: String(body.service || "").slice(0, 200),
-        budget: String(body.budget || "").slice(0, 100),
+        service,
+        budget: preferredContact, // repurposed column: preferred contact method
         message,
         page: String(body.page || "").slice(0, 300),
         ip,

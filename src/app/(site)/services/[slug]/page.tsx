@@ -77,8 +77,8 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
               <a href="#enquire" className="btn-primary">
                 Discuss this service <Icon name="arrow" className="h-4 w-4" />
               </a>
-              <Link href="/case-studies" className="btn-ghost">
-                See related work
+              <Link href="/our-approach" className="btn-ghost">
+                Our approach
               </Link>
             </div>
           </div>
@@ -142,7 +142,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
             Tell us about your project — we reply within one business day.
           </p>
           <div className="card mt-10 p-7 sm:p-10">
-            <ContactForm defaultService={svc.title} />
+            <ContactForm />
           </div>
         </div>
       </section>

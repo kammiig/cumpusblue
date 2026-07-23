@@ -38,9 +38,9 @@ export function SectionHead({
 }
 
 export function CtaBand({
-  title = "Ready to put AI to work in your business?",
-  sub = "Book a free consultation. We will map your highest-ROI automation opportunities — no obligation.",
-  cta = "Book a free consultation",
+  title = "Ready to strengthen how your organization executes?",
+  sub = "Compublue welcomes the opportunity to discuss your objectives and explore how we can help.",
+  cta = "Contact us to start the conversation",
 }: {
   title?: string;
   sub?: string;
@@ -62,8 +62,8 @@ export function CtaBand({
             <Link href="/contact" className="btn-primary">
               {cta} <Icon name="arrow" className="h-4 w-4" />
             </Link>
-            <Link href="/case-studies" className="btn-ghost">
-              See our results
+            <Link href="/services" className="btn-ghost">
+              Explore our services
             </Link>
           </div>
         </div>

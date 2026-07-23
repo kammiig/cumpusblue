@@ -36,9 +36,8 @@ export async function sendLeadNotification(lead: {
     ["Name", lead.name],
     ["Email", lead.email],
     ["Phone", lead.phone || "-"],
-    ["Company", lead.company || "-"],
-    ["Service required", lead.service || "-"],
-    ["Budget", lead.budget || "-"],
+    ["Interest(s)", lead.service || "-"],
+    ["Preferred contact", lead.budget || "-"],
   ]
     .map(
       ([k, v]) =>

@@ -14,66 +14,126 @@ export const PAGE_DEFAULTS: Record<
   "": {
     name: "Home",
     path: "/",
-    seoTitle: "CompuBlue | AI Automation & SaaS Development Company",
+    seoTitle: "Compublue | Aligning Strategy, Operations, Governance & Execution",
     seoDesc:
-      "CompuBlue builds AI automation, SaaS products, custom dashboards and intelligent chatbots that help businesses scale. Three decades of engineering expertise, now AI-first.",
+      "Compublue helps organizations translate strategic objectives into measurable business outcomes by aligning strategy, operations, governance, technology, and execution into coordinated management systems.",
     fields: {
-      heroBadge: { label: "Hero badge", type: "text", value: "AI-first software & automation studio" },
+      heroBadge: {
+        label: "Hero badge",
+        type: "text",
+        value: "Strategy · Operations · Governance · Technology · Execution",
+      },
       heroTitle: {
         label: "Hero title",
         type: "text",
-        value: "Intelligent software that moves your business forward",
+        value: "Aligning Strategy, Operations, Governance, and Technology to Drive Execution",
       },
       heroSub: {
         label: "Hero subtitle",
         type: "textarea",
         value:
-          "CompuBlue designs and builds AI automation, SaaS products, and data platforms that cut operating costs, unlock insight, and turn manual workflows into competitive advantage.",
+          "Organizations succeed when strategic objectives, operational activities, governance structures, technology investments, and execution efforts work together as a coordinated system. At Compublue, we help organizations improve execution effectiveness by aligning these critical elements into structured management frameworks that support visibility, accountability, informed decision-making, and measurable business outcomes.",
       },
-      heroCtaPrimary: { label: "Hero primary button", type: "text", value: "Book a free consultation" },
-      heroCtaSecondary: { label: "Hero secondary button", type: "text", value: "Explore services" },
-      statClients: { label: "Stat 1 (value|label)", type: "text", value: "150+|Projects delivered" },
-      statYears: { label: "Stat 2 (value|label)", type: "text", value: "25+|Years in software" },
-      statAutomation: { label: "Stat 3 (value|label)", type: "text", value: "70%|Avg. workflow time saved" },
-      statSatisfaction: { label: "Stat 4 (value|label)", type: "text", value: "98%|Client satisfaction" },
+      heroTagline: {
+        label: "Hero tagline",
+        type: "text",
+        value: "Helping organizations translate strategic objectives into measurable business outcomes.",
+      },
+      heroCtaPrimary: { label: "Hero primary button", type: "text", value: "View Our Services" },
+      heroCtaSecondary: { label: "Hero secondary button", type: "text", value: "Start the conversation" },
+      achieveTitle: { label: "Achieve — title", type: "text", value: "What We Help Organizations Achieve" },
+      achieveBody: {
+        label: "Achieve — intro",
+        type: "textarea",
+        value:
+          "Organizations often face challenges associated with growth, transformation, execution, organizational alignment, operational complexity, and changing business priorities. Our role is to help clients establish the structures, processes, governance models, and execution disciplines necessary to navigate these challenges effectively.",
+      },
+      servicesTitle: { label: "Services — title", type: "text", value: "Our Services" },
+      servicesBody: {
+        label: "Services — intro",
+        type: "textarea",
+        value:
+          "Our services span the strategic, governance, execution, and enterprise transition layers required to help organizations translate strategic objectives into measurable business outcomes.",
+      },
+      approachTitle: { label: "Approach — title", type: "text", value: "Our Approach" },
+      approachBody: {
+        label: "Approach — intro",
+        type: "textarea",
+        value:
+          "We view organizations as integrated systems rather than collections of isolated functions, departments, projects, or initiatives. Strategic objectives, operational processes, governance structures, technology investments, and execution activities are often highly interdependent. As a result, sustainable improvement requires more than isolated solutions.\n\nOur approach combines executive perspective, operational discipline, structured governance, and practical execution management to help organizations improve performance while strengthening their long-term ability to execute effectively.",
+      },
+      whyTitle: { label: "Why — title", type: "text", value: "Why Clients Engage Us" },
+      whyBody: {
+        label: "Why — intro",
+        type: "textarea",
+        value:
+          "Our perspective has been shaped through decades of leadership experience spanning executive management, enterprise transformation, operational improvement, technology consulting, PMO leadership, portfolio and program management, and complex delivery environments.\n\nWe bring a systems-oriented perspective that bridges strategy, operations, governance, technology, and execution — helping organizations navigate complexity, improve coordination, and achieve measurable business outcomes.",
+      },
+      startTitle: { label: "Start the conversation — title", type: "text", value: "Start the Conversation" },
+      startBody: {
+        label: "Start the conversation — intro",
+        type: "textarea",
+        value:
+          "Every organization faces unique opportunities and challenges. Whether your focus is enterprise transformation, operational readiness, portfolio management, PMO development, project delivery, organizational performance, or M&A integration, Compublue welcomes the opportunity to discuss your objectives and explore how we can help.",
+      },
     },
   },
   about: {
     name: "About",
     path: "/about",
-    seoTitle: "About CompuBlue | From IT Consulting to AI-First Engineering",
+    seoTitle: "About Us | Compublue — Experience, Perspective, and Capability",
     seoDesc:
-      "CompuBlue has delivered mission-critical software and IT strategy for decades. Today we bring that same rigor to AI automation, SaaS development and cloud engineering.",
+      "Compublue was founded on the belief that effective management can be approached systematically. Decades of leadership experience across transformation, PMO, program delivery, and M&A shape our approach.",
     fields: {
-      introTitle: { label: "Intro title", type: "text", value: "Decades of engineering discipline. A new AI-first mission." },
+      introTitle: { label: "Intro title", type: "text", value: "About Us: Experience, Perspective, and Capability" },
       introBody: {
         label: "Intro body",
         type: "textarea",
         value:
-          "CompuBlue began as a premier technology consulting firm, trusted by cities, museums, and enterprises to deliver mission-critical systems on time and on budget. That discipline never changed — the technology did. Today we apply the same top-down, business-first thinking to artificial intelligence, SaaS products, and cloud platforms, helping organizations automate the work that slows them down and build the software that sets them apart.",
+          "Compublue was founded on the belief that effective management can be approached systematically, regardless of industry. While every organization operates within its own market, the disciplines required to align strategy, operations, governance, technology, and execution remain fundamentally consistent.",
       },
-      missionTitle: { label: "Mission title", type: "text", value: "Bridging the gap between business and technology" },
+      missionTitle: {
+        label: "Perspective title",
+        type: "text",
+        value: "Experience-Informed Perspective. Execution-Focused Results.",
+      },
       missionBody: {
-        label: "Mission body",
+        label: "Perspective body",
         type: "textarea",
         value:
-          "Most technology projects fail for the same reason: a gap between what the business needs and what gets built. Closing that gap is our founding principle. We start with your bottom line, map the workflows that matter, and only then choose the technology — whether that is a fine-tuned AI model, a custom SaaS platform, or a pragmatic integration between the systems you already own.",
+          "Organizations today operate in increasingly complex environments where strategy, operations, technology, governance, and execution must work together to achieve meaningful business outcomes. Successfully navigating that complexity requires more than technical expertise, project management, or strategic planning alone. It requires an integrated understanding of how organizations function, how decisions are made, and how execution is translated into measurable results.",
       },
     },
   },
   services: {
     name: "Services (index)",
     path: "/services",
-    seoTitle: "AI & SaaS Services | Automation, Dashboards, Chatbots | CompuBlue",
+    seoTitle: "Our Services | Compublue — Strategy, Governance & Execution",
     seoDesc:
-      "Explore CompuBlue's services: AI automation, SaaS product development, custom dashboards, chatbots, CRM/ERP automation, analytics, cloud integration and more.",
+      "Compublue's services span the strategic, governance, execution, and enterprise transition layers required to help organizations translate strategic objectives into measurable business outcomes.",
     fields: {
-      introTitle: { label: "Intro title", type: "text", value: "Services built to compound" },
+      introTitle: { label: "Intro title", type: "text", value: "Services across the execution lifecycle" },
       introBody: {
         label: "Intro body",
         type: "textarea",
         value:
-          "Every engagement starts with your workflows and your numbers — not a technology pitch. Pick a single service or combine them into a roadmap; each one is designed to pay for itself.",
+          "Our services span the strategic, governance, execution, and enterprise transition layers required to help organizations translate strategic objectives into measurable business outcomes.",
+      },
+    },
+  },
+  "our-approach": {
+    name: "Our Approach",
+    path: "/our-approach",
+    seoTitle: "Our Approach | How Compublue Helps Organizations Execute",
+    seoDesc:
+      "Compublue helps organizations translate strategic objectives into coordinated execution through structured frameworks, disciplined governance, and meaningful performance visibility.",
+    fields: {
+      introTitle: { label: "Intro title", type: "text", value: "Our Approach: How We Help Organizations Execute" },
+      introBody: {
+        label: "Intro body",
+        type: "textarea",
+        value:
+          "Effective execution requires more than project management. Organizations need a delivery framework, disciplined governance, and meaningful performance visibility. At Compublue, we help clients establish execution systems through PMO design and transformation, manage delivery through structured governance and oversight, and maintain visibility through performance measurement, reporting, and project controls.",
       },
     },
   },
@@ -143,16 +203,16 @@ export const PAGE_DEFAULTS: Record<
   contact: {
     name: "Contact",
     path: "/contact",
-    seoTitle: "Contact CompuBlue | Book a Free Consultation",
+    seoTitle: "Contact Compublue | Start the Conversation",
     seoDesc:
-      "Tell us about your project. CompuBlue responds within one business day with a clear next step — no obligation, no sales pressure.",
+      "We welcome the opportunity to learn about your organization, your objectives, and how we may be able to assist. Contact Compublue to start the conversation.",
     fields: {
-      introTitle: { label: "Intro title", type: "text", value: "Let's talk about your project" },
+      introTitle: { label: "Intro title", type: "text", value: "Start the Conversation" },
       introBody: {
         label: "Intro body",
         type: "textarea",
         value:
-          "Tell us what you are trying to achieve and we will come back within one business day with a clear recommendation and next steps.",
+          "We welcome the opportunity to learn about your organization, your objectives, and how we may be able to assist. Whether you have a specific initiative in mind or are simply exploring possibilities, we look forward to hearing from you.",
       },
     },
   },

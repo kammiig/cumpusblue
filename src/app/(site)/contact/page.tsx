@@ -81,22 +81,22 @@ export default async function ContactPage() {
             <ol className="mt-4 space-y-3 text-sm text-muted">
               <li className="flex gap-3">
                 <span className="font-display font-bold text-brand-400">1.</span>
-                We reply within one business day.
+                We review your message and respond promptly.
               </li>
               <li className="flex gap-3">
                 <span className="font-display font-bold text-brand-400">2.</span>
-                A 30-minute call to understand your goals — no sales script.
+                A conversation to understand your organization and objectives.
               </li>
               <li className="flex gap-3">
                 <span className="font-display font-bold text-brand-400">3.</span>
-                A written recommendation with scope, timeline and price.
+                A discussion of how we can help and the best way forward.
               </li>
             </ol>
           </div>
         </aside>
 
         <div className="card p-7 sm:p-10">
-          <h2 className="h-display text-xl">Tell us about your project</h2>
+          <h2 className="h-display text-xl">Send us a message</h2>
           <div className="mt-7">
             <ContactForm />
           </div>

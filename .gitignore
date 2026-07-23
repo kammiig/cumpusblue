@@ -6,3 +6,5 @@ out
 prisma/*.db
 prisma/*.db-journal
 .DS_Store
+next-env.d.ts
+tsconfig.tsbuildinfo
