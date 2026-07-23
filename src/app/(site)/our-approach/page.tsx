@@ -114,53 +114,61 @@ export default async function OurApproachPage() {
         </div>
       </section>
 
-      {/* Integrated systems + bridging */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-24">
-        <div className="wrap grid gap-14 lg:grid-cols-2">
-          <div>
-            <h2 className="h-display text-2xl sm:text-3xl">Viewing Organizations as Integrated Systems</h2>
-            <div className="mt-5 space-y-4 leading-relaxed text-muted">
-              <p>
-                We recognize that organizations rarely operate through simple hierarchical structures. Programs,
-                projects, operational functions, business units, and technology platforms frequently support
-                multiple strategic objectives simultaneously. As a result, execution challenges often emerge not
-                within individual initiatives, but at the intersections between them.
-              </p>
-              <p>
-                Rather than forcing artificial structures, we design management and execution models that reflect
-                these cross-functional realities. We focus on creating visibility into dependencies, clarifying
-                decision-making responsibilities, aligning initiatives with strategic objectives, and ensuring
-                that organizational activities operate as part of an integrated system.
-              </p>
-              <p>
-                This systems-oriented perspective allows organizations to coordinate execution more effectively,
-                maximize synergy across initiatives, and translate strategic intent into measurable business
-                outcomes.
-              </p>
-            </div>
-          </div>
-          <div>
-            <h2 className="h-display text-2xl sm:text-3xl">Bridging Strategy, Operations, and Technology</h2>
-            <div className="mt-5 space-y-4 leading-relaxed text-muted">
-              <p>
-                Organizations often operate across multiple business, operational, and technology domains that
-                must work together to achieve strategic objectives. While strategic priorities may be established
-                at the leadership level, translating those priorities into coordinated delivery activities can
-                often prove challenging. As organizations evolve, technology investments and operational
-                initiatives may not always remain fully aligned with business objectives, resulting in reduced
-                visibility, coordination, and execution effectiveness.
-              </p>
-              <p>
-                We help organizations align business objectives, operational processes, execution activities,
-                governance structures, and technology initiatives into a cohesive execution environment. This
-                enables leadership teams to maintain strategic direction while providing operational teams with
-                the structure, visibility, and accountability required to deliver results.
-              </p>
-              <p>
-                By connecting strategy, operations, and technology, organizations can improve execution
-                effectiveness while increasing their ability to adapt to changing business conditions.
-              </p>
-            </div>
+      {/* How we see organizations */}
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="views-title">
+        <div className="wrap">
+          <SectionHead id="views-title" pill="Perspective" title="Seeing organizations as one system" />
+          <div className="mt-14 grid gap-5 lg:grid-cols-2">
+            <article className="card p-8">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
+                <Icon name="workflow" className="h-6 w-6" />
+              </span>
+              <h3 className="h-display mt-5 text-xl">Viewing Organizations as Integrated Systems</h3>
+              <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted">
+                <p>
+                  We recognize that organizations rarely operate through simple hierarchical structures. Programs,
+                  projects, operational functions, business units, and technology platforms frequently support
+                  multiple strategic objectives simultaneously. As a result, execution challenges often emerge not
+                  within individual initiatives, but at the intersections between them.
+                </p>
+                <p>
+                  Rather than forcing artificial structures, we design management and execution models that reflect
+                  these cross-functional realities — creating visibility into dependencies, clarifying
+                  decision-making responsibilities, and ensuring that organizational activities operate as part of
+                  an integrated system.
+                </p>
+                <p>
+                  This systems-oriented perspective allows organizations to coordinate execution more effectively,
+                  maximize synergy across initiatives, and translate strategic intent into measurable business
+                  outcomes.
+                </p>
+              </div>
+            </article>
+            <article className="card p-8">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
+                <Icon name="globe" className="h-6 w-6" />
+              </span>
+              <h3 className="h-display mt-5 text-xl">Bridging Strategy, Operations, and Technology</h3>
+              <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted">
+                <p>
+                  Organizations often operate across multiple business, operational, and technology domains that
+                  must work together to achieve strategic objectives. While strategic priorities may be established
+                  at the leadership level, translating those priorities into coordinated delivery activities can
+                  often prove challenging — and technology investments may drift out of alignment with business
+                  objectives over time.
+                </p>
+                <p>
+                  We help organizations align business objectives, operational processes, execution activities,
+                  governance structures, and technology initiatives into a cohesive execution environment. This
+                  enables leadership teams to maintain strategic direction while giving operational teams the
+                  structure, visibility, and accountability required to deliver results.
+                </p>
+                <p>
+                  By connecting strategy, operations, and technology, organizations can improve execution
+                  effectiveness while increasing their ability to adapt to changing business conditions.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -173,23 +181,28 @@ export default async function OurApproachPage() {
           title="A Structured Execution Lifecycle"
           sub="Successful organizations require a coordinated execution framework that supports decision-making, accountability, performance visibility, and continuous improvement across the enterprise. Our services support a complete execution lifecycle."
         />
-        <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mx-auto mt-14 max-w-3xl">
           {LIFECYCLE.map((s, i) => (
-            <li key={s.t} className="card card-hover p-6">
-              <div className="flex items-center justify-between">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
+            <li key={s.t} className="flex gap-5 sm:gap-6">
+              <div className="flex flex-col items-center">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-300">
                   <Icon name={s.icon} className="h-5 w-5" />
                 </span>
-                <span className="font-display text-xs font-bold tracking-widest text-white/20">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                {i < LIFECYCLE.length - 1 && (
+                  <span aria-hidden="true" className="my-2 w-px flex-1 bg-gradient-to-b from-brand-500/40 to-white/5" />
+                )}
               </div>
-              <h3 className="h-display mt-4 text-lg">{s.t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{s.d}</p>
+              <div className={i < LIFECYCLE.length - 1 ? "pb-10" : ""}>
+                <span className="font-display text-xs font-bold tracking-[0.18em] text-brand-300">
+                  STEP {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="h-display mt-1.5 text-xl">{s.t}</h3>
+                <p className="mt-2 leading-relaxed text-muted">{s.d}</p>
+              </div>
             </li>
           ))}
         </ol>
-        <p className="mx-auto mt-10 max-w-3xl text-center leading-relaxed text-muted">
+        <p className="mx-auto mt-12 max-w-3xl text-center leading-relaxed text-muted">
           Together, these capabilities create a continuous management framework that enables organizations to
           move from strategic intent to measurable results.
         </p>
