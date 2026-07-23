@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { SectionHead, CtaBand } from "@/components/Section";
 import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
-import { FaqAccordion } from "@/components/FaqAccordion";
+import { ExperienceList } from "@/components/ExperienceList";
 import { getPageContent, PAGE_DEFAULTS } from "@/lib/content";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 import { getSettings } from "@/lib/settings";
@@ -258,10 +258,10 @@ export default async function AboutPage() {
           id="experiences-title"
           pill="Track record"
           title="Representative Experiences"
-          sub="Representative experiences that illustrate how our capabilities have been developed through executive leadership, strategic initiatives, and business and technology transformation across a broad range of industries — including financial services, aerospace, public sector, logistics, technology, and media."
+          sub="A selection of engagements that illustrate how our capabilities have been developed through executive leadership, strategic initiatives, and business and technology transformation across financial services, aerospace, public sector, logistics, technology, and media. Select any engagement to read more."
         />
         <div className="mt-12">
-          <FaqAccordion faqs={REPRESENTATIVE} />
+          <ExperienceList items={REPRESENTATIVE} />
         </div>
       </section>
 

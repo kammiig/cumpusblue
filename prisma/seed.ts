@@ -5,8 +5,20 @@ import { PAGE_DEFAULTS } from "../src/lib/content";
 
 const db = new PrismaClient();
 
+/**
+ * Bump this whenever the seeded page/service content in code changes and you
+ * want deployed databases to pick it up. When the stored version differs, the
+ * seed refreshes page content + services from code (authoritative). When it
+ * matches, existing rows are left untouched so admin edits are preserved.
+ */
+const SEED_VERSION = "2026-07-24-compublue-consulting";
+
 async function main() {
-  // Admin user
+  const stored = await db.setting.findUnique({ where: { key: "seedVersion" } }).catch(() => null);
+  const refresh = stored?.value !== SEED_VERSION;
+  console.log(refresh ? `↻ Refreshing content to ${SEED_VERSION}` : "• Content up to date — creating missing rows only");
+
+  // Admin user (created once; never overwritten)
   const email = process.env.ADMIN_EMAIL || "admin@compublue.com";
   const password = process.env.ADMIN_PASSWORD || "compublue-admin-2026";
   await db.user.upsert({
@@ -18,47 +30,50 @@ async function main() {
 
   // Pages with default content + SEO
   for (const [slug, def] of Object.entries(PAGE_DEFAULTS)) {
+    const content = JSON.stringify(
+      Object.fromEntries(Object.entries(def.fields).map(([k, v]) => [k, v.value]))
+    );
     await db.page.upsert({
       where: { slug },
-      update: {},
-      create: {
-        slug,
-        name: def.name,
-        content: JSON.stringify(
-          Object.fromEntries(Object.entries(def.fields).map(([k, v]) => [k, v.value]))
-        ),
-        seoTitle: def.seoTitle,
-        seoDesc: def.seoDesc,
-      },
+      // On a version bump, refresh copy + SEO from code; otherwise leave edits alone.
+      update: refresh ? { name: def.name, content, seoTitle: def.seoTitle, seoDesc: def.seoDesc } : {},
+      create: { slug, name: def.name, content, seoTitle: def.seoTitle, seoDesc: def.seoDesc },
     });
   }
   console.log(`✔ ${Object.keys(PAGE_DEFAULTS).length} pages`);
 
-  // Services
+  // Services — on refresh, remove stale services and update the seeded set.
+  const seedSlugs = SEED_SERVICES.map((s) => s.slug);
+  if (refresh) {
+    const removed = await db.service.deleteMany({ where: { slug: { notIn: seedSlugs } } });
+    if (removed.count) console.log(`  – removed ${removed.count} stale service(s)`);
+  }
   let order = 0;
   for (const s of SEED_SERVICES) {
+    const data = {
+      slug: s.slug,
+      title: s.title,
+      excerpt: s.excerpt,
+      body: s.body,
+      bullets: JSON.stringify(s.bullets),
+      icon: s.icon,
+      image: s.image,
+      imageAlt: s.imageAlt,
+      faqs: JSON.stringify(s.faqs),
+      order: order++,
+      published: true,
+      seoTitle: `${s.title} | Compublue`,
+      seoDesc: s.excerpt.slice(0, 158),
+    };
     await db.service.upsert({
       where: { slug: s.slug },
-      update: {},
-      create: {
-        slug: s.slug,
-        title: s.title,
-        excerpt: s.excerpt,
-        body: s.body,
-        bullets: JSON.stringify(s.bullets),
-        icon: s.icon,
-        image: s.image,
-        imageAlt: s.imageAlt,
-        faqs: JSON.stringify(s.faqs),
-        order: order++,
-        seoTitle: `${s.title} | CompuBlue`,
-        seoDesc: s.excerpt.slice(0, 158),
-      },
+      update: refresh ? data : {},
+      create: data,
     });
   }
   console.log(`✔ ${SEED_SERVICES.length} services`);
 
-  // Case studies
+  // Case studies (created once; kept as-is)
   order = 0;
   for (const c of SEED_CASE_STUDIES) {
     await db.caseStudy.upsert({
@@ -84,7 +99,7 @@ async function main() {
   }
   console.log(`✔ ${SEED_CASE_STUDIES.length} case studies`);
 
-  // Blog posts
+  // Blog posts (created once; kept as-is)
   const base = new Date("2026-06-01T09:00:00Z");
   let i = 0;
   for (const p of SEED_POSTS) {
@@ -108,9 +123,9 @@ async function main() {
   }
   console.log(`✔ ${SEED_POSTS.length} blog posts`);
 
-  // Settings
+  // Settings (created once; not overwritten so admin changes stick)
   const settings: Record<string, string> = {
-    siteName: "CompuBlue",
+    siteName: "Compublue",
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://compublue.com",
     contactEmail: "contact@compublue.com",
     contactPhone: "+1 (818) 662-8800",
@@ -121,6 +136,14 @@ async function main() {
     await db.setting.upsert({ where: { key }, update: {}, create: { key, value } });
   }
   console.log("✔ Settings");
+
+  // Record the applied content version
+  await db.setting.upsert({
+    where: { key: "seedVersion" },
+    update: { value: SEED_VERSION },
+    create: { key: "seedVersion", value: SEED_VERSION },
+  });
+
   console.log("\nSeed complete. Admin login:", email, "/", password);
 }
 
