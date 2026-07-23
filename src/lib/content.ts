@@ -32,7 +32,7 @@ export const PAGE_DEFAULTS: Record<
         label: "Hero subtitle",
         type: "textarea",
         value:
-          "Organizations succeed when strategic objectives, operational activities, governance structures, technology investments, and execution efforts work together as a coordinated system. At Compublue, we help organizations improve execution effectiveness by aligning these critical elements into structured management frameworks that support visibility, accountability, informed decision-making, and measurable business outcomes.",
+          "We bring strategy, operations, governance, technology, and execution together into coordinated management systems — with the visibility and accountability to execute effectively.",
       },
       heroTagline: {
         label: "Hero tagline",
