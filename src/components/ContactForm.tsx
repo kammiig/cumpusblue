@@ -318,9 +318,28 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
       <button type="submit" className="btn-primary mt-6 w-full sm:w-auto" disabled={status === "sending"}>
         {status === "sending" ? "Sending…" : "Send"}
       </button>
-      <p className="mt-3 text-xs text-muted">
-        Protected by reCAPTCHA. Your details are never shared — see our{" "}
+      <p className="mt-3 text-xs leading-relaxed text-muted">
+        Your details are never shared — see our{" "}
         <a href="/privacy-policy" className="underline underline-offset-2 hover:text-brand-300">privacy policy</a>.
+        This site is protected by reCAPTCHA and the Google{" "}
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-brand-300"
+        >
+          Privacy Policy
+        </a>{" "}
+        and{" "}
+        <a
+          href="https://policies.google.com/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-brand-300"
+        >
+          Terms of Service
+        </a>{" "}
+        apply.
       </p>
     </form>
   );

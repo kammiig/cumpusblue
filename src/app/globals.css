@@ -105,3 +105,12 @@ body {
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
 }
+
+/*
+ * Hide the floating Google reCAPTCHA v3 badge (it's a white iframe that clashes
+ * with the dark theme and can't be restyled). Google permits this as long as the
+ * reCAPTCHA attribution is shown near the form — see the ContactForm disclosure.
+ */
+.grecaptcha-badge {
+  visibility: hidden;
+}
