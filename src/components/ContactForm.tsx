@@ -53,6 +53,35 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
   const [error, setError] = useState("");
   const startedAt = useRef(Date.now());
 
+  // Interest(s) multi-select (custom themed dropdown of checkboxes)
+  const [interests, setInterests] = useState<string[]>(defaultInterest ? [defaultInterest] : []);
+  const [interestsOpen, setInterestsOpen] = useState(false);
+  const interestsRef = useRef<HTMLDivElement>(null);
+
+  function toggleInterest(value: string) {
+    setInterests((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
+  }
+
+  // Close the interests dropdown on outside click / Escape
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      if (interestsRef.current && !interestsRef.current.contains(e.target as Node)) {
+        setInterestsOpen(false);
+      }
+    }
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setInterestsOpen(false);
+    }
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
   // Load the reCAPTCHA v3 script once, only when a site key is configured.
   useEffect(() => {
     if (!RECAPTCHA_SITE_KEY) return;
@@ -87,7 +116,6 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
     setError("");
     const form = e.currentTarget;
     const fd = new FormData(form);
-    const interests = fd.getAll("interests").map(String).filter(Boolean);
 
     const payload = {
       firstName: String(fd.get("firstName") || ""),
@@ -113,6 +141,7 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
       if (!res.ok) throw new Error(json.error || "Something went wrong.");
       setStatus("ok");
       form.reset();
+      setInterests([]);
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -132,6 +161,13 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
       </div>
     );
   }
+
+  const interestsLabel =
+    interests.length === 0
+      ? "Select all that apply…"
+      : interests.length <= 2
+        ? interests.join(", ")
+        : `${interests.length} selected`;
 
   return (
     <form onSubmit={onSubmit} aria-describedby={error ? "form-error" : undefined}>
@@ -167,28 +203,91 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
             ))}
           </select>
         </div>
+
+        {/* Interest(s) — themed multi-select dropdown */}
         <div>
-          <label htmlFor="cf-interests" className="label">Interest(s)</label>
-          <select
-            id="cf-interests"
-            name="interests"
-            multiple
-            size={8}
-            defaultValue={defaultInterest ? [defaultInterest] : []}
-            className="field resize-y !h-auto"
-          >
-            {INTEREST_GROUPS.map((g) => (
-              <optgroup key={g.label} label={g.label}>
-                {g.options.map((o) => (
-                  <option key={o} value={o}>{o}</option>
+          <span className="label" id="cf-interests-label">Interest(s)</span>
+          <div className="relative" ref={interestsRef}>
+            <button
+              type="button"
+              className="field flex w-full items-center justify-between gap-2 text-left"
+              aria-haspopup="listbox"
+              aria-expanded={interestsOpen}
+              aria-labelledby="cf-interests-label"
+              onClick={() => setInterestsOpen((v) => !v)}
+            >
+              <span className={interests.length ? "text-ink" : "text-muted"}>{interestsLabel}</span>
+              <svg
+                viewBox="0 0 20 20"
+                className={`h-4 w-4 shrink-0 text-muted transition-transform ${interestsOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
+              >
+                <path d="M5 8l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {interestsOpen && (
+              <div
+                role="listbox"
+                aria-multiselectable="true"
+                className="absolute z-30 mt-2 max-h-72 w-full overflow-y-auto rounded-xl border border-white/10 bg-night-850 p-2 shadow-card"
+              >
+                {INTEREST_GROUPS.map((g) => (
+                  <div key={g.label} className="mb-1 last:mb-0">
+                    <p className="px-2 pb-1 pt-2 text-[11px] font-semibold uppercase tracking-wider text-brand-300">
+                      {g.label}
+                    </p>
+                    {g.options.map((o) => {
+                      const checked = interests.includes(o);
+                      return (
+                        <label
+                          key={o}
+                          className="flex cursor-pointer items-center gap-2.5 rounded-lg px-2 py-2 text-sm text-ink transition hover:bg-white/[0.05]"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() => toggleInterest(o)}
+                            className="h-4 w-4 shrink-0 rounded border-white/20 bg-white/[0.05] accent-brand-500"
+                          />
+                          {o}
+                        </label>
+                      );
+                    })}
+                  </div>
                 ))}
-              </optgroup>
-            ))}
-          </select>
-          <p className="mt-1.5 text-xs text-muted">
-            Hold Ctrl (Windows) or Cmd (Mac) to select more than one item.
-          </p>
+              </div>
+            )}
+          </div>
+
+          {interests.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {interests.map((i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-brand-500/25 bg-brand-500/10 px-2.5 py-1 text-xs text-brand-200"
+                >
+                  {i}
+                  <button
+                    type="button"
+                    aria-label={`Remove ${i}`}
+                    onClick={() => toggleInterest(i)}
+                    className="text-brand-300 hover:text-ink"
+                  >
+                    <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <path d="M3 3l10 10M13 3L3 13" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </span>
+              ))}
+            </div>
+          )}
+          <p className="mt-1.5 text-xs text-muted">Select all that apply.</p>
         </div>
+
         <div className="sm:col-span-2">
           <label htmlFor="cf-message" className="label">
             Message <span aria-hidden="true" className="text-brand-300">*</span>

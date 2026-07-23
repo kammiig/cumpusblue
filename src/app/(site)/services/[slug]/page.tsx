@@ -139,7 +139,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
             Start the conversation
           </h2>
           <p className="mt-3 text-center text-muted">
-            Tell us about your project — we reply within one business day.
+            Tell us about your organization and objectives, and how we may be able to assist.
           </p>
           <div className="card mt-10 p-7 sm:p-10">
             <ContactForm />
