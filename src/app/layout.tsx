@@ -24,12 +24,16 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(base),
     title: {
-      default: "CompuBlue | AI Automation & SaaS Development Company",
+      default: "compublue | AI Automation & SaaS Development Company",
       template: "%s",
     },
     description:
-      "CompuBlue builds AI automation, SaaS products, custom dashboards and intelligent chatbots that help businesses scale.",
-    icons: { icon: "/favicon.svg" },
+      "compublue builds AI automation, SaaS products, custom dashboards and intelligent chatbots that help businesses scale.",
+    icons: {
+      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+      shortcut: "/favicon.svg",
+      apple: "/favicon.svg",
+    },
     verification: settings.gscVerification
       ? { google: settings.gscVerification }
       : undefined,

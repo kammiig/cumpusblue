@@ -99,7 +99,7 @@ export function Footer({
 
       <div className="border-t border-white/[0.06]">
         <div className="wrap flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted sm:flex-row">
-          <p>© {year} CompuBlue, Inc. All rights reserved.</p>
+          <p>© {year} compublue, Inc. All rights reserved.</p>
           <nav aria-label="Legal">
             <ul className="flex gap-6">
               <li>

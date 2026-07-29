@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
 
       <div className="prose-dark mt-10">
         <p>
-          CompuBlue, Inc. (“CompuBlue”, “we”, “us”) respects your privacy. This policy explains
+          compublue, Inc. (“compublue”, “we”, “us”) respects your privacy. This policy explains
           what information we collect through compublue.com, how we use it, and the choices you
           have.
         </p>

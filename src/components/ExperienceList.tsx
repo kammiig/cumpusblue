@@ -33,7 +33,13 @@ export function ExperienceList({ items, initial = 8 }: { items: Experience[]; in
                 </svg>
               </span>
             </summary>
-            <p className="border-t border-white/[0.06] py-4 text-sm leading-relaxed text-muted">{it.a}</p>
+            <div className="space-y-3 border-t border-white/[0.06] py-4">
+              {it.a.split(/\n\n+/).map((para, j) => (
+                <p key={j} className="text-sm leading-relaxed text-muted">
+                  {para}
+                </p>
+              ))}
+            </div>
           </details>
         ))}
       </div>
@@ -41,7 +47,7 @@ export function ExperienceList({ items, initial = 8 }: { items: Experience[]; in
       {hiddenCount > 0 && (
         <div className="mt-8 text-center">
           <button type="button" onClick={() => setShowAll((v) => !v)} className="btn-ghost">
-            {showAll ? "Show fewer" : `Show all ${items.length} engagements`}
+            {showAll ? "Show Fewer" : "Show More"}
           </button>
         </div>
       )}

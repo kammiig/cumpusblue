@@ -8,3 +8,5 @@ prisma/*.db-journal
 .DS_Store
 next-env.d.ts
 tsconfig.tsbuildinfo
+
+client recent changes

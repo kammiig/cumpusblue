@@ -58,13 +58,9 @@ export default async function HomePage() {
           className="pointer-events-none absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-brand-500/15 blur-[140px]"
         />
         <div className="wrap relative pb-16 pt-20 text-center sm:pt-28">
-          <p className="pill animate-fadeUp">
-            <span className="pill-dot" aria-hidden="true" />
-            {c.heroBadge}
-          </p>
           <h1
             id="hero-title"
-            className="h-display mx-auto mt-6 max-w-4xl text-balance text-4xl leading-[1.08] animate-fadeUp sm:text-5xl lg:text-6xl"
+            className="h-display mx-auto max-w-4xl text-balance text-4xl leading-[1.08] animate-fadeUp sm:text-5xl lg:text-6xl"
           >
             {c.heroTitle}
           </h1>
@@ -100,9 +96,9 @@ export default async function HomePage() {
       >
         <div className="wrap">
           <SectionHead id="achieve-title" pill="What we do" title={c.achieveTitle} sub={c.achieveBody} />
-          <ul className="mx-auto mt-14 grid max-w-4xl gap-4 sm:grid-cols-2">
+          <ul className="mx-auto mt-12 grid max-w-4xl gap-x-8 gap-y-4 sm:grid-cols-2">
             {ACHIEVEMENTS.map((a) => (
-              <li key={a} className="card flex items-start gap-3.5 p-5">
+              <li key={a} className="flex items-start gap-3">
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-brand-500/25 bg-brand-500/10 text-brand-300">
                   <Icon name="check" className="h-4 w-4" />
                 </span>
@@ -144,8 +140,32 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ===== Why Clients Engage Us ===== */}
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="why-title">
+        <div className="wrap">
+          <SectionHead id="why-title" pill="Why clients engage us" title={c.whyTitle} />
+          <div className="mx-auto mt-8 max-w-3xl space-y-4 text-center">
+            {whyParas.map((p, i) => (
+              <p key={i} className="leading-relaxed text-muted">
+                {p}
+              </p>
+            ))}
+            <p className="leading-relaxed text-muted">
+              Our objective is not simply to complete initiatives. We focus on strengthening organizational
+              capability, improving execution effectiveness, and helping organizations become better positioned
+              for future growth, transformation, and success.
+            </p>
+          </div>
+          <div className="mt-10 text-center">
+            <Link href="/about" className="btn-ghost">
+              Learn More About Us <Icon name="arrow" className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ===== Our Approach ===== */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="approach-title">
+      <section className="py-20 sm:py-28" aria-labelledby="approach-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-2">
           <div className="card overflow-hidden">
             <Image
@@ -172,28 +192,6 @@ export default async function HomePage() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ===== Why Clients Engage Us ===== */}
-      <section className="wrap py-20 sm:py-28" aria-labelledby="why-title">
-        <SectionHead id="why-title" pill="Why clients engage us" title={c.whyTitle} />
-        <div className="mx-auto mt-8 max-w-3xl space-y-4 text-center">
-          {whyParas.map((p, i) => (
-            <p key={i} className="leading-relaxed text-muted">
-              {p}
-            </p>
-          ))}
-          <p className="leading-relaxed text-muted">
-            Our objective is not simply to complete initiatives. We focus on strengthening organizational
-            capability, improving execution effectiveness, and helping organizations become better positioned
-            for future growth, transformation, and success.
-          </p>
-        </div>
-        <div className="mt-10 text-center">
-          <Link href="/about" className="btn-ghost">
-            Learn More About Us <Icon name="arrow" className="h-4 w-4" />
-          </Link>
         </div>
       </section>
 

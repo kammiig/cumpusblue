@@ -39,6 +39,7 @@ We work across operational, technical, organizational, and business functions to
       "Acquisition readiness and enterprise-wide execution improvement",
     ],
     faqs: [],
+    showWhatYouGet: false,
   },
   {
     slug: "portfolio-program-management",
@@ -69,6 +70,7 @@ We establish governance models, prioritization frameworks, and performance manag
       "Executive visibility into progress, risks, and outcomes",
     ],
     faqs: [],
+    showWhatYouGet: false,
   },
   {
     slug: "strategic-initiative-assessment-structuring",
@@ -97,6 +99,7 @@ We perform structured assessments, analyze relationships between initiatives, an
       "A clear, well-defined path to execution",
     ],
     faqs: [],
+    showWhatYouGet: false,
   },
   {
     slug: "pmo-design-transformation",
@@ -125,6 +128,7 @@ We assess existing capabilities, identify gaps, and implement PMO structures tha
       "A central coordination point for execution",
     ],
     faqs: [],
+    showWhatYouGet: false,
   },
   {
     slug: "project-governance-delivery-management",
@@ -159,6 +163,7 @@ Our approach emphasizes executive visibility, stakeholder coordination, discipli
       "Disciplined oversight and effective communication",
     ],
     faqs: [],
+    showWhatYouGet: false,
   },
   {
     slug: "project-controls-performance-management",
@@ -193,6 +198,7 @@ Our approach incorporates schedule management, variance analysis, forecasting, p
       "Dependency management across project activities",
     ],
     faqs: [],
+    showWhatYouGet: false,
   },
   {
     slug: "operational-execution-performance-management",
@@ -221,6 +227,7 @@ We establish performance management systems, reporting structures, and operation
       "Visibility into outcomes for informed decision-making",
     ],
     faqs: [],
+    showWhatYouGet: false,
   },
   {
     slug: "ma-integration-transformation",
@@ -265,6 +272,7 @@ We coordinate activities across operational, technical, organizational, and busi
       "Operational stabilization and transformation alignment",
     ],
     faqs: [],
+    showWhatYouGet: false,
   },
 ];
 
@@ -314,7 +322,7 @@ export const SEED_CASE_STUDIES = [
     challenge:
       "Enquiries arrived through five channels and waited an average of nine hours for a first response. Partners wasted hours on unqualified calls while genuinely promising leads went cold.",
     solution:
-      "CompuBlue deployed an AI assistant across the firm's website and inbox that qualifies every enquiry against partner-defined criteria, answers common questions from approved content, routes qualified prospects with a full summary, and books meetings directly into calendars.",
+      "compublue deployed an AI assistant across the firm's website and inbox that qualifies every enquiry against partner-defined criteria, answers common questions from approved content, routes qualified prospects with a full summary, and books meetings directly into calendars.",
     results: [
       "First response time: 9 hours → under 30 seconds",
       "62% of routine questions resolved without partner involvement",
@@ -352,7 +360,7 @@ export const SEED_CASE_STUDIES = [
     summary:
       "A legacy membership solution rebuilt as a modern web platform with self-service renewals, automated communications and clean reporting.",
     challenge:
-      "A membership system CompuBlue originally delivered years earlier needed to meet modern expectations: online self-service, automated renewals, and integration with email marketing and finance.",
+      "A membership system compublue originally delivered years earlier needed to meet modern expectations: online self-service, automated renewals, and integration with email marketing and finance.",
     solution:
       "We rebuilt the platform as a modern web application: member self-service portal, automated renewal and lapse-prevention journeys, payment integration, and a live membership dashboard for the development team.",
     results: [
@@ -374,7 +382,7 @@ export const SEED_CASE_STUDIES = [
     challenge:
       "The city needed an objective, vendor-neutral assessment of its technology spending and a strategy that elected officials could evaluate and fund with confidence.",
     solution:
-      "CompuBlue provided executive consulting to determine the technology budget and roadmap: auditing existing systems and contracts, benchmarking costs, and delivering a prioritized, defensible investment plan.",
+      "compublue provided executive consulting to determine the technology budget and roadmap: auditing existing systems and contracts, benchmarking costs, and delivering a prioritized, defensible investment plan.",
     results: [
       "Clear, council-ready technology budget and multi-year roadmap",
       "Vendor-neutral recommendations adopted across departments",
@@ -414,7 +422,7 @@ export const SEED_CASE_STUDIES = [
     challenge:
       "Resource allocation was managed in spreadsheets that were outdated the moment they were saved, causing double-bookings and idle capacity.",
     solution:
-      "CompuBlue designed and developed a web-based resource tracking system with live availability, booking workflows, conflict detection and utilization reporting — later extended with automated alerts.",
+      "compublue designed and developed a web-based resource tracking system with live availability, booking workflows, conflict detection and utilization reporting — later extended with automated alerts.",
     results: [
       "Double-bookings effectively eliminated",
       "Equipment utilization up double digits through visibility alone",
@@ -541,7 +549,7 @@ Done this way, an assistant becomes what it should be: your fastest, most patien
 
 export const HOME_FAQS = [
   {
-    q: "What does an engagement with CompuBlue look like?",
+    q: "What does an engagement with compublue look like?",
     a: "We start with a free consultation and, for most projects, a short paid discovery that produces a concrete plan with fixed scope and pricing. Then we build in weekly increments you can see and test, with a single point of contact throughout.",
   },
   {
@@ -577,7 +585,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      "CompuBlue rebuilt our platform without a day of downtime for existing members. The self-service numbers speak for themselves.",
+      "compublue rebuilt our platform without a day of downtime for existing members. The self-service numbers speak for themselves.",
     author: "Development Director",
     org: "Cultural institution",
   },

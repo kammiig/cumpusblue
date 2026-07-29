@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0A101F"/>
-  <text x="32" y="44" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="bold" text-anchor="middle">
-    <tspan fill="#E7ECF5">c</tspan><tspan fill="#1B9DE4">b</tspan>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="compublue">
+  <rect width="64" height="64" rx="12" fill="#FFFFFF"/>
+  <text x="32" y="46" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="-2">
+    <tspan fill="#1E3A5F">c</tspan><tspan fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.4">b</tspan>
   </text>
 </svg>

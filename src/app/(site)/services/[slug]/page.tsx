@@ -22,7 +22,7 @@ export async function generateMetadata({
   const svc = await getService(params.slug);
   if (!svc) return {};
   return buildMetadata({
-    title: svc.seoTitle || `${svc.title} | CompuBlue`,
+    title: svc.seoTitle || `${svc.title} | compublue`,
     description: svc.seoDesc || svc.excerpt,
     path: `/services/${svc.slug}`,
     ogImage: svc.ogImage || svc.image,
@@ -38,6 +38,8 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
   ]);
   if (!svc) notFound();
 
+  // Render "What you get" only when enabled for this service AND there is content.
+  const showWhatYouGet = svc.showWhatYouGet && svc.bullets.length > 0;
   const related = all.filter((s) => s.slug !== svc.slug).slice(0, 3);
 
   return (
@@ -77,9 +79,6 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
               <a href="#enquire" className="btn-primary">
                 Discuss this service <Icon name="arrow" className="h-4 w-4" />
               </a>
-              <Link href="/our-approach" className="btn-ghost">
-                Our approach
-              </Link>
             </div>
           </div>
           <div className="card overflow-hidden">
@@ -96,26 +95,32 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
         </div>
       </section>
 
-      {/* Body + bullets */}
-      <section className="wrap grid gap-14 py-16 sm:py-24 lg:grid-cols-[1fr_380px]">
-        <div>
+      {/* Body + (optional) "What you get" */}
+      <section
+        className={`wrap py-16 sm:py-24 ${
+          showWhatYouGet ? "grid gap-14 lg:grid-cols-[1fr_380px]" : ""
+        }`}
+      >
+        <div className={showWhatYouGet ? "" : "max-w-3xl"}>
           <RichText text={svc.body} />
         </div>
-        <aside aria-labelledby="deliverables-title">
-          <div className="card sticky top-24 p-7">
-            <h2 id="deliverables-title" className="h-display text-lg">
-              What you get
-            </h2>
-            <ul className="mt-5 space-y-3.5">
-              {svc.bullets.map((b) => (
-                <li key={b} className="flex gap-3 text-sm leading-relaxed text-muted">
-                  <Icon name="check" className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
+        {showWhatYouGet && (
+          <aside aria-labelledby="deliverables-title">
+            <div className="card sticky top-24 p-7">
+              <h2 id="deliverables-title" className="h-display text-lg">
+                What you get
+              </h2>
+              <ul className="mt-5 space-y-3.5">
+                {svc.bullets.map((b) => (
+                  <li key={b} className="flex gap-3 text-sm leading-relaxed text-muted">
+                    <Icon name="check" className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        )}
       </section>
 
       {/* FAQs */}

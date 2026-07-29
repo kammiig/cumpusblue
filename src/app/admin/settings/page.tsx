@@ -34,7 +34,7 @@ const GROUPS: { title: string; hint?: string; fields: { key: string; label: stri
       { key: "smtpPort", label: "SMTP port", hint: "587 (TLS) or 465 (SSL)." },
       { key: "smtpUser", label: "SMTP username" },
       { key: "smtpPass", label: "SMTP password", type: "password" },
-      { key: "smtpFrom", label: "From address", hint: 'e.g. CompuBlue Website <no-reply@compublue.com>' },
+      { key: "smtpFrom", label: "From address", hint: 'e.g. compublue Website <no-reply@compublue.com>' },
     ],
   },
   {

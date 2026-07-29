@@ -16,6 +16,7 @@ export type ServiceData = {
   image: string;
   imageAlt: string;
   faqs: { q: string; a: string }[];
+  showWhatYouGet: boolean;
   seoTitle?: string;
   seoDesc?: string;
   ogImage?: string;
@@ -48,6 +49,7 @@ export async function getServices(): Promise<ServiceData[]> {
         image: r.image,
         imageAlt: r.imageAlt,
         faqs: parseJson<{ q: string; a: string }[]>(r.faqs, []),
+        showWhatYouGet: r.showWhatYouGet,
         seoTitle: r.seoTitle,
         seoDesc: r.seoDesc,
         ogImage: r.ogImage,
@@ -163,7 +165,7 @@ export async function getPosts(): Promise<PostData[]> {
   }
   return SEED_POSTS.map((p, i) => ({
     ...p,
-    author: "CompuBlue Team",
+    author: "compublue Team",
     publishedAt: new Date(SEED_DATE.getTime() - i * 7 * 24 * 3600 * 1000),
     updatedAt: new Date(SEED_DATE.getTime() - i * 7 * 24 * 3600 * 1000),
   }));

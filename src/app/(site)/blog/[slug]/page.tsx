@@ -19,7 +19,7 @@ export async function generateMetadata({
   const post = await getPost(params.slug);
   if (!post) return {};
   return buildMetadata({
-    title: post.seoTitle || `${post.title} | CompuBlue`,
+    title: post.seoTitle || `${post.title} | compublue`,
     description: post.seoDesc || post.excerpt,
     path: `/blog/${post.slug}`,
     ogImage: post.ogImage || post.image,

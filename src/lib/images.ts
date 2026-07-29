@@ -7,7 +7,7 @@ export const pexels = (id: number, w = 1600) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
 export const IMAGES = {
-  heroOffice: { src: pexels(12903168), alt: "CompuBlue engineers cooperating in a modern office" },
+  heroOffice: { src: pexels(12903168), alt: "compublue engineers cooperating in a modern office" },
   aboutTeam: { src: pexels(3184359), alt: "Product team collaborating around laptops in a bright workspace" },
   devTeam: { src: pexels(6804068), alt: "Software developers working at desks with multiple monitors" },
   codeReview: { src: pexels(12899191), alt: "Two engineers discussing software architecture at a screen" },

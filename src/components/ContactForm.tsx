@@ -156,7 +156,7 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
             <path d="M4 12.5l5 5L20 6.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h3 className="h-display mt-4 text-xl">Thank you for contacting Compublue.</h3>
+        <h3 className="h-display mt-4 text-xl">Thank you for contacting compublue.</h3>
         <p className="mt-2 text-sm text-muted">We look forward to speaking with you.</p>
       </div>
     );

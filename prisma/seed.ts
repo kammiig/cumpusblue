@@ -11,7 +11,7 @@ const db = new PrismaClient();
  * seed refreshes page content + services from code (authoritative). When it
  * matches, existing rows are left untouched so admin edits are preserved.
  */
-const SEED_VERSION = "2026-07-24-compublue-consulting-2";
+const SEED_VERSION = "2026-07-24-compublue-consulting-3";
 
 async function main() {
   const stored = await db.setting.findUnique({ where: { key: "seedVersion" } }).catch(() => null);
@@ -62,7 +62,8 @@ async function main() {
       faqs: JSON.stringify(s.faqs),
       order: order++,
       published: true,
-      seoTitle: `${s.title} | Compublue`,
+      showWhatYouGet: s.showWhatYouGet,
+      seoTitle: `${s.title} | compublue`,
       seoDesc: s.excerpt.slice(0, 158),
     };
     await db.service.upsert({
@@ -92,7 +93,7 @@ async function main() {
         imageAlt: c.imageAlt,
         tags: JSON.stringify(c.tags),
         order: order++,
-        seoTitle: `${c.title} | CompuBlue Case Study`,
+        seoTitle: `${c.title} | compublue Case Study`,
         seoDesc: c.summary.slice(0, 158),
       },
     });
@@ -115,7 +116,7 @@ async function main() {
         imageAlt: p.imageAlt,
         tags: JSON.stringify(p.tags),
         publishedAt: new Date(base.getTime() - i * 7 * 24 * 3600 * 1000),
-        seoTitle: `${p.title} | CompuBlue`,
+        seoTitle: `${p.title} | compublue`,
         seoDesc: p.excerpt.slice(0, 158),
       },
     });
@@ -125,7 +126,7 @@ async function main() {
 
   // Settings (created once; not overwritten so admin changes stick)
   const settings: Record<string, string> = {
-    siteName: "Compublue",
+    siteName: "compublue",
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://compublue.com",
     contactEmail: "contact@compublue.com",
     contactPhone: "+1 (818) 662-8800",

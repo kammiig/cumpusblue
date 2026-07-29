@@ -14,9 +14,9 @@ export const PAGE_DEFAULTS: Record<
   "": {
     name: "Home",
     path: "/",
-    seoTitle: "Compublue | Aligning Strategy, Operations, Governance & Execution",
+    seoTitle: "compublue | Aligning Strategy, Operations, Governance & Execution",
     seoDesc:
-      "Compublue helps organizations translate strategic objectives into measurable business outcomes by aligning strategy, operations, governance, technology, and execution into coordinated management systems.",
+      "compublue helps organizations translate strategic objectives into measurable business outcomes by aligning strategy, operations, governance, technology, and execution into coordinated management systems.",
     fields: {
       heroBadge: {
         label: "Hero badge",
@@ -74,23 +74,23 @@ export const PAGE_DEFAULTS: Record<
         label: "Start the conversation — intro",
         type: "textarea",
         value:
-          "Every organization faces unique opportunities and challenges. Whether your focus is enterprise transformation, operational readiness, portfolio management, PMO development, project delivery, organizational performance, or M&A integration, Compublue welcomes the opportunity to discuss your objectives and explore how we can help.",
+          "Every organization faces unique opportunities and challenges. Whether your focus is enterprise transformation, operational readiness, portfolio management, PMO development, project delivery, organizational performance, or M&A integration, compublue welcomes the opportunity to discuss your objectives and explore how we can help.",
       },
     },
   },
   about: {
     name: "About",
     path: "/about",
-    seoTitle: "About Us | Compublue — Experience, Perspective, and Capability",
+    seoTitle: "About Us | compublue — Experience, Perspective, and Capability",
     seoDesc:
-      "Compublue was founded on the belief that effective management can be approached systematically. Decades of leadership experience across transformation, PMO, program delivery, and M&A shape our approach.",
+      "compublue was founded on the belief that effective management can be approached systematically. Decades of leadership experience across transformation, PMO, program delivery, and M&A shape our approach.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "About Us: Experience, Perspective, and Capability" },
       introBody: {
         label: "Intro body",
         type: "textarea",
         value:
-          "Compublue was founded on the belief that effective management can be approached systematically, regardless of industry. While every organization operates within its own market, the disciplines required to align strategy, operations, governance, technology, and execution remain fundamentally consistent.",
+          "compublue was founded on the belief that effective management can be approached systematically, regardless of industry. While every organization operates within its own market, the disciplines required to align strategy, operations, governance, technology, and execution remain fundamentally consistent.",
       },
       missionTitle: {
         label: "Perspective title",
@@ -108,9 +108,9 @@ export const PAGE_DEFAULTS: Record<
   services: {
     name: "Services (index)",
     path: "/services",
-    seoTitle: "Our Services | Compublue — Strategy, Governance & Execution",
+    seoTitle: "Our Services | compublue — Strategy, Governance & Execution",
     seoDesc:
-      "Compublue's services span the strategic, governance, execution, and enterprise transition layers required to help organizations translate strategic objectives into measurable business outcomes.",
+      "compublue's services span the strategic, governance, execution, and enterprise transition layers required to help organizations translate strategic objectives into measurable business outcomes.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Services across the execution lifecycle" },
       introBody: {
@@ -124,25 +124,25 @@ export const PAGE_DEFAULTS: Record<
   "our-approach": {
     name: "Our Approach",
     path: "/our-approach",
-    seoTitle: "Our Approach | How Compublue Helps Organizations Execute",
+    seoTitle: "Our Approach | How compublue Helps Organizations Execute",
     seoDesc:
-      "Compublue helps organizations translate strategic objectives into coordinated execution through structured frameworks, disciplined governance, and meaningful performance visibility.",
+      "compublue helps organizations translate strategic objectives into coordinated execution through structured frameworks, disciplined governance, and meaningful performance visibility.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Our Approach: How We Help Organizations Execute" },
       introBody: {
         label: "Intro body",
         type: "textarea",
         value:
-          "Effective execution requires more than project management. Organizations need a delivery framework, disciplined governance, and meaningful performance visibility. At Compublue, we help clients establish execution systems through PMO design and transformation, manage delivery through structured governance and oversight, and maintain visibility through performance measurement, reporting, and project controls.",
+          "Effective execution requires more than project management. Organizations need a delivery framework, disciplined governance, and meaningful performance visibility. At compublue, we help clients establish execution systems through PMO design and transformation, manage delivery through structured governance and oversight, and maintain visibility through performance measurement, reporting, and project controls.",
       },
     },
   },
   "saas-solutions": {
     name: "SaaS Solutions",
     path: "/saas-solutions",
-    seoTitle: "SaaS Product Development & Solutions | CompuBlue",
+    seoTitle: "SaaS Product Development & Solutions | compublue",
     seoDesc:
-      "From MVP to multi-tenant platform: CompuBlue designs, builds and scales SaaS products with modern architecture, subscription billing, analytics and enterprise-grade security.",
+      "From MVP to multi-tenant platform: compublue designs, builds and scales SaaS products with modern architecture, subscription billing, analytics and enterprise-grade security.",
     fields: {
       heroTitle: { label: "Hero title", type: "text", value: "SaaS products, from first sketch to scale" },
       heroSub: {
@@ -156,7 +156,7 @@ export const PAGE_DEFAULTS: Record<
   "ai-solutions": {
     name: "AI Solutions",
     path: "/ai-solutions",
-    seoTitle: "AI Solutions & Automation for Business | CompuBlue",
+    seoTitle: "AI Solutions & Automation for Business | compublue",
     seoDesc:
       "Practical AI that pays for itself: workflow automation, chatbots and virtual assistants, document intelligence, predictive analytics and AI-powered lead generation.",
     fields: {
@@ -172,9 +172,9 @@ export const PAGE_DEFAULTS: Record<
   "case-studies": {
     name: "Case Studies",
     path: "/case-studies",
-    seoTitle: "Case Studies & Portfolio | CompuBlue",
+    seoTitle: "Case Studies & Portfolio | compublue",
     seoDesc:
-      "Real results from CompuBlue engagements: municipal IT strategy, membership platforms, resource tracking systems, AI automation and analytics projects.",
+      "Real results from compublue engagements: municipal IT strategy, membership platforms, resource tracking systems, AI automation and analytics projects.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Proof, not promises" },
       introBody: {
@@ -188,9 +188,9 @@ export const PAGE_DEFAULTS: Record<
   blog: {
     name: "Blog / Insights",
     path: "/blog",
-    seoTitle: "Insights on AI, SaaS & Automation | CompuBlue Blog",
+    seoTitle: "Insights on AI, SaaS & Automation | compublue Blog",
     seoDesc:
-      "Practical guides and perspectives from the CompuBlue team on AI automation, SaaS architecture, data analytics and digital transformation.",
+      "Practical guides and perspectives from the compublue team on AI automation, SaaS architecture, data analytics and digital transformation.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Insights" },
       introBody: {
@@ -203,9 +203,9 @@ export const PAGE_DEFAULTS: Record<
   contact: {
     name: "Contact",
     path: "/contact",
-    seoTitle: "Contact Compublue | Start the Conversation",
+    seoTitle: "Contact compublue | Start the Conversation",
     seoDesc:
-      "We welcome the opportunity to learn about your organization, your objectives, and how we may be able to assist. Contact Compublue to start the conversation.",
+      "We welcome the opportunity to learn about your organization, your objectives, and how we may be able to assist. Contact compublue to start the conversation.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Start the Conversation" },
       introBody: {
@@ -219,15 +219,15 @@ export const PAGE_DEFAULTS: Record<
   "privacy-policy": {
     name: "Privacy Policy",
     path: "/privacy-policy",
-    seoTitle: "Privacy Policy | CompuBlue",
-    seoDesc: "How CompuBlue collects, uses and protects your personal information.",
+    seoTitle: "Privacy Policy | compublue",
+    seoDesc: "How compublue collects, uses and protects your personal information.",
     fields: {},
   },
   "terms-and-conditions": {
     name: "Terms & Conditions",
     path: "/terms-and-conditions",
-    seoTitle: "Terms & Conditions | CompuBlue",
-    seoDesc: "The terms governing use of the CompuBlue website and services.",
+    seoTitle: "Terms & Conditions | compublue",
+    seoDesc: "The terms governing use of the compublue website and services.",
     fields: {},
   },
 };

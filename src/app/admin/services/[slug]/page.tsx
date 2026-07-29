@@ -63,6 +63,10 @@ export default async function EditService({
                 Published
               </label>
             </div>
+            <label className="flex items-center gap-3 text-sm text-ink">
+              <input type="checkbox" name="showWhatYouGet" defaultChecked={svc.showWhatYouGet} className="h-4 w-4 rounded border-white/20 bg-white/[0.05]" />
+              Show &ldquo;What you get&rdquo; section on the service page
+            </label>
           </div>
         </fieldset>
 

@@ -1,4 +1,4 @@
-// CompuBlue CMS schema
+// compublue CMS schema
 // Local dev: SQLite. Production: switch provider to "postgresql" and set DATABASE_URL.
 
 generator client {
@@ -47,6 +47,7 @@ model Service {
   faqs       String   @default("[]") // JSON [{q,a}]
   order      Int      @default(0)
   published  Boolean  @default(true)
+  showWhatYouGet Boolean @default(true) // toggle the "What you get" box on the service page
   seoTitle   String   @default("")
   seoDesc    String   @default("")
   ogImage    String   @default("")
@@ -82,7 +83,7 @@ model Post {
   body      String
   image     String    @default("")
   imageAlt  String    @default("")
-  author    String    @default("CompuBlue Team")
+  author    String    @default("compublue Team")
   tags      String    @default("[]")
   published Boolean   @default(true)
   publishedAt DateTime @default(now())
