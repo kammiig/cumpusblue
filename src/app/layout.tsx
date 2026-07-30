@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
+import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd } from "@/components/JsonLd";
 import { getSettings, siteUrl } from "@/lib/settings";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
@@ -24,11 +25,11 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(base),
     title: {
-      default: "compublue | AI Automation & SaaS Development Company",
+      default: "Compublue | AI Automation & SaaS Development Company",
       template: "%s",
     },
     description:
-      "compublue builds AI automation, SaaS products, custom dashboards and intelligent chatbots that help businesses scale.",
+      "Compublue builds AI automation, SaaS products, custom dashboards and intelligent chatbots that help businesses scale.",
     icons: {
       icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
       shortcut: "/favicon.svg",
@@ -58,6 +59,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           metaPixelId={settings.metaPixelId}
           tiktokPixelId={settings.tiktokPixelId}
         />
+        <CookieConsent />
       </body>
     </html>
   );

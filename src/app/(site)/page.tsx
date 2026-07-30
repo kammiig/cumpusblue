@@ -45,6 +45,8 @@ export default async function HomePage() {
 
   const approachParas = (c.approachBody || "").split(/\n\s*\n/).filter(Boolean);
   const whyParas = (c.whyBody || "").split(/\n\s*\n/).filter(Boolean);
+  const heroParas = (c.heroSub || "").split(/\n\s*\n/).filter(Boolean);
+  const FOCUS_TERMS = ["Strategy", "Operations", "Governance", "Technology", "Execution"];
 
   return (
     <>
@@ -64,9 +66,13 @@ export default async function HomePage() {
           >
             {c.heroTitle}
           </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted sm:text-lg">
-            {c.heroSub}
-          </p>
+          <div className="mx-auto mt-6 max-w-3xl space-y-4">
+            {heroParas.map((p, i) => (
+              <p key={i} className="text-balance text-base leading-relaxed text-muted sm:text-lg">
+                {p}
+              </p>
+            ))}
+          </div>
           {c.heroTagline && (
             <p className="mx-auto mt-5 max-w-2xl text-balance text-base font-semibold sm:text-lg">
               <span className="bg-gradient-to-r from-brand-400 via-cyanish to-accent-400 bg-clip-text text-transparent">
@@ -83,7 +89,12 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="relative mx-auto mt-14 max-w-4xl sm:mt-16">
+          <div className="relative mx-auto mt-16 max-w-4xl sm:mt-20">
+            {/* Decorative focus-term ribbon over the hero media (display only) */}
+            <p className="pill eyebrow-pill absolute -top-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap !px-5 shadow-card !text-[10px] sm:!text-xs">
+              <span className="pill-dot" aria-hidden="true" />
+              {FOCUS_TERMS.join(" · ")}
+            </p>
             <DashboardMock />
           </div>
         </div>
@@ -109,56 +120,56 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ===== Our Services ===== */}
-      <section className="wrap py-20 sm:py-28" aria-labelledby="services-title">
-        <SectionHead id="services-title" pill="Our services" title={c.servicesTitle} sub={c.servicesBody} />
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {layers.map((layer) => (
-            <article key={layer.name} className="card flex flex-col p-7">
-              <h3 className="h-display text-lg">{layer.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{layer.blurb}</p>
-              <ul className="mt-5 space-y-2.5 border-t border-white/[0.07] pt-5">
-                {layer.items.map((s) => (
-                  <li key={s.slug}>
-                    <Link
-                      href={`/services/${s.slug}`}
-                      className="group flex items-start gap-2.5 text-sm text-muted transition hover:text-ink"
-                    >
-                      <Icon name={s.icon} className="mt-0.5 h-4 w-4 shrink-0 text-brand-300" />
-                      <span>{s.title}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </article>
+      {/* ===== Why Clients Engage Us ===== */}
+      <section className="wrap py-20 sm:py-28" aria-labelledby="why-title">
+        <SectionHead id="why-title" pill="Why clients engage us" title={c.whyTitle} />
+        <div className="mx-auto mt-8 max-w-3xl space-y-4 text-center">
+          {whyParas.map((p, i) => (
+            <p key={i} className="leading-relaxed text-muted">
+              {p}
+            </p>
           ))}
+          <p className="leading-relaxed text-muted">
+            Our objective is not simply to complete initiatives. We focus on strengthening organizational
+            capability, improving execution effectiveness, and helping organizations become better positioned
+            for future growth, transformation, and success.
+          </p>
         </div>
         <div className="mt-10 text-center">
-          <Link href="/services" className="btn-ghost">
-            View Our Services <Icon name="arrow" className="h-4 w-4" />
+          <Link href="/about" className="btn-ghost">
+            Learn More About Us <Icon name="arrow" className="h-4 w-4" />
           </Link>
         </div>
       </section>
 
-      {/* ===== Why Clients Engage Us ===== */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="why-title">
+      {/* ===== Our Services ===== */}
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="services-title">
         <div className="wrap">
-          <SectionHead id="why-title" pill="Why clients engage us" title={c.whyTitle} />
-          <div className="mx-auto mt-8 max-w-3xl space-y-4 text-center">
-            {whyParas.map((p, i) => (
-              <p key={i} className="leading-relaxed text-muted">
-                {p}
-              </p>
+          <SectionHead id="services-title" pill="Our services" title={c.servicesTitle} sub={c.servicesBody} />
+          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+            {layers.map((layer) => (
+              <article key={layer.name} className="card flex flex-col p-7">
+                <h3 className="h-display text-lg">{layer.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{layer.blurb}</p>
+                <ul className="mt-5 space-y-2.5 border-t border-white/[0.07] pt-5">
+                  {layer.items.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/services/${s.slug}`}
+                        className="group flex items-start gap-2.5 text-sm text-muted transition hover:text-ink"
+                      >
+                        <Icon name={s.icon} className="mt-0.5 h-4 w-4 shrink-0 text-brand-300" />
+                        <span>{s.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
-            <p className="leading-relaxed text-muted">
-              Our objective is not simply to complete initiatives. We focus on strengthening organizational
-              capability, improving execution effectiveness, and helping organizations become better positioned
-              for future growth, transformation, and success.
-            </p>
           </div>
           <div className="mt-10 text-center">
-            <Link href="/about" className="btn-ghost">
-              Learn More About Us <Icon name="arrow" className="h-4 w-4" />
+            <Link href="/services" className="btn-ghost">
+              View Our Services <Icon name="arrow" className="h-4 w-4" />
             </Link>
           </div>
         </div>
@@ -167,7 +178,7 @@ export default async function HomePage() {
       {/* ===== Our Approach ===== */}
       <section className="py-20 sm:py-28" aria-labelledby="approach-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-2">
-          <div className="card overflow-hidden">
+          <div className="card photo-overlay overflow-hidden">
             <Image
               src={IMAGES.heroOffice.src}
               alt={IMAGES.heroOffice.alt}

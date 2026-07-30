@@ -19,7 +19,7 @@ export async function generateMetadata({
   const cs = await getCaseStudy(params.slug);
   if (!cs) return {};
   return buildMetadata({
-    title: cs.seoTitle || `${cs.title} | compublue Case Study`,
+    title: cs.seoTitle || `${cs.title} | Compublue Case Study`,
     description: cs.seoDesc || cs.summary,
     path: `/case-studies/${cs.slug}`,
     ogImage: cs.image,

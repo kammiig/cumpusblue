@@ -5,7 +5,7 @@ import { Logo } from "@/components/Logo";
 import { logoutAction } from "./actions";
 
 export const metadata: Metadata = {
-  title: "Admin | compublue",
+  title: "Admin | Compublue",
   robots: { index: false, follow: false },
 };
 

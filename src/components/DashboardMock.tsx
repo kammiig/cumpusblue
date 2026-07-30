@@ -7,7 +7,7 @@ export function DashboardMock() {
     <div
       className="card relative overflow-hidden p-3 sm:p-4"
       role="img"
-      aria-label="Preview of a compublue analytics dashboard with revenue chart, automation runs and lead pipeline"
+      aria-label="Preview of a Compublue analytics dashboard with revenue chart, automation runs and lead pipeline"
     >
       <div className="rounded-xl border border-white/[0.07] bg-night-900/90">
         {/* window bar */}

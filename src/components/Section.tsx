@@ -2,14 +2,13 @@ import Link from "next/link";
 import { Icon } from "./Icons";
 
 export function SectionHead({
+  pill,
   title,
   sub,
   center = true,
   as: Tag = "h2",
   id,
 }: {
-  // `pill` is intentionally still accepted (call sites pass it) but no longer
-  // rendered — decorative eyebrow labels were removed site-wide.
   pill?: string;
   title: string;
   sub?: string;
@@ -19,6 +18,14 @@ export function SectionHead({
 }) {
   return (
     <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
+      {pill && (
+        // Decorative eyebrow label — display only (not a link/button). Hidden
+        // when the admin disables decorative labels (see .eyebrow-pill CSS).
+        <p className="pill eyebrow-pill mb-5" aria-hidden="true">
+          <span className="pill-dot" aria-hidden="true" />
+          {pill}
+        </p>
+      )}
       <Tag
         id={id}
         className={`h-display text-balance ${
@@ -34,7 +41,7 @@ export function SectionHead({
 
 export function CtaBand({
   title = "Ready to strengthen how your organization executes?",
-  sub = "compublue welcomes the opportunity to discuss your objectives and explore how we can help.",
+  sub = "Compublue welcomes the opportunity to discuss your objectives and explore how we can help.",
   cta = "Contact us to start the conversation",
 }: {
   title?: string;

@@ -22,7 +22,7 @@ export async function generateMetadata({
   const svc = await getService(params.slug);
   if (!svc) return {};
   return buildMetadata({
-    title: svc.seoTitle || `${svc.title} | compublue`,
+    title: svc.seoTitle || `${svc.title} | Compublue`,
     description: svc.seoDesc || svc.excerpt,
     path: `/services/${svc.slug}`,
     ogImage: svc.ogImage || svc.image,
@@ -59,7 +59,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
+        <div className="wrap relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-2">
           <div>
             <nav aria-label="Breadcrumb" className="mb-6">
               <ol className="flex flex-wrap items-center gap-2 text-xs text-muted">
@@ -81,7 +81,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
               </a>
             </div>
           </div>
-          <div className="card overflow-hidden">
+          <div className="card photo-overlay overflow-hidden">
             <Image
               src={svc.image}
               alt={svc.imageAlt}
@@ -97,7 +97,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
 
       {/* Body + (optional) "What you get" */}
       <section
-        className={`wrap py-16 sm:py-24 ${
+        className={`wrap py-12 sm:py-16 ${
           showWhatYouGet ? "grid gap-14 lg:grid-cols-[1fr_380px]" : ""
         }`}
       >
@@ -125,7 +125,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
 
       {/* FAQs */}
       {svc.faqs.length > 0 && (
-        <section className="border-t border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="svc-faq-title">
+        <section className="border-t border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="svc-faq-title">
           <div className="wrap">
             <h2 id="svc-faq-title" className="h-display text-center text-3xl">
               Frequently asked
@@ -138,7 +138,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
       )}
 
       {/* Enquiry */}
-      <section id="enquire" className="wrap py-16 sm:py-24" aria-labelledby="enquire-title">
+      <section id="enquire" className="wrap py-12 sm:py-16" aria-labelledby="enquire-title">
         <div className="mx-auto max-w-3xl">
           <h2 id="enquire-title" className="h-display text-center text-3xl">
             Start the conversation
@@ -153,7 +153,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
       </section>
 
       {/* Related */}
-      <section className="border-t border-white/[0.06] py-16 sm:py-20" aria-labelledby="related-title">
+      <section className="border-t border-white/[0.06] py-12 sm:py-16" aria-labelledby="related-title">
         <div className="wrap">
           <h2 id="related-title" className="h-display text-2xl">
             Related services

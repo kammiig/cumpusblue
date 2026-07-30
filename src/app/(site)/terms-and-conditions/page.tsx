@@ -22,8 +22,8 @@ export default function TermsPage() {
       <div className="prose-dark mt-10">
         <h2>1. About these terms</h2>
         <p>
-          These terms govern your use of the compublue.com website, operated by compublue, Inc.
-          (“compublue”, “we”, “us”). By using this website you agree to these terms. Services we
+          These terms govern your use of the compublue.com website, operated by Compublue, Inc.
+          (“Compublue”, “we”, “us”). By using this website you agree to these terms. Services we
           provide to clients are governed by separate written agreements.
         </p>
 
@@ -37,7 +37,7 @@ export default function TermsPage() {
         <h2>3. Content and intellectual property</h2>
         <p>
           All content on this website — text, graphics, logos and software — is the property of
-          compublue or its licensors and is protected by copyright and trademark law. You may
+          Compublue or its licensors and is protected by copyright and trademark law. You may
           not reproduce or redistribute it without our written permission. Photography is used
           under license from its respective owners.
         </p>
@@ -66,7 +66,7 @@ export default function TermsPage() {
         <h2>7. Disclaimer and limitation of liability</h2>
         <p>
           This website is provided “as is” without warranties of any kind. To the maximum extent
-          permitted by law, compublue will not be liable for any indirect, incidental or
+          permitted by law, Compublue will not be liable for any indirect, incidental or
           consequential damages arising from your use of this website.
         </p>
 

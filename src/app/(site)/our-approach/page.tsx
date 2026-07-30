@@ -247,7 +247,7 @@ export default async function OurApproachPage() {
             <p>
               Whether supporting enterprise transformation initiatives, portfolio and program management, PMO
               development, project delivery, operational performance improvement, or M&amp;A integration efforts,
-              compublue strives to leave organizations stronger, more scalable, and better positioned for future
+              Compublue strives to leave organizations stronger, more scalable, and better positioned for future
               success than when we first engaged.
             </p>
             <p>
@@ -261,7 +261,7 @@ export default async function OurApproachPage() {
 
       <CtaBand
         title="Ready to strengthen how your organization executes?"
-        sub="compublue welcomes the opportunity to discuss your objectives and explore how we can help."
+        sub="Compublue welcomes the opportunity to discuss your objectives and explore how we can help."
         cta="Start the conversation"
       />
     </>

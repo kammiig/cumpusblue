@@ -12,6 +12,7 @@ const GROUPS: { title: string; hint?: string; fields: { key: string; label: stri
       { key: "siteUrl", label: "Site URL", hint: "Used for canonical URLs, sitemap and Open Graph." },
       { key: "contactEmail", label: "Public contact email" },
       { key: "contactPhone", label: "Public contact phone" },
+      { key: "address", label: "Public address", hint: "Shown in the footer and on the contact page." },
       { key: "defaultOgImage", label: "Default social sharing image URL", hint: "1200×630px. Used when a page has no specific OG image." },
     ],
   },
@@ -34,7 +35,7 @@ const GROUPS: { title: string; hint?: string; fields: { key: string; label: stri
       { key: "smtpPort", label: "SMTP port", hint: "587 (TLS) or 465 (SSL)." },
       { key: "smtpUser", label: "SMTP username" },
       { key: "smtpPass", label: "SMTP password", type: "password" },
-      { key: "smtpFrom", label: "From address", hint: 'e.g. compublue Website <no-reply@compublue.com>' },
+      { key: "smtpFrom", label: "From address", hint: 'e.g. Compublue Website <no-reply@compublue.com>' },
     ],
   },
   {
@@ -59,7 +60,8 @@ export default async function AdminSettings({
   searchParams?: Record<string, string | string[] | undefined>;
 }) {
   const settings = await getSettings();
-  const allKeys = GROUPS.flatMap((g) => g.fields.map((f) => f.key));
+  const allKeys = [...GROUPS.flatMap((g) => g.fields.map((f) => f.key)), "showDecorativeLabels"];
+  const showDecorativeLabels = settings.showDecorativeLabels !== "false";
 
   return (
     <>
@@ -91,6 +93,25 @@ export default async function AdminSettings({
               </div>
             </fieldset>
           ))}
+
+          <fieldset className="card p-6">
+            <legend className="h-display px-2 text-base">Display</legend>
+            <label className="flex items-start gap-3 text-sm text-ink">
+              <input
+                type="checkbox"
+                name="showDecorativeLabels"
+                defaultChecked={showDecorativeLabels}
+                className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/[0.05]"
+              />
+              <span>
+                Show decorative label
+                <span className="mt-0.5 block text-xs font-normal text-muted">
+                  The small eyebrow pill labels above section titles (e.g. &ldquo;Our services&rdquo;). Turning
+                  this off hides them everywhere without deleting the content.
+                </span>
+              </span>
+            </label>
+          </fieldset>
         </div>
         <button type="submit" className="btn-primary mt-8">Save settings</button>
       </form>

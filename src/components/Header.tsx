@@ -45,7 +45,7 @@ export function Header({ services }: { services: ServiceLink[] }) {
   }, []);
 
   const linkCls = (href: string) =>
-    `rounded-md px-3 py-2 text-sm font-medium transition ${
+    `rounded-md px-3 py-2 text-[17px] font-medium transition ${
       pathname === href ? "text-brand-300" : "text-muted hover:text-ink"
     }`;
 

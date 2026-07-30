@@ -21,6 +21,7 @@ export default async function ContactPage() {
   ]);
   const email = settings.contactEmail || "contact@compublue.com";
   const phone = settings.contactPhone || "+1 (818) 662-8800";
+  const address = settings.address || "1827 West Verdugo Ave., Suite 205, Burbank, CA 91506";
 
   return (
     <>
@@ -65,13 +66,13 @@ export default async function ContactPage() {
                   </span>
                 </a>
               </li>
-              <li className="flex items-center gap-3.5 text-muted">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
+              <li className="flex items-start gap-3.5 text-muted">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
                   <Icon name="pin" className="h-5 w-5" />
                 </span>
                 <span>
-                  <span className="block font-semibold text-ink">Based in</span>
-                  Los Angeles, California — working worldwide
+                  <span className="block font-semibold text-ink">Visit us</span>
+                  <address className="not-italic leading-relaxed">{address}</address>
                 </span>
               </li>
             </ul>

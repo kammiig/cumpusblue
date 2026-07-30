@@ -147,7 +147,7 @@ export async function savePostAction(formData: FormData) {
     body: String(formData.get("body") ?? ""),
     image: String(formData.get("image") ?? ""),
     imageAlt: String(formData.get("imageAlt") ?? ""),
-    author: String(formData.get("author") || "compublue Team"),
+    author: String(formData.get("author") || "Compublue Team"),
     tags: linesToJson(formData.get("tags")),
     published: formData.get("published") === "on",
     seoTitle: String(formData.get("seoTitle") ?? ""),
@@ -220,8 +220,13 @@ export async function saveSettingsAction(formData: FormData) {
   const keys = String(formData.get("settingKeys") || "")
     .split(",")
     .filter(Boolean);
+  const BOOL_KEYS = ["showDecorativeLabels"];
   for (const key of keys) {
-    await setSetting(key, String(formData.get(key) ?? ""));
+    if (BOOL_KEYS.includes(key)) {
+      await setSetting(key, formData.get(key) === "on" ? "true" : "false");
+    } else {
+      await setSetting(key, String(formData.get(key) ?? ""));
+    }
   }
   revalidateSite();
   redirect("/admin/settings?saved=1");

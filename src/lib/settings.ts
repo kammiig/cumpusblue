@@ -25,6 +25,7 @@ export const SETTING_KEYS = [
   "socialX",
   "socialInstagram",
   "pexelsApiKey",
+  "showDecorativeLabels",
 ] as const;
 
 export async function getSettings(): Promise<SettingsMap> {

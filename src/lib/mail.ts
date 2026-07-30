@@ -16,7 +16,7 @@ export async function sendLeadNotification(lead: {
   const user = s.smtpUser || process.env.SMTP_USER;
   const pass = s.smtpPass || process.env.SMTP_PASS;
   const from =
-    s.smtpFrom || process.env.SMTP_FROM || "compublue Website <no-reply@compublue.com>";
+    s.smtpFrom || process.env.SMTP_FROM || "Compublue Website <no-reply@compublue.com>";
   const to =
     s.leadNotifyEmail || process.env.LEAD_NOTIFY_EMAIL || "contact@compublue.com";
 
@@ -59,7 +59,7 @@ export async function sendLeadNotification(lead: {
         <p style="padding:12px;background:#f1f5f9;border-radius:8px;font-size:14px;white-space:pre-wrap">${escapeHtml(
           lead.message
         )}</p>
-        <p style="color:#94a3b8;font-size:12px">Sent automatically by the compublue website. The lead is also stored in the admin dashboard.</p>
+        <p style="color:#94a3b8;font-size:12px">Sent automatically by the Compublue website. The lead is also stored in the admin dashboard.</p>
       </div>`,
   });
   return { sent: true };

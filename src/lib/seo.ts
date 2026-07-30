@@ -28,7 +28,7 @@ export async function buildMetadata(input: SeoInput): Promise<Metadata> {
       title: input.title,
       description: input.description,
       url: canonical,
-      siteName: settings.siteName || "compublue",
+      siteName: settings.siteName || "Compublue",
       type: input.type || "website",
       images: [{ url: ogImage, width: 1200, height: 630, alt: input.title }],
     },
@@ -68,7 +68,7 @@ export function organizationSchema(s: SettingsMap) {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${base}/#organization`,
-    name: s.siteName || "compublue, Inc.",
+    name: s.siteName || "Compublue, Inc.",
     url: base,
     logo: `${base}/logo-white.svg`,
     email: s.contactEmail || "contact@compublue.com",
@@ -84,7 +84,7 @@ export function websiteSchema(s: SettingsMap) {
     "@type": "WebSite",
     "@id": `${base}/#website`,
     url: base,
-    name: s.siteName || "compublue",
+    name: s.siteName || "Compublue",
     publisher: { "@id": `${base}/#organization` },
   };
 }

@@ -165,7 +165,7 @@ export async function getPosts(): Promise<PostData[]> {
   }
   return SEED_POSTS.map((p, i) => ({
     ...p,
-    author: "compublue Team",
+    author: "Compublue Team",
     publishedAt: new Date(SEED_DATE.getTime() - i * 7 * 24 * 3600 * 1000),
     updatedAt: new Date(SEED_DATE.getTime() - i * 7 * 24 * 3600 * 1000),
   }));

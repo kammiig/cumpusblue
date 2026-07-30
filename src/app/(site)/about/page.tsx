@@ -117,7 +117,7 @@ const REPRESENTATIVE: { q: string; a: string }[] = [
   },
   {
     q: "Engineering Mission-Critical Navigation Software for Air Force One",
-    a: "For a globally recognized aerospace company, was selected to lead the implementation of mission-critical navigation software for the United States Presidential aircraft (Air Force One) after successfully demonstrating a software architecture that satisfied Boeing's stringent engineering requirements and aligned both organizations around a common technical approach. Working directly with Boeing's engineering organization, established the foundation for successful program execution while helping bridge differing software engineering methodologies between the two organizations. Redesigned the software at the code level into a flexible, state-driven, and modular architecture that improved maintainability, simplified testing, enhanced fault isolation, and supported the rigorous verification standards required for mission-critical aerospace systems. Led both the software engineering and Project Management Office (PMO) functions for the effort, coordinating development, module and system-level quality assurance, project planning, Earned Value Management (EVM), progress reporting, and executive presentations while maintaining close technical collaboration with Boeing throughout the implementation. The software was successfully validated by both organizations and deployed as part of the operational navigation system onboard Air Force One, where it continues to support mission-critical flight operations. This engagement established a strong technical foundation that has continued to shape an executive approach centered on disciplined engineering, structured execution, and solving complex business and technology challenges.",
+    a: "For a globally recognized aerospace company, was selected to lead the implementation of mission-critical navigation software for the United States Presidential aircraft (Air Force One) after successfully demonstrating a software architecture that satisfied Boeing's stringent engineering requirements and aligned both organizations around a common technical approach. Working directly with Boeing's engineering organization, established the foundation for successful program execution while helping bridge differing software engineering methodologies between the two organizations.\n\nRedesigned the software at the code level into a flexible, state-driven, and modular architecture that improved maintainability, simplified testing, enhanced fault isolation, and supported the rigorous verification standards required for mission-critical aerospace systems. Led both the software engineering and Project Management Office (PMO) functions for the effort, coordinating development, module and system-level quality assurance, project planning, Earned Value Management (EVM), progress reporting, and executive presentations while maintaining close technical collaboration with Boeing throughout the implementation.\n\nThe software was successfully validated by both organizations and deployed as part of the operational navigation system onboard Air Force One, where it continues to support mission-critical flight operations. This engagement established a strong technical foundation that has continued to shape an executive approach centered on disciplined engineering, structured execution, and solving complex business and technology challenges.",
   },
   {
     q: "Helping Establish the FAA Standard for Mission-Critical Aviation Software",
@@ -170,6 +170,50 @@ const RECOGNITIONS = [
   },
 ];
 
+/**
+ * Alternating image/text "chessboard" section. The image is always first in the
+ * DOM (so it stacks first on mobile); on large screens `imageLeft={false}`
+ * reorders it to the right.
+ */
+function AltSection({
+  title,
+  paras,
+  image,
+  alt,
+  imageLeft,
+}: {
+  title: string;
+  paras: string[];
+  image: string;
+  alt: string;
+  imageLeft: boolean;
+}) {
+  return (
+    <div className="wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+      <div className={`card photo-overlay overflow-hidden ${imageLeft ? "" : "lg:order-2"}`}>
+        <Image
+          src={image}
+          alt={alt}
+          width={1200}
+          height={800}
+          className="aspect-[3/2] h-full w-full object-cover"
+          sizes="(min-width: 1024px) 560px, 100vw"
+        />
+      </div>
+      <div className={imageLeft ? "" : "lg:order-1"}>
+        <h2 className="h-display text-2xl sm:text-3xl">{title}</h2>
+        <div className="mt-5 space-y-4">
+          {paras.map((p, i) => (
+            <p key={i} className="leading-relaxed text-muted">
+              {p}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default async function AboutPage() {
   const [c, settings] = await Promise.all([getPageContent("about"), getSettings().catch(() => ({}))]);
 
@@ -195,71 +239,86 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* Experience-informed perspective */}
-      <section className="wrap grid items-center gap-14 py-20 sm:py-28 lg:grid-cols-2" aria-labelledby="perspective-title">
-        <div className="card overflow-hidden">
-          <Image
-            src={IMAGES.aboutTeam.src}
-            alt={IMAGES.aboutTeam.alt}
-            width={1200}
-            height={800}
-            className="h-full w-full object-cover"
-            sizes="(min-width: 1024px) 560px, 100vw"
-          />
-        </div>
-        <div>
-          <SectionHead id="perspective-title" pill="Who we are" title={c.missionTitle} center={false} />
-          <p className="mt-6 leading-relaxed text-muted">{c.missionBody}</p>
-          <p className="mt-4 leading-relaxed text-muted">
-            Our perspective has been shaped through decades of leadership experience spanning executive
-            management, enterprise transformation, operational improvement, technology consulting, program
-            management, PMO leadership, and complex delivery environments.
-          </p>
-          <p className="mt-4 leading-relaxed text-muted">
-            Successful organizations are built on the ability to align strategy, operations, governance,
-            technology, and execution into a coordinated and sustainable management system.
-          </p>
-          <p className="mt-4 leading-relaxed text-muted">
-            That belief forms the foundation of how we approach every engagement.
-          </p>
-        </div>
-      </section>
-
-      {/* Perspectives */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="views-title">
-        <div className="wrap">
-          <SectionHead
-            id="views-title"
-            pill="How we think"
-            title="Perspective that guides our work"
-          />
-          <div className="mt-14 grid gap-5 md:grid-cols-2">
-            {PERSPECTIVES.map((v) => (
-              <article key={v.t} className="card p-7">
-                <h3 className="h-display text-lg">{v.t}</h3>
-                <div className="mt-3 space-y-3">
-                  {v.paras.map((p, i) => (
-                    <p key={i} className="text-sm leading-relaxed text-muted">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              </article>
-            ))}
+      {/* Alternating image/text sections */}
+      <div className="space-y-16 py-20 sm:space-y-24 sm:py-28">
+        {/* 1 — Experience-Informed Perspective (image left) */}
+        <section className="wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-14" aria-labelledby="perspective-title">
+          <div className="card photo-overlay overflow-hidden">
+            <Image
+              src={c.imgPerspective || IMAGES.aboutTeam.src}
+              alt={IMAGES.aboutTeam.alt}
+              width={1200}
+              height={800}
+              className="aspect-[3/2] h-full w-full object-cover"
+              sizes="(min-width: 1024px) 560px, 100vw"
+            />
           </div>
-        </div>
-      </section>
+          <div>
+            <h2 id="perspective-title" className="h-display text-2xl sm:text-3xl">{c.missionTitle}</h2>
+            <p className="mt-5 leading-relaxed text-muted">{c.missionBody}</p>
+            <p className="mt-4 leading-relaxed text-muted">
+              Our perspective has been shaped through decades of leadership experience spanning executive
+              management, enterprise transformation, operational improvement, technology consulting, program
+              management, PMO leadership, and complex delivery environments.
+            </p>
+            <p className="mt-4 font-semibold leading-relaxed">
+              <span className="bg-gradient-to-r from-brand-400 via-cyanish to-accent-400 bg-clip-text text-transparent">
+                Successful organizations are built on the ability to align strategy, operations, governance,
+                technology, and execution into a coordinated and sustainable management system.
+              </span>
+            </p>
+            <p className="mt-4 leading-relaxed text-muted">
+              That belief forms the foundation of how we approach every engagement.
+            </p>
+          </div>
+        </section>
 
-      {/* Representative Experiences */}
-      <section className="wrap py-20 sm:py-28" aria-labelledby="experiences-title">
-        <SectionHead
-          id="experiences-title"
-          pill="Track record"
-          title="Representative Experiences"
-          sub="A selection of engagements that illustrate how our capabilities have been developed through executive leadership, strategic initiatives, and business and technology transformation across financial services, aerospace, public sector, logistics, technology, and media. Select any engagement to read more."
+        {/* 2 — A Systems-Oriented Perspective (text left) */}
+        <AltSection
+          title={PERSPECTIVES[0].t}
+          paras={PERSPECTIVES[0].paras}
+          image={c.imgSystems || IMAGES.fourPeople.src}
+          alt={IMAGES.fourPeople.alt}
+          imageLeft={false}
         />
-        <div className="mt-12">
-          <ExperienceList items={REPRESENTATIVE} />
+        {/* 3 — Bridging Strategy, Operations, and Technology (image left) */}
+        <AltSection
+          title={PERSPECTIVES[1].t}
+          paras={PERSPECTIVES[1].paras}
+          image={c.imgBridging || IMAGES.presentation.src}
+          alt={IMAGES.presentation.alt}
+          imageLeft={true}
+        />
+        {/* 4 — Experience That Shapes Our Approach (text left) */}
+        <AltSection
+          title={PERSPECTIVES[2].t}
+          paras={PERSPECTIVES[2].paras}
+          image={c.imgExperience || IMAGES.meeting.src}
+          alt={IMAGES.meeting.alt}
+          imageLeft={false}
+        />
+        {/* 5 — Building Capability, Not Dependency (image left) */}
+        <AltSection
+          title={PERSPECTIVES[3].t}
+          paras={PERSPECTIVES[3].paras}
+          image={c.imgCapability || IMAGES.devTeam.src}
+          alt={IMAGES.devTeam.alt}
+          imageLeft={true}
+        />
+      </div>
+
+      {/* Representative experiences (heading removed per brief) */}
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-label="Representative experiences">
+        <div className="wrap">
+          <p className="mx-auto max-w-3xl text-center leading-relaxed text-muted">
+            A selection of engagements that illustrate how our capabilities have been developed through executive
+            leadership, strategic initiatives, and business and technology transformation across financial
+            services, aerospace, public sector, logistics, technology, and media. Select any engagement to read
+            more.
+          </p>
+          <div className="mt-12">
+            <ExperienceList items={REPRESENTATIVE} />
+          </div>
         </div>
       </section>
 
@@ -320,7 +379,7 @@ export default async function AboutPage() {
 
       <CtaBand
         title="Let's discuss your objectives"
-        sub="compublue welcomes the opportunity to learn about your organization and explore how we can help."
+        sub="Compublue welcomes the opportunity to learn about your organization and explore how we can help."
         cta="Start the conversation"
       />
     </>

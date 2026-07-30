@@ -1,4 +1,5 @@
 import { db } from "./db";
+import { IMAGES } from "./images";
 
 /**
  * Editable page copy. Each public page has named text fields with seeded
@@ -14,9 +15,9 @@ export const PAGE_DEFAULTS: Record<
   "": {
     name: "Home",
     path: "/",
-    seoTitle: "compublue | Aligning Strategy, Operations, Governance & Execution",
+    seoTitle: "Compublue | Aligning Strategy, Operations, Governance & Execution",
     seoDesc:
-      "compublue helps organizations translate strategic objectives into measurable business outcomes by aligning strategy, operations, governance, technology, and execution into coordinated management systems.",
+      "Compublue helps organizations translate strategic objectives into measurable business outcomes by aligning strategy, operations, governance, technology, and execution into coordinated management systems.",
     fields: {
       heroBadge: {
         label: "Hero badge",
@@ -29,10 +30,10 @@ export const PAGE_DEFAULTS: Record<
         value: "Aligning Strategy, Operations, Governance, and Technology to Drive Execution",
       },
       heroSub: {
-        label: "Hero subtitle",
+        label: "Hero subtitle (paragraphs separated by a blank line)",
         type: "textarea",
         value:
-          "We bring strategy, operations, governance, technology, and execution together into coordinated management systems — with the visibility and accountability to execute effectively.",
+          "Organizations succeed when strategic objectives, operational activities, governance structures, technology investments, and execution efforts work together as a coordinated system. At Compublue, we help organizations improve execution effectiveness by aligning these critical elements into structured management frameworks.\n\nWhether supporting enterprise transformation, operational readiness, portfolio and program management, PMO development, project delivery, or M&A integration, our focus remains the same.",
       },
       heroTagline: {
         label: "Hero tagline",
@@ -74,23 +75,23 @@ export const PAGE_DEFAULTS: Record<
         label: "Start the conversation — intro",
         type: "textarea",
         value:
-          "Every organization faces unique opportunities and challenges. Whether your focus is enterprise transformation, operational readiness, portfolio management, PMO development, project delivery, organizational performance, or M&A integration, compublue welcomes the opportunity to discuss your objectives and explore how we can help.",
+          "Every organization faces unique opportunities and challenges. Whether your focus is enterprise transformation, operational readiness, portfolio management, PMO development, project delivery, organizational performance, or M&A integration, Compublue welcomes the opportunity to discuss your objectives and explore how we can help.",
       },
     },
   },
   about: {
     name: "About",
     path: "/about",
-    seoTitle: "About Us | compublue — Experience, Perspective, and Capability",
+    seoTitle: "About Us | Compublue — Experience, Perspective, and Capability",
     seoDesc:
-      "compublue was founded on the belief that effective management can be approached systematically. Decades of leadership experience across transformation, PMO, program delivery, and M&A shape our approach.",
+      "Compublue was founded on the belief that effective management can be approached systematically. Decades of leadership experience across transformation, PMO, program delivery, and M&A shape our approach.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "About Us: Experience, Perspective, and Capability" },
       introBody: {
         label: "Intro body",
         type: "textarea",
         value:
-          "compublue was founded on the belief that effective management can be approached systematically, regardless of industry. While every organization operates within its own market, the disciplines required to align strategy, operations, governance, technology, and execution remain fundamentally consistent.",
+          "Compublue was founded on the belief that effective management can be approached systematically, regardless of industry. While every organization operates within its own market, the disciplines required to align strategy, operations, governance, technology, and execution remain fundamentally consistent.",
       },
       missionTitle: {
         label: "Perspective title",
@@ -103,14 +104,19 @@ export const PAGE_DEFAULTS: Record<
         value:
           "Organizations today operate in increasingly complex environments where strategy, operations, technology, governance, and execution must work together to achieve meaningful business outcomes. Successfully navigating that complexity requires more than technical expertise, project management, or strategic planning alone. It requires an integrated understanding of how organizations function, how decisions are made, and how execution is translated into measurable results.",
       },
+      imgPerspective: { label: "Image — Experience-Informed Perspective", type: "text", value: IMAGES.aboutTeam.src },
+      imgSystems: { label: "Image — A Systems-Oriented Perspective", type: "text", value: IMAGES.fourPeople.src },
+      imgBridging: { label: "Image — Bridging Strategy, Operations, and Technology", type: "text", value: IMAGES.presentation.src },
+      imgExperience: { label: "Image — Experience That Shapes Our Approach", type: "text", value: IMAGES.meeting.src },
+      imgCapability: { label: "Image — Building Capability, Not Dependency", type: "text", value: IMAGES.devTeam.src },
     },
   },
   services: {
     name: "Services (index)",
     path: "/services",
-    seoTitle: "Our Services | compublue — Strategy, Governance & Execution",
+    seoTitle: "Our Services | Compublue — Strategy, Governance & Execution",
     seoDesc:
-      "compublue's services span the strategic, governance, execution, and enterprise transition layers required to help organizations translate strategic objectives into measurable business outcomes.",
+      "Compublue's services span the strategic, governance, execution, and enterprise transition layers required to help organizations translate strategic objectives into measurable business outcomes.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Services across the execution lifecycle" },
       introBody: {
@@ -124,25 +130,25 @@ export const PAGE_DEFAULTS: Record<
   "our-approach": {
     name: "Our Approach",
     path: "/our-approach",
-    seoTitle: "Our Approach | How compublue Helps Organizations Execute",
+    seoTitle: "Our Approach | How Compublue Helps Organizations Execute",
     seoDesc:
-      "compublue helps organizations translate strategic objectives into coordinated execution through structured frameworks, disciplined governance, and meaningful performance visibility.",
+      "Compublue helps organizations translate strategic objectives into coordinated execution through structured frameworks, disciplined governance, and meaningful performance visibility.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Our Approach: How We Help Organizations Execute" },
       introBody: {
         label: "Intro body",
         type: "textarea",
         value:
-          "Effective execution requires more than project management. Organizations need a delivery framework, disciplined governance, and meaningful performance visibility. At compublue, we help clients establish execution systems through PMO design and transformation, manage delivery through structured governance and oversight, and maintain visibility through performance measurement, reporting, and project controls.",
+          "Effective execution requires more than project management. Organizations need a delivery framework, disciplined governance, and meaningful performance visibility. At Compublue, we help clients establish execution systems through PMO design and transformation, manage delivery through structured governance and oversight, and maintain visibility through performance measurement, reporting, and project controls.",
       },
     },
   },
   "saas-solutions": {
     name: "SaaS Solutions",
     path: "/saas-solutions",
-    seoTitle: "SaaS Product Development & Solutions | compublue",
+    seoTitle: "SaaS Product Development & Solutions | Compublue",
     seoDesc:
-      "From MVP to multi-tenant platform: compublue designs, builds and scales SaaS products with modern architecture, subscription billing, analytics and enterprise-grade security.",
+      "From MVP to multi-tenant platform: Compublue designs, builds and scales SaaS products with modern architecture, subscription billing, analytics and enterprise-grade security.",
     fields: {
       heroTitle: { label: "Hero title", type: "text", value: "SaaS products, from first sketch to scale" },
       heroSub: {
@@ -156,7 +162,7 @@ export const PAGE_DEFAULTS: Record<
   "ai-solutions": {
     name: "AI Solutions",
     path: "/ai-solutions",
-    seoTitle: "AI Solutions & Automation for Business | compublue",
+    seoTitle: "AI Solutions & Automation for Business | Compublue",
     seoDesc:
       "Practical AI that pays for itself: workflow automation, chatbots and virtual assistants, document intelligence, predictive analytics and AI-powered lead generation.",
     fields: {
@@ -172,9 +178,9 @@ export const PAGE_DEFAULTS: Record<
   "case-studies": {
     name: "Case Studies",
     path: "/case-studies",
-    seoTitle: "Case Studies & Portfolio | compublue",
+    seoTitle: "Case Studies & Portfolio | Compublue",
     seoDesc:
-      "Real results from compublue engagements: municipal IT strategy, membership platforms, resource tracking systems, AI automation and analytics projects.",
+      "Real results from Compublue engagements: municipal IT strategy, membership platforms, resource tracking systems, AI automation and analytics projects.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Proof, not promises" },
       introBody: {
@@ -188,9 +194,9 @@ export const PAGE_DEFAULTS: Record<
   blog: {
     name: "Blog / Insights",
     path: "/blog",
-    seoTitle: "Insights on AI, SaaS & Automation | compublue Blog",
+    seoTitle: "Insights on AI, SaaS & Automation | Compublue Blog",
     seoDesc:
-      "Practical guides and perspectives from the compublue team on AI automation, SaaS architecture, data analytics and digital transformation.",
+      "Practical guides and perspectives from the Compublue team on AI automation, SaaS architecture, data analytics and digital transformation.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Insights" },
       introBody: {
@@ -203,9 +209,9 @@ export const PAGE_DEFAULTS: Record<
   contact: {
     name: "Contact",
     path: "/contact",
-    seoTitle: "Contact compublue | Start the Conversation",
+    seoTitle: "Contact Compublue | Start the Conversation",
     seoDesc:
-      "We welcome the opportunity to learn about your organization, your objectives, and how we may be able to assist. Contact compublue to start the conversation.",
+      "We welcome the opportunity to learn about your organization, your objectives, and how we may be able to assist. Contact Compublue to start the conversation.",
     fields: {
       introTitle: { label: "Intro title", type: "text", value: "Start the Conversation" },
       introBody: {
@@ -219,15 +225,15 @@ export const PAGE_DEFAULTS: Record<
   "privacy-policy": {
     name: "Privacy Policy",
     path: "/privacy-policy",
-    seoTitle: "Privacy Policy | compublue",
-    seoDesc: "How compublue collects, uses and protects your personal information.",
+    seoTitle: "Privacy Policy | Compublue",
+    seoDesc: "How Compublue collects, uses and protects your personal information.",
     fields: {},
   },
   "terms-and-conditions": {
     name: "Terms & Conditions",
     path: "/terms-and-conditions",
-    seoTitle: "Terms & Conditions | compublue",
-    seoDesc: "The terms governing use of the compublue website and services.",
+    seoTitle: "Terms & Conditions | Compublue",
+    seoDesc: "The terms governing use of the Compublue website and services.",
     fields: {},
   },
 };

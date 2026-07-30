@@ -53,7 +53,7 @@ export default async function EditPost({
               <Field label="Image alt text" name="imageAlt" defaultValue={post?.imageAlt} />
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Author" name="author" defaultValue={post?.author ?? "compublue Team"} />
+              <Field label="Author" name="author" defaultValue={post?.author ?? "Compublue Team"} />
               <Field label="Tags" name="tags" defaultValue={tags} rows={2} hint="One per line." />
             </div>
             <label className="flex items-center gap-3 text-sm text-ink">

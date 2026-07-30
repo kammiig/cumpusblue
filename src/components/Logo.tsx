@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 /**
- * compublue wordmark recreated as text (crisp at every size, screen-reader friendly).
+ * Compublue wordmark recreated as text (crisp at every size, screen-reader friendly).
  * "compu" = white on dark surfaces, "blue" = brand blue, matching the supplied logo.
  */
 export function Logo({
@@ -24,7 +24,7 @@ export function Logo({
   return (
     <Link
       href="/"
-      aria-label="compublue — home"
+      aria-label="Compublue — home"
       className="inline-flex items-center rounded-md"
     >
       {mark}

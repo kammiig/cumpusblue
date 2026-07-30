@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { Icon } from "./Icons";
+import { CookiePreferencesButton } from "./CookieConsent";
 
 type ServiceLink = { title: string; slug: string };
 
@@ -9,7 +10,7 @@ export function Footer({
   contact,
 }: {
   services: ServiceLink[];
-  contact: { email: string; phone: string };
+  contact: { email: string; phone: string; address: string };
 }) {
   const year = new Date().getFullYear();
   return (
@@ -17,18 +18,18 @@ export function Footer({
       <div className="wrap grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Logo />
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
+          <p className="mt-4 max-w-xs text-base leading-relaxed text-muted">
             Aligning strategy, operations, governance, technology, and execution —
             helping organizations translate strategic objectives into measurable
             business outcomes.
           </p>
-          <ul className="mt-6 space-y-3 text-sm">
+          <ul className="mt-6 space-y-3 text-base">
             <li>
               <a
                 href={`mailto:${contact.email}`}
                 className="inline-flex items-center gap-2.5 text-muted transition hover:text-brand-300"
               >
-                <Icon name="mail" className="h-5 w-5 text-brand-400" />
+                <Icon name="mail" className="h-5 w-5 shrink-0 text-brand-400" />
                 {contact.email}
               </a>
             </li>
@@ -37,9 +38,13 @@ export function Footer({
                 href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}
                 className="inline-flex items-center gap-2.5 text-muted transition hover:text-brand-300"
               >
-                <Icon name="phone" className="h-5 w-5 text-brand-400" />
+                <Icon name="phone" className="h-5 w-5 shrink-0 text-brand-400" />
                 {contact.phone}
               </a>
+            </li>
+            <li className="flex items-start gap-2.5 text-muted">
+              <Icon name="pin" className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
+              <address className="not-italic leading-relaxed">{contact.address}</address>
             </li>
           </ul>
         </div>
@@ -51,14 +56,14 @@ export function Footer({
               <li key={s.slug}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="text-sm text-muted transition hover:text-brand-300"
+                  className="text-base text-muted transition hover:text-brand-300"
                 >
                   {s.title}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/services" className="text-sm font-semibold text-brand-300 hover:text-brand-400">
+              <Link href="/services" className="text-base font-semibold text-brand-300 hover:text-brand-400">
                 All services →
               </Link>
             </li>
@@ -87,7 +92,7 @@ export function Footer({
           <h2 className="text-sm font-semibold uppercase tracking-wider text-ink">
             Start the conversation
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-muted">
+          <p className="mt-4 text-base leading-relaxed text-muted">
             Tell us about your organization and objectives. We welcome the
             opportunity to discuss how we can help.
           </p>
@@ -99,9 +104,9 @@ export function Footer({
 
       <div className="border-t border-white/[0.06]">
         <div className="wrap flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted sm:flex-row">
-          <p>© {year} compublue, Inc. All rights reserved.</p>
+          <p>© {year} Compublue, Inc. All rights reserved.</p>
           <nav aria-label="Legal">
-            <ul className="flex gap-6">
+            <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <li>
                 <Link href="/privacy-policy" className="transition hover:text-brand-300">
                   Privacy Policy
@@ -113,9 +118,7 @@ export function Footer({
                 </Link>
               </li>
               <li>
-                <Link href="/sitemap.xml" className="transition hover:text-brand-300">
-                  Sitemap
-                </Link>
+                <CookiePreferencesButton className="transition hover:text-brand-300" />
               </li>
             </ul>
           </nav>
