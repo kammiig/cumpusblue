@@ -244,13 +244,12 @@ export default async function AboutPage() {
       <div className="space-y-16 py-20 sm:space-y-24 sm:py-28">
         {/* 1 — Experience-Informed Perspective (image left, image height matches text column) */}
         <section className="wrap grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14" aria-labelledby="perspective-title">
-          <div className="card photo-overlay overflow-hidden">
+          <div className="card photo-overlay relative aspect-[3/2] overflow-hidden lg:aspect-auto">
             <Image
               src={c.imgPerspective || IMAGES.aboutTeam.src}
               alt={IMAGES.aboutTeam.alt}
-              width={1200}
-              height={800}
-              className="aspect-[3/2] h-full w-full object-cover lg:aspect-auto"
+              fill
+              className="object-cover object-center"
               sizes="(min-width: 1024px) 560px, 100vw"
             />
           </div>

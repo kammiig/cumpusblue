@@ -180,14 +180,13 @@ export default async function HomePage() {
 
       {/* ===== Our Approach ===== */}
       <section className="py-20 sm:py-28" aria-labelledby="approach-title">
-        <div className="wrap grid items-center gap-14 lg:grid-cols-2">
-          <div className="card photo-overlay overflow-hidden">
+        <div className="wrap grid items-stretch gap-14 lg:grid-cols-2">
+          <div className="card photo-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">
             <Image
               src={IMAGES.heroOffice.src}
               alt={IMAGES.heroOffice.alt}
-              width={1200}
-              height={800}
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover object-center"
               sizes="(min-width: 1024px) 560px, 100vw"
             />
           </div>

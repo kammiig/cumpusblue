@@ -73,8 +73,8 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
         </div>
       </section>
 
-      {/* Content — description left, image right */}
-      <section className="wrap grid items-start gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_420px] lg:gap-14">
+      {/* Content — description left, image right (image matches content height) */}
+      <section className="wrap grid items-stretch gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_420px] lg:gap-14">
         <div>
           <RichText text={svc.body} />
           {showWhatYouGet && (
@@ -93,15 +93,14 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
             </div>
           )}
         </div>
-        <aside>
-          <div className="card photo-overlay overflow-hidden lg:sticky lg:top-24">
+        <aside className="lg:h-full">
+          <div className="card photo-overlay relative aspect-[4/3] h-full overflow-hidden lg:aspect-auto">
             <Image
               src={svc.image}
               alt={svc.imageAlt}
-              width={1200}
-              height={900}
+              fill
               priority
-              className="aspect-[4/3] h-full w-full object-cover"
+              className="object-cover object-center"
               sizes="(min-width: 1024px) 420px, 100vw"
             />
           </div>
