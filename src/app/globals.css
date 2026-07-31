@@ -132,13 +132,14 @@ body {
 }
 
 /*
- * Decorative eyebrow labels (pills). Non-interactive. Hidden globally when the
- * admin disables them (the site layout sets data-labels="off" on <main>), which
- * removes them from flow so no blank space remains.
+ * Decorative eyebrow labels (pills). Non-interactive and hidden by default;
+ * a page/section only shows them when its admin toggle wraps the content in
+ * data-labels="on". Hidden labels are removed from flow (no blank space).
  */
 .eyebrow-pill {
   cursor: default;
-}
-[data-labels="off"] .eyebrow-pill {
   display: none;
+}
+[data-labels="on"] .eyebrow-pill {
+  display: inline-flex;
 }

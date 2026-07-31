@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { getServices } from "@/lib/data";
 import { getPageContent, PAGE_DEFAULTS } from "@/lib/content";
 import { pageMetadata, organizationSchema, websiteSchema } from "@/lib/seo";
-import { getSettings } from "@/lib/settings";
+import { getSettings, labelsOn } from "@/lib/settings";
 import { SERVICE_LAYERS } from "@/lib/seed-data";
 import { IMAGES } from "@/lib/images";
 
@@ -47,9 +47,11 @@ export default async function HomePage() {
   const whyParas = (c.whyBody || "").split(/\n\s*\n/).filter(Boolean);
   const heroParas = (c.heroSub || "").split(/\n\s*\n/).filter(Boolean);
   const FOCUS_TERMS = ["Strategy", "Operations", "Governance", "Technology", "Execution"];
+  const showHeroLabel = labelsOn(settings, "labelsHero");
+  const showHomeLabels = labelsOn(settings, "labelsHome");
 
   return (
-    <>
+    <div data-labels={showHomeLabels ? "on" : "off"}>
       <JsonLd data={[organizationSchema(settings), websiteSchema(settings)]} />
 
       {/* ===== Hero ===== */}
@@ -60,6 +62,12 @@ export default async function HomePage() {
           className="pointer-events-none absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-brand-500/15 blur-[140px]"
         />
         <div className="wrap relative pb-16 pt-20 text-center sm:pt-28">
+          {showHeroLabel && (
+            <p className="pill mx-auto mb-5 cursor-default select-none animate-fadeUp" aria-hidden="true">
+              <span className="pill-dot" aria-hidden="true" />
+              {FOCUS_TERMS.join(" · ")}
+            </p>
+          )}
           <h1
             id="hero-title"
             className="h-display mx-auto max-w-4xl text-balance text-4xl leading-[1.08] animate-fadeUp sm:text-5xl lg:text-6xl"
@@ -89,12 +97,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="relative mx-auto mt-16 max-w-4xl sm:mt-20">
-            {/* Decorative focus-term ribbon over the hero media (display only) */}
-            <p className="pill eyebrow-pill absolute -top-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap !px-5 shadow-card !text-[10px] sm:!text-xs">
-              <span className="pill-dot" aria-hidden="true" />
-              {FOCUS_TERMS.join(" · ")}
-            </p>
+          <div className="relative mx-auto mt-14 max-w-4xl sm:mt-16">
             <DashboardMock />
           </div>
         </div>
@@ -208,6 +211,6 @@ export default async function HomePage() {
 
       {/* ===== Start the Conversation ===== */}
       <CtaBand title={c.startTitle} sub={c.startBody} cta="Contact us to start the conversation" />
-    </>
+    </div>
   );
 }

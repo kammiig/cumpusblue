@@ -80,7 +80,7 @@ export function Footer({
               ["Contact", "/contact"],
             ].map(([label, href]) => (
               <li key={href}>
-                <Link href={href} className="text-sm text-muted transition hover:text-brand-300">
+                <Link href={href} className="text-base text-muted transition hover:text-brand-300">
                   {label}
                 </Link>
               </li>

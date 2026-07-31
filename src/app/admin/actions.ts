@@ -220,7 +220,14 @@ export async function saveSettingsAction(formData: FormData) {
   const keys = String(formData.get("settingKeys") || "")
     .split(",")
     .filter(Boolean);
-  const BOOL_KEYS = ["showDecorativeLabels"];
+  const BOOL_KEYS = [
+    "labelsHero",
+    "labelsHome",
+    "labelsAbout",
+    "labelsServices",
+    "labelsApproach",
+    "labelsContact",
+  ];
   for (const key of keys) {
     if (BOOL_KEYS.includes(key)) {
       await setSetting(key, formData.get(key) === "on" ? "true" : "false");

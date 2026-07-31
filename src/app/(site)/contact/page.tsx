@@ -5,7 +5,7 @@ import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { getPageContent, PAGE_DEFAULTS } from "@/lib/content";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
-import { getSettings } from "@/lib/settings";
+import { getSettings, labelsOn } from "@/lib/settings";
 
 export const dynamic = "force-dynamic";
 
@@ -22,9 +22,10 @@ export default async function ContactPage() {
   const email = settings.contactEmail || "contact@compublue.com";
   const phone = settings.contactPhone || "+1 (818) 662-8800";
   const address = settings.address || "1827 West Verdugo Ave., Suite 205, Burbank, CA 91506";
+  const showLabels = labelsOn(settings, "labelsContact");
 
   return (
-    <>
+    <div data-labels={showLabels ? "on" : "off"}>
       <JsonLd
         data={breadcrumbSchema(settings, [
           { name: "Home", path: "/" },
@@ -103,6 +104,6 @@ export default async function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

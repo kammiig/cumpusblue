@@ -11,7 +11,7 @@ const db = new PrismaClient();
  * seed refreshes page content + services from code (authoritative). When it
  * matches, existing rows are left untouched so admin edits are preserved.
  */
-const SEED_VERSION = "2026-07-31-compublue-5";
+const SEED_VERSION = "2026-07-31-compublue-6";
 
 async function main() {
   const stored = await db.setting.findUnique({ where: { key: "seedVersion" } }).catch(() => null);
@@ -132,7 +132,13 @@ async function main() {
     contactPhone: "+1 (818) 662-8800",
     address: "1827 West Verdugo Ave., Suite 205, Burbank, CA 91506",
     leadNotifyEmail: process.env.LEAD_NOTIFY_EMAIL || "contact@compublue.com",
-    showDecorativeLabels: "true",
+    // Decorative labels: only the home hero is on by default.
+    labelsHero: "true",
+    labelsHome: "false",
+    labelsAbout: "false",
+    labelsServices: "false",
+    labelsApproach: "false",
+    labelsContact: "false",
     pexelsApiKey: process.env.PEXELS_API_KEY || "",
   };
   for (const [key, value] of Object.entries(settings)) {

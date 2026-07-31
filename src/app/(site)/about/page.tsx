@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { ExperienceList } from "@/components/ExperienceList";
 import { getPageContent, PAGE_DEFAULTS } from "@/lib/content";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
-import { getSettings } from "@/lib/settings";
+import { getSettings, labelsOn } from "@/lib/settings";
 import { IMAGES } from "@/lib/images";
 
 export const dynamic = "force-dynamic";
@@ -216,9 +216,10 @@ function AltSection({
 
 export default async function AboutPage() {
   const [c, settings] = await Promise.all([getPageContent("about"), getSettings().catch(() => ({}))]);
+  const showLabels = labelsOn(settings as Record<string, string>, "labelsAbout");
 
   return (
-    <>
+    <div data-labels={showLabels ? "on" : "off"}>
       <JsonLd
         data={breadcrumbSchema(settings as Record<string, string>, [
           { name: "Home", path: "/" },
@@ -241,15 +242,15 @@ export default async function AboutPage() {
 
       {/* Alternating image/text sections */}
       <div className="space-y-16 py-20 sm:space-y-24 sm:py-28">
-        {/* 1 — Experience-Informed Perspective (image left) */}
-        <section className="wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-14" aria-labelledby="perspective-title">
+        {/* 1 — Experience-Informed Perspective (image left, image height matches text column) */}
+        <section className="wrap grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14" aria-labelledby="perspective-title">
           <div className="card photo-overlay overflow-hidden">
             <Image
               src={c.imgPerspective || IMAGES.aboutTeam.src}
               alt={IMAGES.aboutTeam.alt}
               width={1200}
               height={800}
-              className="aspect-[3/2] h-full w-full object-cover"
+              className="aspect-[3/2] h-full w-full object-cover lg:aspect-auto"
               sizes="(min-width: 1024px) 560px, 100vw"
             />
           </div>
@@ -382,6 +383,6 @@ export default async function AboutPage() {
         sub="Compublue welcomes the opportunity to learn about your organization and explore how we can help."
         cta="Start the conversation"
       />
-    </>
+    </div>
   );
 }

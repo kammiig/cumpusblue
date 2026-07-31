@@ -123,10 +123,10 @@ export function CookieConsent() {
         <div
           role="region"
           aria-label="Cookie consent"
-          className="fixed inset-x-0 bottom-0 z-[90] border-t border-white/10 bg-night-900/95 backdrop-blur-xl"
+          className="fixed inset-x-0 bottom-0 z-[90] border-t border-white/15 bg-night-950 shadow-[0_-10px_40px_rgba(0,0,0,0.6)]"
         >
           <div className="wrap flex flex-col gap-4 py-5 lg:flex-row lg:items-center lg:justify-between">
-            <p className="max-w-2xl text-sm leading-relaxed text-muted">
+            <p className="max-w-2xl text-sm leading-relaxed text-slate-200">
               We use cookies to run this site and, with your consent, to understand traffic and improve
               your experience. Essential cookies are always on. See our{" "}
               <a href="/privacy-policy" className="text-brand-300 underline underline-offset-2 hover:text-brand-400">
@@ -134,7 +134,7 @@ export function CookieConsent() {
               </a>
               .
             </p>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3 sm:flex-nowrap">
               <button
                 type="button"
                 onClick={() => setShowPrefs(true)}
@@ -163,14 +163,14 @@ export function CookieConsent() {
 
       {/* Preferences dialog */}
       {showPrefs && (
-        <div className="fixed inset-0 z-[95] flex items-end justify-center bg-black/60 p-4 sm:items-center">
+        <div className="fixed inset-0 z-[95] flex items-end justify-center bg-black/70 p-4 sm:items-center">
           <div
             ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="cc-title"
             tabIndex={-1}
-            className="card w-full max-w-lg p-6 outline-none sm:p-8"
+            className="w-full max-w-lg rounded-2xl border border-white/15 bg-night-950 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.7)] outline-none sm:p-8"
           >
             <h2 id="cc-title" className="h-display text-xl">Cookie preferences</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -178,7 +178,7 @@ export function CookieConsent() {
             </p>
 
             <div className="mt-6 space-y-4">
-              <div className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
+              <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.05] p-4">
                 <input type="checkbox" checked disabled className="mt-1 h-4 w-4 rounded border-white/20 bg-white/10" />
                 <div>
                   <p className="text-sm font-semibold text-ink">Essential</p>
@@ -188,7 +188,7 @@ export function CookieConsent() {
                 </div>
               </div>
 
-              <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
+              <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-white/[0.05] p-4">
                 <input
                   type="checkbox"
                   checked={analytics}
@@ -203,7 +203,7 @@ export function CookieConsent() {
                 </div>
               </label>
 
-              <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
+              <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/10 bg-white/[0.05] p-4">
                 <input
                   type="checkbox"
                   checked={marketing}

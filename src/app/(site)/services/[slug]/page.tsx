@@ -56,57 +56,29 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
         ]}
       />
 
-      {/* Hero */}
+      {/* Header — centered breadcrumb + title only */}
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-2">
-          <div>
-            <nav aria-label="Breadcrumb" className="mb-6">
-              <ol className="flex flex-wrap items-center gap-2 text-xs text-muted">
-                <li><Link href="/" className="hover:text-brand-300">Home</Link></li>
-                <li aria-hidden="true">/</li>
-                <li><Link href="/services" className="hover:text-brand-300">Services</Link></li>
-                <li aria-hidden="true">/</li>
-                <li aria-current="page" className="text-ink">{svc.title}</li>
-              </ol>
-            </nav>
-            <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
-              <Icon name={svc.icon} className="h-7 w-7" />
-            </span>
-            <h1 className="h-display mt-6 text-balance text-4xl sm:text-5xl">{svc.title}</h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted">{svc.excerpt}</p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#enquire" className="btn-primary">
-                Discuss this service <Icon name="arrow" className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-          <div className="card photo-overlay overflow-hidden">
-            <Image
-              src={svc.image}
-              alt={svc.imageAlt}
-              width={1200}
-              height={800}
-              priority
-              className="h-full w-full object-cover"
-              sizes="(min-width: 1024px) 560px, 100vw"
-            />
-          </div>
+        <div className="wrap relative py-12 text-center sm:py-16">
+          <nav aria-label="Breadcrumb" className="mb-5">
+            <ol className="flex flex-wrap items-center justify-center gap-2 text-xs text-muted">
+              <li><Link href="/" className="hover:text-brand-300">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/services" className="hover:text-brand-300">Services</Link></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-ink">{svc.title}</li>
+            </ol>
+          </nav>
+          <h1 className="h-display mx-auto max-w-3xl text-balance text-4xl sm:text-5xl">{svc.title}</h1>
         </div>
       </section>
 
-      {/* Body + (optional) "What you get" */}
-      <section
-        className={`wrap py-12 sm:py-16 ${
-          showWhatYouGet ? "grid gap-14 lg:grid-cols-[1fr_380px]" : ""
-        }`}
-      >
-        <div className={showWhatYouGet ? "" : "max-w-3xl"}>
+      {/* Content — description left, image right */}
+      <section className="wrap grid items-start gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_420px] lg:gap-14">
+        <div>
           <RichText text={svc.body} />
-        </div>
-        {showWhatYouGet && (
-          <aside aria-labelledby="deliverables-title">
-            <div className="card sticky top-24 p-7">
+          {showWhatYouGet && (
+            <div className="card mt-8 p-7" aria-labelledby="deliverables-title">
               <h2 id="deliverables-title" className="h-display text-lg">
                 What you get
               </h2>
@@ -119,8 +91,21 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
                 ))}
               </ul>
             </div>
-          </aside>
-        )}
+          )}
+        </div>
+        <aside>
+          <div className="card photo-overlay overflow-hidden lg:sticky lg:top-24">
+            <Image
+              src={svc.image}
+              alt={svc.imageAlt}
+              width={1200}
+              height={900}
+              priority
+              className="aspect-[4/3] h-full w-full object-cover"
+              sizes="(min-width: 1024px) 420px, 100vw"
+            />
+          </div>
+        </aside>
       </section>
 
       {/* FAQs */}

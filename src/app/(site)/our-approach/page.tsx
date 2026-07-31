@@ -4,7 +4,7 @@ import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { getPageContent, PAGE_DEFAULTS } from "@/lib/content";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
-import { getSettings } from "@/lib/settings";
+import { getSettings, labelsOn } from "@/lib/settings";
 
 export const dynamic = "force-dynamic";
 
@@ -68,9 +68,10 @@ export default async function OurApproachPage() {
     getPageContent("our-approach"),
     getSettings().catch(() => ({} as Record<string, string>)),
   ]);
+  const showLabels = labelsOn(settings, "labelsApproach");
 
   return (
-    <>
+    <div data-labels={showLabels ? "on" : "off"}>
       <JsonLd
         data={breadcrumbSchema(settings, [
           { name: "Home", path: "/" },
@@ -264,6 +265,6 @@ export default async function OurApproachPage() {
         sub="Compublue welcomes the opportunity to discuss your objectives and explore how we can help."
         cta="Start the conversation"
       />
-    </>
+    </div>
   );
 }

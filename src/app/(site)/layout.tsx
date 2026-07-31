@@ -12,17 +12,13 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
     // defaults below
   }
 
-  const showLabels = settings.showDecorativeLabels !== "false";
-
   return (
     <>
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
       <Header services={services} />
-      <main id="main-content" data-labels={showLabels ? "on" : "off"}>
-        {children}
-      </main>
+      <main id="main-content">{children}</main>
       <Footer
         services={services}
         contact={{

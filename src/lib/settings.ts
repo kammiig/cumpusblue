@@ -25,8 +25,30 @@ export const SETTING_KEYS = [
   "socialX",
   "socialInstagram",
   "pexelsApiKey",
-  "showDecorativeLabels",
+  // Per-section decorative-label toggles ("true"/"false")
+  "labelsHero",
+  "labelsHome",
+  "labelsAbout",
+  "labelsServices",
+  "labelsApproach",
+  "labelsContact",
 ] as const;
+
+/** Decorative-label toggle keys (boolean-valued settings). */
+export const LABEL_KEYS = [
+  "labelsHero",
+  "labelsHome",
+  "labelsAbout",
+  "labelsServices",
+  "labelsApproach",
+  "labelsContact",
+] as const;
+
+/** True when a decorative-label section is enabled. Only the hero defaults on. */
+export function labelsOn(settings: SettingsMap, key: string): boolean {
+  if (key === "labelsHero") return settings[key] !== "false";
+  return settings[key] === "true";
+}
 
 export async function getSettings(): Promise<SettingsMap> {
   const rows = await db.setting.findMany();

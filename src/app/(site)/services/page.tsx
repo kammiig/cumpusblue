@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { getServices } from "@/lib/data";
 import { getPageContent, PAGE_DEFAULTS } from "@/lib/content";
 import { pageMetadata, breadcrumbSchema, serviceSchema } from "@/lib/seo";
-import { getSettings } from "@/lib/settings";
+import { getSettings, labelsOn } from "@/lib/settings";
 import { SERVICE_LAYERS } from "@/lib/seed-data";
 
 export const dynamic = "force-dynamic";
@@ -35,9 +35,10 @@ export default async function ServicesPage() {
   // Any services not assigned to a layer still render in their own group.
   const groupedSlugs = new Set<string>(SERVICE_LAYERS.flatMap((l) => [...l.slugs]));
   const ungrouped = services.filter((s) => !groupedSlugs.has(s.slug));
+  const showLabels = labelsOn(settings, "labelsServices");
 
   return (
-    <>
+    <div data-labels={showLabels ? "on" : "off"}>
       <JsonLd
         data={[
           breadcrumbSchema(settings, [
@@ -119,6 +120,6 @@ export default async function ServicesPage() {
         title="Not sure which service fits?"
         sub="Tell us the problem — we'll tell you the smallest project that solves it."
       />
-    </>
+    </div>
   );
 }

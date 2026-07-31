@@ -60,8 +60,15 @@ export default async function AdminSettings({
   searchParams?: Record<string, string | string[] | undefined>;
 }) {
   const settings = await getSettings();
-  const allKeys = [...GROUPS.flatMap((g) => g.fields.map((f) => f.key)), "showDecorativeLabels"];
-  const showDecorativeLabels = settings.showDecorativeLabels !== "false";
+  const LABEL_TOGGLES = [
+    { key: "labelsHero", label: "Home — hero label", on: settings.labelsHero !== "false" },
+    { key: "labelsHome", label: "Home — section labels", on: settings.labelsHome === "true" },
+    { key: "labelsAbout", label: "About Us — section labels", on: settings.labelsAbout === "true" },
+    { key: "labelsServices", label: "Services — section labels", on: settings.labelsServices === "true" },
+    { key: "labelsApproach", label: "Our Approach — section labels", on: settings.labelsApproach === "true" },
+    { key: "labelsContact", label: "Contact — section label", on: settings.labelsContact === "true" },
+  ];
+  const allKeys = [...GROUPS.flatMap((g) => g.fields.map((f) => f.key)), ...LABEL_TOGGLES.map((t) => t.key)];
 
   return (
     <>
@@ -95,22 +102,24 @@ export default async function AdminSettings({
           ))}
 
           <fieldset className="card p-6">
-            <legend className="h-display px-2 text-base">Display</legend>
-            <label className="flex items-start gap-3 text-sm text-ink">
-              <input
-                type="checkbox"
-                name="showDecorativeLabels"
-                defaultChecked={showDecorativeLabels}
-                className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/[0.05]"
-              />
-              <span>
-                Show decorative label
-                <span className="mt-0.5 block text-xs font-normal text-muted">
-                  The small eyebrow pill labels above section titles (e.g. &ldquo;Our services&rdquo;). Turning
-                  this off hides them everywhere without deleting the content.
-                </span>
-              </span>
-            </label>
+            <legend className="h-display px-2 text-base">Decorative labels</legend>
+            <p className="mb-4 text-sm text-muted">
+              The small eyebrow pill labels above section titles (e.g. &ldquo;Our services&rdquo;). Toggle each
+              area independently — hidden labels keep their text and leave no empty space.
+            </p>
+            <div className="space-y-3">
+              {LABEL_TOGGLES.map((t) => (
+                <label key={t.key} className="flex items-center gap-3 text-sm text-ink">
+                  <input
+                    type="checkbox"
+                    name={t.key}
+                    defaultChecked={t.on}
+                    className="h-4 w-4 rounded border-white/20 bg-white/[0.05]"
+                  />
+                  Show decorative label — {t.label}
+                </label>
+              ))}
+            </div>
           </fieldset>
         </div>
         <button type="submit" className="btn-primary mt-8">Save settings</button>
