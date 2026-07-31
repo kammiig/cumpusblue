@@ -44,6 +44,9 @@ model Service {
   icon       String   @default("spark") // icon key
   image      String   @default("")
   imageAlt   String   @default("")
+  imageFocal String   @default("center") // CSS object-position focal point for the primary image
+  image2     String   @default("") // optional secondary image (shown below the primary when text is long)
+  image2Alt  String   @default("")
   faqs       String   @default("[]") // JSON [{q,a}]
   order      Int      @default(0)
   published  Boolean  @default(true)
@@ -95,18 +98,32 @@ model Post {
 }
 
 model Lead {
-  id        String   @id @default(cuid())
-  name      String
-  email     String
-  phone     String   @default("")
-  company   String   @default("")
-  service   String   @default("")
-  budget    String   @default("")
-  message   String
-  page      String   @default("")
-  ip        String   @default("")
-  status    String   @default("new") // new | contacted | closed
-  createdAt DateTime @default(now())
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String   @default("")
+  company    String   @default("")
+  service    String   @default("")
+  budget     String   @default("")
+  message    String
+  page       String   @default("")
+  ip         String   @default("")
+  status     String   @default("new") // new | contacted | closed
+  redacted   Boolean  @default(false) // true once de-identified for a privacy request
+  createdAt  DateTime @default(now())
+}
+
+// Audit trail for data-subject deletion / de-identification requests.
+// Intentionally stores no deleted personal content — only who/when/scope/outcome.
+model PrivacyRequest {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  adminEmail    String // administrator who actioned the request
+  identifier    String // the verified search identifier used (email / phone / reference)
+  action        String // "delete" | "deidentify"
+  scope         String // "single" | "all"
+  affectedCount Int      @default(0)
+  retainedReason String  @default("") // lawful reason anything was retained / de-identified rather than deleted
 }
 
 model Setting {

@@ -189,14 +189,17 @@ function AltSection({
   imageLeft: boolean;
 }) {
   return (
-    <div className="wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-      <div className={`card photo-overlay overflow-hidden ${imageLeft ? "" : "lg:order-2"}`}>
+    <div className="wrap grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
+      <div
+        className={`card photo-overlay relative aspect-[3/2] overflow-hidden lg:aspect-auto ${
+          imageLeft ? "" : "lg:order-2"
+        }`}
+      >
         <Image
           src={image}
           alt={alt}
-          width={1200}
-          height={800}
-          className="aspect-[3/2] h-full w-full object-cover"
+          fill
+          className="object-cover object-center"
           sizes="(min-width: 1024px) 560px, 100vw"
         />
       </div>

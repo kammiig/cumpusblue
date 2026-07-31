@@ -11,7 +11,7 @@ const db = new PrismaClient();
  * seed refreshes page content + services from code (authoritative). When it
  * matches, existing rows are left untouched so admin edits are preserved.
  */
-const SEED_VERSION = "2026-07-31-compublue-6";
+const SEED_VERSION = "2026-08-01-compublue-7";
 
 async function main() {
   const stored = await db.setting.findUnique({ where: { key: "seedVersion" } }).catch(() => null);
@@ -59,6 +59,9 @@ async function main() {
       icon: s.icon,
       image: s.image,
       imageAlt: s.imageAlt,
+      imageFocal: s.imageFocal,
+      image2: s.image2,
+      image2Alt: s.image2Alt,
       faqs: JSON.stringify(s.faqs),
       order: order++,
       published: true,

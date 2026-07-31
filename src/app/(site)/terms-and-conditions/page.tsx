@@ -29,17 +29,17 @@ export default function TermsPage() {
 
         <h2>2. Use of the website</h2>
         <p>
-          You may use this website for lawful purposes only. You agree not to attempt to gain
-          unauthorized access to any part of the site, interfere with its operation, or use it
-          to transmit harmful or unlawful content.
+          You may use this website only for lawful purposes. You agree not to attempt to gain
+          unauthorized access to any part of the website, interfere with its operation, or use it
+          to transmit harmful, unlawful, or unauthorized content.
         </p>
 
         <h2>3. Content and intellectual property</h2>
         <p>
-          All content on this website — text, graphics, logos and software — is the property of
-          Compublue or its licensors and is protected by copyright and trademark law. You may
-          not reproduce or redistribute it without our written permission. Photography is used
-          under license from its respective owners.
+          All content on this website, including text, graphics, logos, and software, is the
+          property of Compublue or its licensors and is protected by applicable copyright and
+          trademark laws. You may not reproduce or redistribute any such content without our prior
+          written permission. Photographs are used under license from their respective owners.
         </p>
 
         <h2>4. Information, not advice</h2>

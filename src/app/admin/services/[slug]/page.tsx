@@ -53,8 +53,18 @@ export default async function EditService({
               hint='Format: [{"q":"Question?","a":"Answer."}]'
             />
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Image URL" name="image" defaultValue={svc.image} />
-              <Field label="Image alt text" name="imageAlt" defaultValue={svc.imageAlt} hint="Describe the image for screen readers." />
+              <Field label="Primary image URL" name="image" defaultValue={svc.image} />
+              <Field label="Primary image alt text" name="imageAlt" defaultValue={svc.imageAlt} hint="Describe the image for screen readers." />
+            </div>
+            <Field
+              label="Primary image focal point"
+              name="imageFocal"
+              defaultValue={svc.imageFocal || "center"}
+              hint="CSS object-position, e.g. center, top, 50% 30%. Keeps the key subject visible when cropped."
+            />
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field label="Secondary image URL (optional)" name="image2" defaultValue={svc.image2} hint="Shown below the primary image when the text is long. Leave blank for none." />
+              <Field label="Secondary image alt text" name="image2Alt" defaultValue={svc.image2Alt} />
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Display order" name="order" type="number" defaultValue={String(svc.order)} />

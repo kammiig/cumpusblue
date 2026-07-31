@@ -16,6 +16,7 @@ const NAV = [
   { href: "/admin/case-studies", label: "Case Studies" },
   { href: "/admin/posts", label: "Blog Posts" },
   { href: "/admin/leads", label: "Leads" },
+  { href: "/admin/privacy", label: "Privacy Requests" },
   { href: "/admin/media", label: "Images" },
   { href: "/admin/seo-audit", label: "SEO Audit" },
   { href: "/admin/settings", label: "Settings & Integrations" },

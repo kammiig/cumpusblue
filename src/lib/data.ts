@@ -15,6 +15,9 @@ export type ServiceData = {
   icon: string;
   image: string;
   imageAlt: string;
+  imageFocal: string;
+  image2: string;
+  image2Alt: string;
   faqs: { q: string; a: string }[];
   showWhatYouGet: boolean;
   seoTitle?: string;
@@ -48,6 +51,9 @@ export async function getServices(): Promise<ServiceData[]> {
         icon: r.icon,
         image: r.image,
         imageAlt: r.imageAlt,
+        imageFocal: r.imageFocal || "center",
+        image2: r.image2,
+        image2Alt: r.image2Alt,
         faqs: parseJson<{ q: string; a: string }[]>(r.faqs, []),
         showWhatYouGet: r.showWhatYouGet,
         seoTitle: r.seoTitle,

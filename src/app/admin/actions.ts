@@ -93,6 +93,9 @@ export async function saveServiceAction(formData: FormData) {
       bullets: linesToJson(formData.get("bullets")),
       image: String(formData.get("image") ?? ""),
       imageAlt: String(formData.get("imageAlt") ?? ""),
+      imageFocal: String(formData.get("imageFocal") || "center"),
+      image2: String(formData.get("image2") ?? ""),
+      image2Alt: String(formData.get("image2Alt") ?? ""),
       faqs: String(formData.get("faqs") ?? "[]"),
       published: formData.get("published") === "on",
       showWhatYouGet: formData.get("showWhatYouGet") === "on",
@@ -189,6 +192,124 @@ export async function deleteLeadAction(formData: FormData) {
   await requireAdmin();
   await db.lead.delete({ where: { id: String(formData.get("id")) } });
   revalidatePath("/admin/leads");
+}
+
+/* ---------- Privacy / data-subject requests ---------- */
+
+/**
+ * Delete a single inquiry. A Lead is a self-contained record with no dependent
+ * tables, so this removes exactly one record and its personal content. The audit
+ * row and the deletion run in one transaction (rolled back together on failure)
+ * and the audit stores no deleted personal content.
+ */
+export async function privacyDeleteInquiryAction(formData: FormData) {
+  const session = await requireAdmin();
+  const id = String(formData.get("id") || "");
+  const identifier = String(formData.get("identifier") || "").slice(0, 200);
+  if (!id) redirect("/admin/privacy?error=missing-id");
+
+  await db.$transaction(async (tx) => {
+    const lead = await tx.lead.findUnique({ where: { id } });
+    if (!lead) throw new Error("Inquiry not found");
+    await tx.privacyRequest.create({
+      data: {
+        adminEmail: session.email,
+        identifier: identifier || lead.email,
+        action: "delete",
+        scope: "single",
+        affectedCount: 1,
+      },
+    });
+    await tx.lead.delete({ where: { id } });
+  });
+
+  revalidatePath("/admin/privacy");
+  redirect(`/admin/privacy?done=deleted-1&q=${encodeURIComponent(identifier)}`);
+}
+
+/**
+ * Delete every inquiry associated with a verified identifier (email or phone).
+ * All rows are removed inside a single transaction; if any deletion fails the
+ * whole operation rolls back.
+ */
+export async function privacyDeleteAllAction(formData: FormData) {
+  const session = await requireAdmin();
+  const identifier = String(formData.get("identifier") || "").trim().slice(0, 200);
+  if (!identifier) redirect("/admin/privacy?error=missing-identifier");
+
+  const where = identifierWhere(identifier);
+  const count = await db.$transaction(async (tx) => {
+    const rows = await tx.lead.findMany({ where, select: { id: true } });
+    if (rows.length === 0) return 0;
+    await tx.privacyRequest.create({
+      data: {
+        adminEmail: session.email,
+        identifier,
+        action: "delete",
+        scope: "all",
+        affectedCount: rows.length,
+      },
+    });
+    const res = await tx.lead.deleteMany({ where });
+    if (res.count !== rows.length) throw new Error("Deletion count mismatch — rolling back");
+    return res.count;
+  });
+
+  revalidatePath("/admin/privacy");
+  redirect(`/admin/privacy?done=deleted-${count}&q=${encodeURIComponent(identifier)}`);
+}
+
+/**
+ * De-identify a single inquiry that must be retained for a legitimate/legal
+ * reason: personal fields are redacted but the record and its lawful reason are
+ * preserved. Runs in one transaction with the audit row.
+ */
+export async function privacyDeidentifyAction(formData: FormData) {
+  const session = await requireAdmin();
+  const id = String(formData.get("id") || "");
+  const identifier = String(formData.get("identifier") || "").slice(0, 200);
+  const reason = String(formData.get("reason") || "").trim().slice(0, 500) || "Retained for legal/record-keeping obligations";
+  if (!id) redirect("/admin/privacy?error=missing-id");
+
+  await db.$transaction(async (tx) => {
+    const lead = await tx.lead.findUnique({ where: { id } });
+    if (!lead) throw new Error("Inquiry not found");
+    await tx.lead.update({
+      where: { id },
+      data: {
+        name: "[redacted]",
+        email: "[redacted]",
+        phone: "",
+        company: "",
+        message: "[redacted]",
+        ip: "",
+        redacted: true,
+      },
+    });
+    await tx.privacyRequest.create({
+      data: {
+        adminEmail: session.email,
+        identifier: identifier || lead.email,
+        action: "deidentify",
+        scope: "single",
+        affectedCount: 1,
+        retainedReason: reason,
+      },
+    });
+  });
+
+  revalidatePath("/admin/privacy");
+  redirect(`/admin/privacy?done=deidentified-1&q=${encodeURIComponent(identifier)}`);
+}
+
+/** Match leads by a verified email (case-insensitive) or exact phone. */
+function identifierWhere(identifier: string) {
+  if (identifier.includes("@")) {
+    return { email: { equals: identifier, mode: "insensitive" as const } };
+  }
+  const digits = identifier.replace(/[^\d]/g, "");
+  if (digits.length >= 7) return { phone: { contains: digits } };
+  return { email: { equals: identifier, mode: "insensitive" as const } };
 }
 
 /* ---------- Media ---------- */

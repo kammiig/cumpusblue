@@ -40,6 +40,9 @@ We work across operational, technical, organizational, and business functions to
     ],
     faqs: [],
     showWhatYouGet: false,
+    imageFocal: "center",
+    image2: "",
+    image2Alt: "",
   },
   {
     slug: "portfolio-program-management",
@@ -71,6 +74,9 @@ We establish governance models, prioritization frameworks, and performance manag
     ],
     faqs: [],
     showWhatYouGet: false,
+    imageFocal: "center",
+    image2: "",
+    image2Alt: "",
   },
   {
     slug: "strategic-initiative-assessment-structuring",
@@ -100,6 +106,9 @@ We perform structured assessments, analyze relationships between initiatives, an
     ],
     faqs: [],
     showWhatYouGet: false,
+    imageFocal: "center",
+    image2: "",
+    image2Alt: "",
   },
   {
     slug: "pmo-design-transformation",
@@ -129,6 +138,9 @@ We assess existing capabilities, identify gaps, and implement PMO structures tha
     ],
     faqs: [],
     showWhatYouGet: false,
+    imageFocal: "center",
+    image2: "",
+    image2Alt: "",
   },
   {
     slug: "project-governance-delivery-management",
@@ -164,6 +176,9 @@ Our approach emphasizes executive visibility, stakeholder coordination, discipli
     ],
     faqs: [],
     showWhatYouGet: false,
+    imageFocal: "center",
+    image2: "",
+    image2Alt: "",
   },
   {
     slug: "project-controls-performance-management",
@@ -199,6 +214,9 @@ Our approach incorporates schedule management, variance analysis, forecasting, p
     ],
     faqs: [],
     showWhatYouGet: false,
+    imageFocal: "center",
+    image2: "",
+    image2Alt: "",
   },
   {
     slug: "operational-execution-performance-management",
@@ -228,6 +246,9 @@ We establish performance management systems, reporting structures, and operation
     ],
     faqs: [],
     showWhatYouGet: false,
+    imageFocal: "center",
+    image2: "",
+    image2Alt: "",
   },
   {
     slug: "ma-integration-transformation",
@@ -273,6 +294,9 @@ We coordinate activities across operational, technical, organizational, and busi
     ],
     faqs: [],
     showWhatYouGet: false,
+    imageFocal: "center",
+    image2: "",
+    image2Alt: "",
   },
 ];
 

@@ -82,6 +82,9 @@ export function CookieConsent() {
       setDecided(true);
       setAnalytics(existing.analytics);
       setMarketing(existing.marketing);
+    } else if ((navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl === true) {
+      // Honor Global Privacy Control as a choice to decline non-essential cookies.
+      finish({ analytics: false, marketing: false });
     } else {
       setDecided(false);
     }
