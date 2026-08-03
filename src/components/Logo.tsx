@@ -17,7 +17,7 @@ export function Logo({
     >
       <span className="text-ink">compu</span>
       <span className="text-brand-500">blue</span>
-      <span className="align-super text-[0.5em] font-semibold text-muted">™</span>
+      <span className="align-super text-[0.8em] font-semibold leading-none text-muted">™</span>
     </span>
   );
   if (!asLink) return mark;

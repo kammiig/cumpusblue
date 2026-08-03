@@ -52,7 +52,8 @@ body {
     @apply mx-auto w-full max-w-wrap px-5 sm:px-8;
   }
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-300;
+    /* Decorative eyebrow label: dot + text only. No border/background/container. */
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-300;
   }
   .pill-dot {
     @apply h-1.5 w-1.5 rounded-full bg-brand-400;
