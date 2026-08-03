@@ -11,6 +11,40 @@ import { SERVICE_LAYERS } from "@/lib/seed-data";
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Minimal service card: the whole card is the link. Title + "Explore service"
+ * only, with the action pinned to the bottom so it aligns across a row even
+ * when titles wrap to different line counts. `wide` renders a full-width
+ * horizontal card for single-service layers.
+ */
+function ServiceCard({ service, wide = false }: { service: { slug: string; title: string }; wide?: boolean }) {
+  const action = (
+    <span className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-brand-300 transition group-hover:gap-2.5 group-hover:text-brand-400">
+      Explore service <Icon name="arrow" className="h-4 w-4" />
+    </span>
+  );
+  if (wide) {
+    return (
+      <Link
+        href={`/services/${service.slug}`}
+        className="card card-hover group flex flex-col items-start justify-between gap-4 p-6 sm:flex-row sm:items-center sm:p-7"
+      >
+        <h3 className="h-display text-lg text-balance">{service.title}</h3>
+        {action}
+      </Link>
+    );
+  }
+  return (
+    <Link
+      href={`/services/${service.slug}`}
+      className="card card-hover group flex min-h-[164px] flex-col p-6"
+    >
+      <h3 className="h-display text-lg leading-snug text-balance">{service.title}</h3>
+      <span className="mt-auto pt-6">{action}</span>
+    </Link>
+  );
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const d = PAGE_DEFAULTS["services"];
   return pageMetadata("services", {
@@ -68,24 +102,23 @@ export default async function ServicesPage() {
               </div>
               <p className="max-w-md text-sm leading-relaxed text-muted">{layer.blurb}</p>
             </div>
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {layer.items.map((s) => (
-                <article key={s.slug} className="card card-hover group relative flex flex-col p-7">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
-                    <Icon name={s.icon} className="h-6 w-6" />
-                  </span>
-                  <h3 className="h-display mt-5 text-lg">
-                    <Link href={`/services/${s.slug}`} className="after:absolute after:inset-0">
-                      {s.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted">{s.excerpt}</p>
-                  <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-300 transition group-hover:gap-2.5">
-                    Explore service <Icon name="arrow" className="h-4 w-4" />
-                  </p>
-                </article>
-              ))}
-            </div>
+
+            {layer.items.length === 1 ? (
+              // Single service → intentional full-width horizontal card
+              <div className="mt-8">
+                <ServiceCard service={layer.items[0]} wide />
+              </div>
+            ) : (
+              <div
+                className={`mt-8 grid gap-5 sm:grid-cols-2 ${
+                  layer.items.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
+                }`}
+              >
+                {layer.items.map((s) => (
+                  <ServiceCard key={s.slug} service={s} />
+                ))}
+              </div>
+            )}
           </div>
         ))}
 
@@ -96,20 +129,7 @@ export default async function ServicesPage() {
             </div>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {ungrouped.map((s) => (
-                <article key={s.slug} className="card card-hover group relative flex flex-col p-7">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
-                    <Icon name={s.icon} className="h-6 w-6" />
-                  </span>
-                  <h3 className="h-display mt-5 text-lg">
-                    <Link href={`/services/${s.slug}`} className="after:absolute after:inset-0">
-                      {s.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted">{s.excerpt}</p>
-                  <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-300 transition group-hover:gap-2.5">
-                    Explore service <Icon name="arrow" className="h-4 w-4" />
-                  </p>
-                </article>
+                <ServiceCard key={s.slug} service={s} />
               ))}
             </div>
           </div>
