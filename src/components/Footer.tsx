@@ -18,11 +18,6 @@ export function Footer({
       <div className="wrap grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Logo />
-          <p className="mt-4 max-w-xs text-base leading-relaxed text-muted">
-            Aligning strategy, operations, governance, technology, and execution —
-            helping organizations translate strategic objectives into measurable
-            business outcomes.
-          </p>
           <ul className="mt-6 space-y-3 text-base">
             <li>
               <a
@@ -52,7 +47,7 @@ export function Footer({
         <nav aria-label="Services">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-ink">Services</h2>
           <ul className="mt-4 space-y-2.5">
-            {services.slice(0, 6).map((s) => (
+            {services.slice(0, 4).map((s) => (
               <li key={s.slug}>
                 <Link
                   href={`/services/${s.slug}`}
