@@ -28,21 +28,20 @@ export default function PrivacyPolicyPage() {
 
         <h2>Information we collect</h2>
         <p>
-          We collect information you choose to provide through our Contact page or any other
-          submission method available on this website. We may also collect limited technical
-          information, such as your IP address and the pages you visit, through server logs and
-          the analytics tools described below. Non-essential analytics operate only as permitted
-          by your cookie choices.
+          We collect all information which you share with us through our Contact page, and any
+          other means of submitting information on the website. We also collect limited technical
+          information, such as your IP address, and pages visited, through analytics tools
+          described below.
         </p>
 
         <h2>How we use your information</h2>
         <p>
-          We use the information we collect to respond to your requests and inquiries, manage our
-          business relationship with you, operate and secure the website, comply with applicable
-          legal obligations, and establish or defend legal claims. Subject to your cookie choices,
-          we use analytics data to understand how the site is used and improve it. We do not sell
-          your personal information. We disclose personal information only as described in the
-          Sharing section, when legally required to do so, or with your written permission.
+          We use any collected information solely to respond to your requests and inquiries, and to
+          manage our business relationship with you. We use analytics data to understand how the
+          site is used and to improve it. We do not sell your personal information, and we do not
+          share your information with third parties except with the service providers that help us
+          operate this website (as described in the Sharing section below) or with your written
+          permission.
         </p>
 
         <h2>Analytics and Cookies</h2>
