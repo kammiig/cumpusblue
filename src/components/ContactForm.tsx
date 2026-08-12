@@ -315,7 +315,7 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
         </p>
       )}
 
-      <button type="submit" className="btn-primary mt-6 w-full sm:w-auto" disabled={status === "sending"}>
+      <button type="submit" className="btn-primary mt-6 w-full !text-base sm:w-auto" disabled={status === "sending"}>
         {status === "sending" ? "Sending…" : "Send"}
       </button>
       <p className="mt-3 text-xs leading-relaxed text-muted">

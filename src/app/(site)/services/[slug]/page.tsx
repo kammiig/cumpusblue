@@ -61,7 +61,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
         <div className="wrap relative py-12 text-center sm:py-16">
           <nav aria-label="Breadcrumb" className="mb-5">
-            <ol className="flex flex-wrap items-center justify-center gap-2 text-xs text-muted">
+            <ol className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted">
               <li><Link href="/" className="hover:text-brand-300">Home</Link></li>
               <li aria-hidden="true">/</li>
               <li><Link href="/services" className="hover:text-brand-300">Services</Link></li>

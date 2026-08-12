@@ -54,11 +54,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <JsonLd data={[organizationSchema(settings), websiteSchema(settings)]} />
         {children}
-        <Analytics
-          ga4Id={settings.ga4Id}
-          metaPixelId={settings.metaPixelId}
-          tiktokPixelId={settings.tiktokPixelId}
-        />
+        <Analytics ga4Id={settings.ga4Id} />
         <CookieConsent />
       </body>
     </html>

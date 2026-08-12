@@ -20,9 +20,7 @@ const GROUPS: { title: string; hint?: string; fields: { key: string; label: stri
     title: "Tracking & integrations",
     hint: "Each integration loads on the live site only when its ID is filled in.",
     fields: [
-      { key: "ga4Id", label: "Google Analytics 4 Measurement ID", hint: "e.g. G-XXXXXXXXXX" },
-      { key: "metaPixelId", label: "Meta Pixel ID", hint: "From Meta Business Suite → Events Manager." },
-      { key: "tiktokPixelId", label: "TikTok Pixel ID", hint: "From TikTok Ads Manager → Assets → Events." },
+      { key: "ga4Id", label: "Google Analytics 4 Measurement ID", hint: "e.g. G-XXXXXXXXXX. Loads only after a visitor accepts Analytics cookies." },
       { key: "gscVerification", label: "Google Search Console verification code", hint: "Content of the google-site-verification meta tag." },
     ],
   },

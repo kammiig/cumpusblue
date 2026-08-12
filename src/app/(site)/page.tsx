@@ -98,14 +98,27 @@ export default async function HomePage() {
           </div>
 
           <div className="relative mx-auto mt-14 max-w-4xl sm:mt-16">
-            <DashboardMock />
+            {c.heroImage ? (
+              <div className="card relative aspect-[16/9] overflow-hidden">
+                <Image
+                  src={c.heroImage}
+                  alt={c.heroImageAlt || ""}
+                  fill
+                  priority
+                  className="object-cover object-center"
+                  sizes="(min-width: 1024px) 896px, 100vw"
+                />
+              </div>
+            ) : (
+              <DashboardMock />
+            )}
           </div>
         </div>
       </section>
 
       {/* ===== What We Help Organizations Achieve ===== */}
       <section
-        className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28"
+        className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24"
         aria-labelledby="achieve-title"
       >
         <div className="wrap">
@@ -124,7 +137,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Why Clients Engage Us ===== */}
-      <section className="wrap py-20 sm:py-28" aria-labelledby="why-title">
+      <section className="wrap py-16 sm:py-24" aria-labelledby="why-title">
         <SectionHead id="why-title" pill="Why clients engage us" title={c.whyTitle} />
         <div className="mx-auto mt-8 max-w-3xl space-y-4 text-center">
           {whyParas.map((p, i) => (
@@ -146,7 +159,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Our Services ===== */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="services-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="services-title">
         <div className="wrap">
           <SectionHead id="services-title" pill="Our services" title={c.servicesTitle} sub={c.servicesBody} />
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
@@ -179,7 +192,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Our Approach ===== */}
-      <section className="py-20 sm:py-28" aria-labelledby="approach-title">
+      <section className="py-16 sm:py-24" aria-labelledby="approach-title">
         <div className="wrap grid items-stretch gap-14 lg:grid-cols-2">
           <div className="card photo-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">
             <Image

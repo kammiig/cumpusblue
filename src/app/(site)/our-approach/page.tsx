@@ -82,7 +82,7 @@ export default async function OurApproachPage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-20 sm:py-28">
+        <div className="wrap relative py-16 sm:py-24">
           <SectionHead as="h1" pill="Our Approach" title={c.introTitle} sub={c.introBody} />
         </div>
       </section>
@@ -116,7 +116,7 @@ export default async function OurApproachPage() {
       </section>
 
       {/* How we see organizations */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="views-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="views-title">
         <div className="wrap">
           <SectionHead id="views-title" pill="Perspective" title="Seeing organizations as one system" />
           <div className="mt-14 grid gap-5 lg:grid-cols-2">
@@ -175,7 +175,7 @@ export default async function OurApproachPage() {
       </section>
 
       {/* A Structured Execution Lifecycle */}
-      <section className="wrap py-20 sm:py-28" aria-labelledby="lifecycle-title">
+      <section className="wrap py-16 sm:py-24" aria-labelledby="lifecycle-title">
         <SectionHead
           id="lifecycle-title"
           pill="Execution lifecycle"
@@ -210,7 +210,7 @@ export default async function OurApproachPage() {
       </section>
 
       {/* Creating, Operating, and Measuring Execution Systems */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="systems-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="systems-title">
         <div className="wrap">
           <SectionHead
             id="systems-title"

@@ -35,7 +35,7 @@ export default async function BlogPage() {
 
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-20 sm:py-28">
+        <div className="wrap relative py-16 sm:py-24">
           <SectionHead as="h1" pill="Blog" title={c.introTitle} sub={c.introBody} />
         </div>
       </section>

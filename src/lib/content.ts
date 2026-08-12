@@ -42,6 +42,17 @@ export const PAGE_DEFAULTS: Record<
       },
       heroCtaPrimary: { label: "Hero primary button", type: "text", value: "View Our Services" },
       heroCtaSecondary: { label: "Hero secondary button", type: "text", value: "Start the conversation" },
+      heroImage: {
+        label: "Hero image URL (leave blank to show the built-in dashboard visual)",
+        type: "text",
+        value: "",
+      },
+      heroImageAlt: {
+        label: "Hero image alt text",
+        type: "text",
+        value:
+          "Compublue aligning strategy, operations, governance, technology and execution across industries — aerospace, shipping, finance, technology and enterprise.",
+      },
       achieveTitle: { label: "Achieve — title", type: "text", value: "What We Help Organizations Achieve" },
       achieveBody: {
         label: "Achieve — intro",

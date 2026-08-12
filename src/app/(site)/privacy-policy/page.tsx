@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { PAGE_DEFAULTS } from "@/lib/content";
+import { CookiePreferencesButton } from "@/components/CookieConsent";
 
 export const dynamic = "force-dynamic";
 
@@ -15,163 +17,142 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function PrivacyPolicyPage() {
   return (
-    <article className="wrap max-w-3xl py-16 sm:py-24">
+    <article className="wrap max-w-3xl py-16 sm:py-20">
       <h1 className="h-display text-4xl">Privacy Policy</h1>
       <p className="mt-3 text-sm text-muted">Last updated: August 2026</p>
 
       <div className="prose-dark mt-10">
+        <h2>1. Our Privacy Philosophy</h2>
         <p>
-          Compublue, Inc. (“Compublue”, “we”, “us”) respects your privacy. This policy explains
-          what information we collect through compublue.com, how we use it, and the choices you
-          have.
+          At Compublue, we believe in being transparent about what information is collected through this
+          website, why it is collected, and how it is used.
+        </p>
+        <p>
+          Compublue is committed to maintaining the smallest practical privacy footprint. We collect only the
+          information necessary to operate the website, respond to visitor inquiries, protect the website, and
+          improve it through optional Analytics Cookies.
         </p>
 
-        <h2>Information we collect</h2>
+        <h2>2. Information We Collect</h2>
+        <p>The Compublue website collects information in only two ways.</p>
+        <h3>Information Submitted by Visitors</h3>
         <p>
-          We collect all information which you share with us through our Contact page, and any
-          other means of submitting information on the website. We also collect limited technical
-          information, such as your IP address, and pages visited, through analytics tools
-          described below.
+          If you contact Compublue through the{" "}
+          <Link href="/contact">Contact page</Link>, certain information is requested so that we can understand
+          your inquiry and respond appropriately.
+        </p>
+        <p>Depending on the information requested by the Contact form, this may include:</p>
+        <ul>
+          <li>Name</li>
+          <li>Company</li>
+          <li>Email address</li>
+          <li>Telephone number (if applicable)</li>
+          <li>Subject</li>
+          <li>Message</li>
+          <li>Any additional information you choose to include in your inquiry</li>
+        </ul>
+        <h3>Website Usage Information</h3>
+        <p>
+          If you choose to enable Analytics Cookies, the website may collect aggregate information about how
+          visitors use the website, such as page visits, navigation patterns, and general website usage
+          statistics.
+        </p>
+        <p>
+          This information helps Compublue improve the website over time. It is not used for advertising,
+          marketing, visitor profiling, or associated with information submitted through the Contact page.
         </p>
 
-        <h2>How we use your information</h2>
+        <h2>3. How We Use Information</h2>
+        <p>Information collected through this website is used only to:</p>
+        <ul>
+          <li>Operate and maintain the website.</li>
+          <li>Protect the website from spam, abuse, and security threats.</li>
+          <li>Respond to inquiries submitted through the Contact page.</li>
+          <li>Improve the website through aggregate analytics when Analytics Cookies have been enabled.</li>
+        </ul>
+        <p>Compublue does not sell personal information collected through this website.</p>
+
+        <h2>4. Cookies</h2>
+        <p>The Compublue website uses only two categories of cookies.</p>
+        <h3>Essential Cookies</h3>
         <p>
-          We use any collected information solely to respond to your requests and inquiries, and to
-          manage our business relationship with you. We use analytics data to understand how the
-          site is used and to improve it. We do not sell your personal information, and we do not
-          share your information with third parties except with the service providers that help us
-          operate this website (as described in the Sharing section below) or with your written
-          permission.
+          Essential Cookies are required for the secure operation and normal functionality of the website.
+          These cookies support functions such as website security, remembering cookie preferences, protecting
+          the Contact form, and maintaining administrator sessions.
+        </p>
+        <p>Essential Cookies are always enabled.</p>
+        <h3>Analytics Cookies (Optional)</h3>
+        <p>
+          Analytics Cookies help Compublue understand aggregate website usage so that the website can be
+          improved over time.
+        </p>
+        <p>Analytics Cookies are:</p>
+        <ul>
+          <li>Optional.</li>
+          <li>Enabled only with your consent.</li>
+          <li>Never required for normal website operation.</li>
+        </ul>
+        <p>
+          You may enable or disable Analytics Cookies at any time through the{" "}
+          <CookiePreferencesButton className="text-brand-300 underline underline-offset-4 hover:text-brand-400" />{" "}
+          link located in the website footer.
         </p>
 
-        <h2>Analytics and Cookies</h2>
+        <h2>5. Service Providers</h2>
         <p>
-          We may use analytics tools to understand how visitors use this website. Where consent is
-          required, non-essential analytics or advertising technologies will not load unless you
-          choose to accept them. You can accept, reject, or manage non-essential cookies through
-          our cookie banner and change your choices at any time using the Cookie Preferences link
-          in the footer. The specific tools and cookies currently in use, including their
-          providers, purposes, and retention periods, are identified below.
+          Compublue may use carefully selected third-party service providers to support operation of the
+          website, including services such as website hosting, security, email delivery, content delivery
+          networks (CDNs), and website analytics.
         </p>
         <p>
-          As of the last update, optional analytics and advertising technologies are not enabled by
-          default; they load only if we configure them and you accept the corresponding category.
-          Honoring a recognized browser privacy signal (such as Global Privacy Control) is treated
-          as a choice to decline non-essential cookies.
-        </p>
-        <div className="not-prose my-6 overflow-x-auto">
-          <table className="w-full border-collapse text-left text-sm">
-            <thead>
-              <tr className="border-b border-white/15 text-muted">
-                <th className="py-2 pr-4 font-semibold">Provider / item</th>
-                <th className="py-2 pr-4 font-semibold">Category</th>
-                <th className="py-2 pr-4 font-semibold">Purpose</th>
-                <th className="py-2 pr-4 font-semibold">Storage</th>
-                <th className="py-2 font-semibold">Retention</th>
-              </tr>
-            </thead>
-            <tbody className="align-top text-muted [&>tr]:border-b [&>tr]:border-white/[0.06]">
-              <tr>
-                <td className="py-2 pr-4 text-ink">Cookie preference</td>
-                <td className="py-2 pr-4">Essential</td>
-                <td className="py-2 pr-4">Stores your cookie choice so the banner does not reappear</td>
-                <td className="py-2 pr-4">Browser localStorage (cc_consent_v1)</td>
-                <td className="py-2">Until you clear it</td>
-              </tr>
-              <tr>
-                <td className="py-2 pr-4 text-ink">Admin session (staff only)</td>
-                <td className="py-2 pr-4">Essential</td>
-                <td className="py-2 pr-4">Authenticates administrator logins to the dashboard</td>
-                <td className="py-2 pr-4">Cookie (cb_admin_session, httpOnly)</td>
-                <td className="py-2">~7 days</td>
-              </tr>
-              <tr>
-                <td className="py-2 pr-4 text-ink">Google reCAPTCHA (if enabled)</td>
-                <td className="py-2 pr-4">Security</td>
-                <td className="py-2 pr-4">Spam and bot protection on the Contact form</td>
-                <td className="py-2 pr-4">Google cookies</td>
-                <td className="py-2">Per Google’s policy</td>
-              </tr>
-              <tr>
-                <td className="py-2 pr-4 text-ink">Google Analytics 4 (if enabled)</td>
-                <td className="py-2 pr-4">Analytics</td>
-                <td className="py-2 pr-4">Measures how the website is used</td>
-                <td className="py-2 pr-4">Cookies (_ga, _gid)</td>
-                <td className="py-2">Up to ~24 months</td>
-              </tr>
-              <tr>
-                <td className="py-2 pr-4 text-ink">Meta Pixel / TikTok Pixel (if enabled)</td>
-                <td className="py-2 pr-4">Marketing</td>
-                <td className="py-2 pr-4">Campaign measurement</td>
-                <td className="py-2 pr-4">Cookies (_fbp, _ttp)</td>
-                <td className="py-2">Up to ~13 months</td>
-              </tr>
-              <tr>
-                <td className="py-2 pr-4 text-ink">Hosting, database, email &amp; image delivery</td>
-                <td className="py-2 pr-4">Essential (service providers)</td>
-                <td className="py-2 pr-4">
-                  Deliver the site and process submissions (Vercel hosting, our database and SMTP
-                  email provider, and the Pexels image CDN). These process technical data such as
-                  IP address but do not set advertising cookies.
-                </td>
-                <td className="py-2 pr-4">Server logs / provider systems</td>
-                <td className="py-2">Per provider</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>How long we keep information</h2>
-        <p>
-          We retain personal information only for as long as reasonably necessary to address
-          inquiries, manage an actual or potential business relationship, comply with legal
-          obligations, resolve disputes, and enforce agreements. Retention periods may vary
-          according to the nature and purpose of the information. When information is no longer
-          required, we delete or de-identify it in accordance with our retention procedures.
+          These providers perform services on behalf of Compublue only as necessary to support operation of the
+          website.
         </p>
 
-        <h2>Sharing</h2>
+        <h2>6. Information Sharing</h2>
         <p>
-          We share personal information only with service providers that help us operate this
-          website (such as hosting and email delivery), and only to the extent needed to provide
-          those services. We may disclose information if legally required to do so.
+          Compublue shares information only when reasonably necessary to respond to your inquiry or to provide
+          services you have requested.
+        </p>
+        <p>
+          Where appropriate, information may be shared with trusted business partners or service providers whose
+          participation is necessary to support your request. Compublue seeks to limit such sharing to the
+          minimum information reasonably necessary for that purpose.
+        </p>
+        <p>
+          Compublue does not sell personal information and does not share personal information for advertising or
+          cross-context behavioral advertising purposes.
         </p>
 
-        <h2>Security</h2>
+        <h2>7. Your Choices</h2>
+        <p>You may choose whether to enable Analytics Cookies.</p>
         <p>
-          We use appropriate technical and organizational measures to protect your information,
-          including encrypted transmission (HTTPS) and access controls on stored data.
+          You may change your{" "}
+          <CookiePreferencesButton className="text-brand-300 underline underline-offset-4 hover:text-brand-400" />{" "}
+          at any time using the Cookie Preferences link located in the footer of the website.
         </p>
 
-        <h2>Your rights</h2>
+        <h2>8. Data Security</h2>
         <p>
-          Depending on where you live, you may have the right to ask whether we hold personal
-          information about you and to request a copy, correction, or deletion of that information,
-          or to object to or restrict certain uses. To protect your information, we may take
-          reasonable steps to verify your identity before responding. These rights are subject to
-          applicable law and exceptions. To submit a request, please contact us using the contact
-          details provided in this policy.
+          Compublue uses reasonable administrative, technical, and operational measures designed to protect
+          information submitted through this website.
+        </p>
+        <p>
+          Although no method of electronic transmission or storage can guarantee absolute security, Compublue
+          strives to safeguard the information entrusted to us.
         </p>
 
-        <h2>Children</h2>
+        <h2>9. Changes to This Privacy Policy</h2>
         <p>
-          This website is intended for business and professional audiences and is not directed to
-          children under 16. We do not knowingly collect personal information from children under
-          16. If you believe that a child has provided personal information to us, please contact
-          us so that we can address the matter and delete the information where appropriate.
+          This Privacy Policy may be updated periodically to reflect changes in website functionality, privacy
+          practices, or applicable legal requirements.
         </p>
+        <p>The current version will always be available on this website.</p>
 
-        <h2>Changes to this policy</h2>
+        <h2>10. Contact Information and Privacy Questions</h2>
         <p>
-          We may update this policy from time to time. Material changes will be reflected by the
-          “Last updated” date above.
-        </p>
-
-        <h2>Contact</h2>
-        <p>
-          Questions about this policy? Email{" "}
-          <a href="mailto:contact@compublue.com">contact@compublue.com</a> or call{" "}
-          <a href="tel:+18186628800">+1 (818) 662-8800</a>.
+          If you have questions regarding this Privacy Policy or the privacy practices of this website, please
+          contact Compublue using the <Link href="/contact">Contact page</Link>.
         </p>
       </div>
     </article>

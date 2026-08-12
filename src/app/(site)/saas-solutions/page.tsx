@@ -97,7 +97,7 @@ export default async function SaasSolutionsPage() {
         </div>
       </section>
 
-      <section className="wrap py-20 sm:py-28" aria-labelledby="saas-offer-title">
+      <section className="wrap py-16 sm:py-24" aria-labelledby="saas-offer-title">
         <SectionHead
           id="saas-offer-title"
           pill="What's included"
@@ -117,7 +117,7 @@ export default async function SaasSolutionsPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="saas-stages-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="saas-stages-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-2">
           <div className="card order-2 overflow-hidden lg:order-1">
             <Image

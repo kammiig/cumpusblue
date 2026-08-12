@@ -233,7 +233,7 @@ export default async function AboutPage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-20 sm:py-28">
+        <div className="wrap relative py-16 sm:py-24">
           <SectionHead as="h1" pill="About Us" title={c.introTitle} sub={c.introBody} />
           <p className="mx-auto mt-6 max-w-3xl text-center leading-relaxed text-muted">
             The sections below provide an overview of the experience, perspectives, methodologies, professional
@@ -311,7 +311,7 @@ export default async function AboutPage() {
       </div>
 
       {/* Representative experiences (heading removed per brief) */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-label="Representative experiences">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-label="Representative experiences">
         <div className="wrap">
           <p className="mx-auto max-w-3xl text-center leading-relaxed text-muted">
             A selection of engagements that illustrate how our capabilities have been developed through executive
@@ -326,7 +326,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Certifications */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="certs-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="certs-title">
         <div className="wrap">
           <SectionHead id="certs-title" pill="Credentials" title="Professional Certifications" />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -344,7 +344,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Recognitions */}
-      <section className="wrap py-20 sm:py-28" aria-labelledby="recognitions-title">
+      <section className="wrap py-16 sm:py-24" aria-labelledby="recognitions-title">
         <SectionHead id="recognitions-title" pill="Recognition" title="Selected Recognitions" />
         <ul className="mx-auto mt-12 max-w-3xl space-y-4">
           {RECOGNITIONS.map((v) => (

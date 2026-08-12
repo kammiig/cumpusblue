@@ -99,7 +99,7 @@ export default async function AiSolutionsPage() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-32 left-0 h-[420px] w-[600px] rounded-full bg-brand-500/15 blur-[130px]"
         />
-        <div className="wrap relative grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-2">
+        <div className="wrap relative grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
           <div>
             <SectionHead as="h1" pill="AI Solutions" title={c.heroTitle} sub={c.heroSub} center={false} />
             <div className="mt-9 flex flex-wrap gap-4">
@@ -142,7 +142,7 @@ export default async function AiSolutionsPage() {
         </div>
       </section>
 
-      <section className="wrap py-20 sm:py-28" aria-labelledby="ai-solutions-title">
+      <section className="wrap py-16 sm:py-24" aria-labelledby="ai-solutions-title">
         <SectionHead
           id="ai-solutions-title"
           pill="Solution areas"
@@ -169,7 +169,7 @@ export default async function AiSolutionsPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-20 sm:py-28" aria-labelledby="ai-principles-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="ai-principles-title">
         <div className="wrap">
           <SectionHead
             id="ai-principles-title"
