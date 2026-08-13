@@ -37,12 +37,12 @@ export default async function CaseStudiesPage() {
 
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-16 sm:py-24">
+        <div className="wrap relative py-12 sm:py-16">
           <SectionHead as="h1" pill="Case Studies" title={c.introTitle} sub={c.introBody} />
         </div>
       </section>
 
-      <section className="wrap py-16 sm:py-24" aria-label="Case studies">
+      <section className="wrap py-12 sm:py-16" aria-label="Case studies">
         <div className="grid gap-6 md:grid-cols-2">
           {studies.map((cs) => (
             <article key={cs.slug} className="card card-hover group relative overflow-hidden">

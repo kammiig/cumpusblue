@@ -35,12 +35,12 @@ export default async function BlogPage() {
 
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-16 sm:py-24">
+        <div className="wrap relative py-12 sm:py-16">
           <SectionHead as="h1" pill="Blog" title={c.introTitle} sub={c.introBody} />
         </div>
       </section>
 
-      <section className="wrap py-16 sm:py-24" aria-label="Articles">
+      <section className="wrap py-12 sm:py-16" aria-label="Articles">
         {featured && (
           <article className="card card-hover group relative mb-12 grid overflow-hidden lg:grid-cols-2">
             <div className="relative aspect-[16/9] lg:aspect-auto">

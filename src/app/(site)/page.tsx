@@ -61,7 +61,7 @@ export default async function HomePage() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-brand-500/15 blur-[140px]"
         />
-        <div className="wrap relative pb-16 pt-20 text-center sm:pt-28">
+        <div className="wrap relative pb-10 pt-14 text-center sm:pt-20">
           {showHeroLabel && (
             <p className="pill mx-auto mb-5 cursor-default select-none animate-fadeUp" aria-hidden="true">
               <span className="pill-dot" aria-hidden="true" />
@@ -97,7 +97,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="relative mx-auto mt-14 max-w-4xl sm:mt-16">
+          <div className="relative mx-auto mt-10 max-w-4xl sm:mt-16">
             <HeroVisual src={c.heroImage} alt={c.heroImageAlt || ""} />
           </div>
         </div>
@@ -105,7 +105,7 @@ export default async function HomePage() {
 
       {/* ===== What We Help Organizations Achieve ===== */}
       <section
-        className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24"
+        className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16"
         aria-labelledby="achieve-title"
       >
         <div className="wrap">
@@ -124,7 +124,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Why Clients Engage Us ===== */}
-      <section className="wrap py-16 sm:py-24" aria-labelledby="why-title">
+      <section className="wrap py-12 sm:py-16" aria-labelledby="why-title">
         <SectionHead id="why-title" pill="Why clients engage us" title={c.whyTitle} />
         <div className="mx-auto mt-8 max-w-3xl space-y-4 text-center">
           {whyParas.map((p, i) => (
@@ -146,10 +146,10 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Our Services ===== */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="services-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="services-title">
         <div className="wrap">
           <SectionHead id="services-title" pill="Our services" title={c.servicesTitle} sub={c.servicesBody} />
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {layers.map((layer) => (
               <article key={layer.name} className="card flex flex-col p-7">
                 <h3 className="h-display text-lg">{layer.name}</h3>
@@ -179,7 +179,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Our Approach ===== */}
-      <section className="pb-8 pt-16 sm:pb-12 sm:pt-24" aria-labelledby="approach-title">
+      <section className="pb-6 pt-12 sm:pb-10 sm:pt-16" aria-labelledby="approach-title">
         <div className="wrap grid items-stretch gap-14 lg:grid-cols-2">
           <div className="card photo-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">
             <Image

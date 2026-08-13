@@ -81,7 +81,7 @@ export default async function SaasSolutionsPage() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-32 right-0 h-[420px] w-[600px] rounded-full bg-accent-500/15 blur-[130px]"
         />
-        <div className="wrap relative py-20 text-center sm:py-28">
+        <div className="wrap relative py-12 text-center sm:py-16">
           <SectionHead as="h1" pill="SaaS Solutions" title={c.heroTitle} sub={c.heroSub} />
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <Link href="/contact" className="btn-primary">
@@ -91,20 +91,20 @@ export default async function SaasSolutionsPage() {
               SaaS development service
             </Link>
           </div>
-          <div className="relative mx-auto mt-14 max-w-4xl">
+          <div className="relative mx-auto mt-10 max-w-4xl">
             <DashboardMock />
           </div>
         </div>
       </section>
 
-      <section className="wrap py-16 sm:py-24" aria-labelledby="saas-offer-title">
+      <section className="wrap py-12 sm:py-16" aria-labelledby="saas-offer-title">
         <SectionHead
           id="saas-offer-title"
           pill="What's included"
           title="Everything a SaaS business stands on"
           sub="Not just code — the architecture, billing, analytics and security that subscription products live or die by."
         />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {OFFERINGS.map((o) => (
             <div key={o.t} className="card card-hover p-7">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
@@ -117,7 +117,7 @@ export default async function SaasSolutionsPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="saas-stages-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="saas-stages-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-2">
           <div className="card order-2 overflow-hidden lg:order-1">
             <Image

@@ -85,12 +85,12 @@ export default async function ServicesPage() {
 
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-16 sm:py-24">
+        <div className="wrap relative py-12 sm:py-16">
           <SectionHead as="h1" pill="Services" title={c.introTitle} sub={c.introBody} />
         </div>
       </section>
 
-      <section className="wrap space-y-16 py-16 sm:space-y-20 sm:py-24" aria-label="All services">
+      <section className="wrap space-y-12 py-12 sm:space-y-16 sm:py-16" aria-label="All services">
         {layers.map((layer, li) => (
           <div key={layer.name}>
             <div className="flex flex-col gap-2 border-b border-white/[0.06] pb-6 sm:flex-row sm:items-end sm:justify-between">

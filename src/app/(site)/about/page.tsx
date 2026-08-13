@@ -233,7 +233,7 @@ export default async function AboutPage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-16 sm:py-24">
+        <div className="wrap relative py-12 sm:py-16">
           <SectionHead as="h1" pill="About Us" title={c.introTitle} sub={c.introBody} />
           <p className="mx-auto mt-6 max-w-3xl text-center leading-relaxed text-muted">
             The sections below provide an overview of the experience, perspectives, methodologies, professional
@@ -244,7 +244,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Alternating image/text sections */}
-      <div className="space-y-16 py-20 sm:space-y-24 sm:py-28">
+      <div className="space-y-12 py-12 sm:space-y-16 sm:py-16">
         {/* 1 — Experience-Informed Perspective (image left, image height matches text column) */}
         <section className="wrap grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14" aria-labelledby="perspective-title">
           <div className="card photo-overlay relative aspect-[3/2] overflow-hidden lg:aspect-auto">
@@ -311,7 +311,7 @@ export default async function AboutPage() {
       </div>
 
       {/* Representative experiences (heading removed per brief) */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-label="Representative experiences">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-label="Representative experiences">
         <div className="wrap">
           <p className="mx-auto max-w-3xl text-center leading-relaxed text-muted">
             A selection of engagements that illustrate how our capabilities have been developed through executive
@@ -326,10 +326,10 @@ export default async function AboutPage() {
       </section>
 
       {/* Certifications */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="certs-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="certs-title">
         <div className="wrap">
           <SectionHead id="certs-title" pill="Credentials" title="Professional Certifications" />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CERTIFICATIONS.map((v) => (
               <div key={v.t} className="card card-hover p-7">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
@@ -344,7 +344,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Recognitions */}
-      <section className="wrap py-16 sm:py-24" aria-labelledby="recognitions-title">
+      <section className="wrap py-12 sm:py-16" aria-labelledby="recognitions-title">
         <SectionHead id="recognitions-title" pill="Recognition" title="Selected Recognitions" />
         <ul className="mx-auto mt-12 max-w-3xl space-y-4">
           {RECOGNITIONS.map((v) => (
@@ -362,7 +362,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Looking Forward */}
-      <section className="border-t border-white/[0.06] bg-night-900/60 py-20 sm:py-24" aria-labelledby="forward-title">
+      <section className="border-t border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="forward-title">
         <div className="wrap mx-auto max-w-3xl">
           <SectionHead id="forward-title" pill="Looking forward" title="Looking Forward" center={false} />
           <div className="mt-6 space-y-4 leading-relaxed text-muted">

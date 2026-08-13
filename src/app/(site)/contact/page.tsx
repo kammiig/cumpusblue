@@ -35,12 +35,12 @@ export default async function ContactPage() {
 
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-20 sm:py-24">
+        <div className="wrap relative py-12 sm:py-16">
           <SectionHead as="h1" pill="Contact" title={c.introTitle} sub={c.introBody} />
         </div>
       </section>
 
-      <section className="wrap grid gap-10 py-16 sm:py-24 lg:grid-cols-[380px_1fr]">
+      <section className="wrap grid gap-10 py-12 sm:py-16 lg:grid-cols-[380px_1fr]">
         <aside aria-label="Contact details" className="space-y-5">
           <div className="card p-7">
             <h2 className="h-display text-lg">Talk to a human</h2>

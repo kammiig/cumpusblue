@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function PrivacyPolicyPage() {
   return (
-    <article className="wrap max-w-3xl py-16 sm:py-20">
+    <article className="wrap max-w-3xl py-12 sm:py-16">
       <h1 className="h-display text-4xl">Privacy Policy</h1>
       <p className="mt-3 text-sm text-muted">Last updated: August 2026</p>
 

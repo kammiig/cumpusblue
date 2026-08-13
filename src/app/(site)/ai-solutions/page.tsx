@@ -99,7 +99,7 @@ export default async function AiSolutionsPage() {
           aria-hidden="true"
           className="pointer-events-none absolute -top-32 left-0 h-[420px] w-[600px] rounded-full bg-brand-500/15 blur-[130px]"
         />
-        <div className="wrap relative grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
+        <div className="wrap relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-2">
           <div>
             <SectionHead as="h1" pill="AI Solutions" title={c.heroTitle} sub={c.heroSub} center={false} />
             <div className="mt-9 flex flex-wrap gap-4">
@@ -142,14 +142,14 @@ export default async function AiSolutionsPage() {
         </div>
       </section>
 
-      <section className="wrap py-16 sm:py-24" aria-labelledby="ai-solutions-title">
+      <section className="wrap py-12 sm:py-16" aria-labelledby="ai-solutions-title">
         <SectionHead
           id="ai-solutions-title"
           pill="Solution areas"
           title="Where AI earns its keep"
           sub="Six proven applications, each tied to a number your CFO cares about."
         />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SOLUTIONS.map((s) => (
             <article key={s.t} className="card card-hover group relative p-7">
               <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
@@ -169,7 +169,7 @@ export default async function AiSolutionsPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="ai-principles-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="ai-principles-title">
         <div className="wrap">
           <SectionHead
             id="ai-principles-title"
@@ -177,7 +177,7 @@ export default async function AiSolutionsPage() {
             title="AI you can put your name on"
             sub="The difference between an AI success story and a cautionary tale is engineering discipline."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PRINCIPLES.map((p) => (
               <div key={p.t} className="card card-hover p-7">
                 <Icon name="shield" className="h-6 w-6 text-brand-300" />

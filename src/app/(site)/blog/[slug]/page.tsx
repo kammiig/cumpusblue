@@ -54,7 +54,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <article>
         <header className="relative overflow-hidden border-b border-white/[0.06]">
           <div aria-hidden="true" className="bg-grid absolute inset-0" />
-          <div className="wrap relative max-w-4xl py-16 sm:py-24">
+          <div className="wrap relative max-w-4xl py-12 sm:py-16">
             <nav aria-label="Breadcrumb" className="mb-6">
               <ol className="flex flex-wrap items-center gap-2 text-xs text-muted">
                 <li><Link href="/" className="hover:text-brand-300">Home</Link></li>

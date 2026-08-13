@@ -82,13 +82,13 @@ export default async function OurApproachPage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-white/[0.06]">
         <div aria-hidden="true" className="bg-grid absolute inset-0" />
-        <div className="wrap relative py-16 sm:py-24">
+        <div className="wrap relative py-12 sm:py-16">
           <SectionHead as="h1" pill="Our Approach" title={c.introTitle} sub={c.introBody} />
         </div>
       </section>
 
       {/* Turning Strategy into Execution */}
-      <section className="wrap py-20 sm:py-24" aria-labelledby="turning-title">
+      <section className="wrap py-12 sm:py-16" aria-labelledby="turning-title">
         <div className="mx-auto max-w-3xl">
           <SectionHead id="turning-title" pill="From strategy to execution" title="Turning Strategy into Execution" center={false} />
           <div className="mt-6 space-y-4 leading-relaxed text-muted">
@@ -116,10 +116,10 @@ export default async function OurApproachPage() {
       </section>
 
       {/* How we see organizations */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="views-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="views-title">
         <div className="wrap">
           <SectionHead id="views-title" pill="Perspective" title="Seeing organizations as one system" />
-          <div className="mt-14 grid gap-5 lg:grid-cols-2">
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
             <article className="card p-8">
               <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
                 <Icon name="workflow" className="h-6 w-6" />
@@ -175,14 +175,14 @@ export default async function OurApproachPage() {
       </section>
 
       {/* A Structured Execution Lifecycle */}
-      <section className="wrap py-16 sm:py-24" aria-labelledby="lifecycle-title">
+      <section className="wrap py-12 sm:py-16" aria-labelledby="lifecycle-title">
         <SectionHead
           id="lifecycle-title"
           pill="Execution lifecycle"
           title="A Structured Execution Lifecycle"
           sub="Successful organizations require a coordinated execution framework that supports decision-making, accountability, performance visibility, and continuous improvement across the enterprise. Our services support a complete execution lifecycle."
         />
-        <ol className="mx-auto mt-14 max-w-3xl">
+        <ol className="mx-auto mt-10 max-w-3xl">
           {LIFECYCLE.map((s, i) => (
             <li key={s.t} className="flex gap-5 sm:gap-6">
               <div className="flex flex-col items-center">
@@ -210,7 +210,7 @@ export default async function OurApproachPage() {
       </section>
 
       {/* Creating, Operating, and Measuring Execution Systems */}
-      <section className="border-y border-white/[0.06] bg-night-900/60 py-16 sm:py-24" aria-labelledby="systems-title">
+      <section className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="systems-title">
         <div className="wrap">
           <SectionHead
             id="systems-title"
@@ -218,7 +218,7 @@ export default async function OurApproachPage() {
             title="Creating, Operating, and Measuring Execution Systems"
             sub="Effective execution requires more than managing individual projects. It requires creating a management system capable of supporting consistent performance across initiatives. Our approach addresses three critical execution layers."
           />
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {SYSTEM_LAYERS.map((s) => (
               <article key={s.t} className="card card-hover p-7">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-300">
@@ -237,7 +237,7 @@ export default async function OurApproachPage() {
       </section>
 
       {/* Delivering Sustainable Results */}
-      <section className="wrap py-20 sm:py-24" aria-labelledby="results-title">
+      <section className="wrap py-12 sm:py-16" aria-labelledby="results-title">
         <div className="mx-auto max-w-3xl">
           <SectionHead id="results-title" pill="Sustainable results" title="Delivering Sustainable Results" center={false} />
           <div className="mt-6 space-y-4 leading-relaxed text-muted">
