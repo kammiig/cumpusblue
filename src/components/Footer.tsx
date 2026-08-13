@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Logo } from "./Logo";
 import { Icon } from "./Icons";
 import { CookiePreferencesButton } from "./CookieConsent";
 
@@ -17,8 +16,8 @@ export function Footer({
     <footer className="border-t border-white/[0.06] bg-night-900">
       <div className="wrap grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo />
-          <ul className="mt-6 space-y-3 text-base">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-ink">Contact</h2>
+          <ul className="mt-4 space-y-3 text-base">
             <li>
               <a
                 href={`mailto:${contact.email}`}
