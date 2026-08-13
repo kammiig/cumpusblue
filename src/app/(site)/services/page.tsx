@@ -19,7 +19,7 @@ export const dynamic = "force-dynamic";
  */
 function ServiceCard({ service, wide = false }: { service: { slug: string; title: string }; wide?: boolean }) {
   const action = (
-    <span className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-brand-300 transition group-hover:gap-2.5 group-hover:text-brand-400">
+    <span className="inline-flex shrink-0 items-center gap-2 text-base font-semibold text-brand-300 transition group-hover:gap-2.5 group-hover:text-brand-400">
       Explore service <Icon name="arrow" className="h-4 w-4" />
     </span>
   );

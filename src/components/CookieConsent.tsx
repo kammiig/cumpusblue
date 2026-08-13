@@ -157,8 +157,8 @@ export function CookieConsent() {
           aria-label="Cookie consent"
           className="fixed inset-x-0 bottom-0 z-[90] border-t border-white/15 bg-night-950 shadow-[0_-10px_40px_rgba(0,0,0,0.6)]"
         >
-          <div className="wrap flex flex-col gap-4 py-5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
-            <div className="max-w-2xl space-y-2 text-sm leading-relaxed text-slate-200">
+          <div className="wrap py-5">
+            <div className="mx-auto max-w-3xl space-y-2 text-sm leading-relaxed text-slate-200">
               <p>
                 Compublue uses Essential Cookies required for the secure operation of this website and
                 optional Analytics Cookies that help us understand how visitors use our website in aggregate
@@ -176,25 +176,25 @@ export function CookieConsent() {
                 .
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:shrink-0 lg:flex-col xl:flex-row">
+            <div className="mx-auto mt-5 flex max-w-3xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
               <button
                 type="button"
                 onClick={openDialog}
-                className="btn-ghost !min-h-[44px] !px-5 !py-2.5 text-base"
+                className="btn-ghost w-full !min-h-[44px] !px-5 !py-2.5 sm:w-auto"
               >
                 Cookie Preferences
               </button>
               <button
                 type="button"
                 onClick={() => finish({ analytics: false })}
-                className="btn-ghost !min-h-[44px] !px-5 !py-2.5 text-base"
+                className="btn-ghost w-full !min-h-[44px] !px-5 !py-2.5 sm:w-auto"
               >
                 Accept Only Essential Cookies
               </button>
               <button
                 type="button"
                 onClick={() => finish({ analytics: true })}
-                className="btn-primary !min-h-[44px] !px-5 !py-2.5 text-base"
+                className="btn-primary w-full !min-h-[44px] !px-5 !py-2.5 sm:w-auto"
               >
                 Accept All Cookies
               </button>

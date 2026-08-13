@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { DarkSelect } from "./DarkSelect";
 
 /** Interest options, grouped into three categories (see content brief). */
 const INTEREST_GROUPS: { label: string; options: string[] }[] = [
@@ -57,6 +58,9 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
   const [interests, setInterests] = useState<string[]>(defaultInterest ? [defaultInterest] : []);
   const [interestsOpen, setInterestsOpen] = useState(false);
   const interestsRef = useRef<HTMLDivElement>(null);
+
+  // Preferred contact method (custom dark single-select)
+  const [preferredContact, setPreferredContact] = useState("");
 
   function toggleInterest(value: string) {
     setInterests((prev) =>
@@ -122,7 +126,7 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
       lastName: String(fd.get("lastName") || ""),
       email: String(fd.get("email") || ""),
       phone: String(fd.get("phone") || ""),
-      preferredContact: String(fd.get("preferredContact") || ""),
+      preferredContact,
       interests,
       message: String(fd.get("message") || ""),
       website: String(fd.get("website") || ""), // honeypot
@@ -142,6 +146,7 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
       setStatus("ok");
       form.reset();
       setInterests([]);
+      setPreferredContact("");
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -195,13 +200,16 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
           <input id="cf-phone" name="phone" type="tel" autoComplete="tel" className="field" placeholder="+1 (555) 000-0000" />
         </div>
         <div>
-          <label htmlFor="cf-preferred" className="label">Preferred contact method</label>
-          <select id="cf-preferred" name="preferredContact" className="field" defaultValue="">
-            <option value="">Select a method…</option>
-            {PREFERRED_CONTACT.map((p) => (
-              <option key={p} value={p}>{p}</option>
-            ))}
-          </select>
+          <span className="label" id="cf-preferred-label">Preferred contact method</span>
+          <DarkSelect
+            labelId="cf-preferred-label"
+            value={preferredContact}
+            onChange={setPreferredContact}
+            options={[
+              { value: "", label: "Select a method…" },
+              ...PREFERRED_CONTACT.map((p) => ({ value: p, label: p })),
+            ]}
+          />
         </div>
 
         {/* Interest(s) — themed multi-select dropdown */}

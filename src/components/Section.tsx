@@ -49,8 +49,8 @@ export function CtaBand({
   cta?: string;
 }) {
   return (
-    <section aria-labelledby="cta-band-title" className="wrap py-20 sm:py-24">
-      <div className="card relative overflow-hidden px-6 py-14 text-center sm:px-12">
+    <section aria-labelledby="cta-band-title" className="wrap py-8 sm:py-12">
+      <div className="card relative overflow-hidden px-6 py-12 text-center sm:px-12">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_120%_at_50%_0%,rgba(27,157,228,0.22),transparent_70%)]"

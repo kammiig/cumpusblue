@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { SectionHead, CtaBand } from "@/components/Section";
-import { DashboardMock } from "@/components/DashboardMock";
+import { HeroVisual } from "@/components/HeroVisual";
 import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { getServices } from "@/lib/data";
@@ -98,20 +98,7 @@ export default async function HomePage() {
           </div>
 
           <div className="relative mx-auto mt-14 max-w-4xl sm:mt-16">
-            {c.heroImage ? (
-              <div className="card relative aspect-[16/9] overflow-hidden">
-                <Image
-                  src={c.heroImage}
-                  alt={c.heroImageAlt || ""}
-                  fill
-                  priority
-                  className="object-cover object-center"
-                  sizes="(min-width: 1024px) 896px, 100vw"
-                />
-              </div>
-            ) : (
-              <DashboardMock />
-            )}
+            <HeroVisual src={c.heroImage} alt={c.heroImageAlt || ""} />
           </div>
         </div>
       </section>
@@ -192,7 +179,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Our Approach ===== */}
-      <section className="py-16 sm:py-24" aria-labelledby="approach-title">
+      <section className="pb-8 pt-16 sm:pb-12 sm:pt-24" aria-labelledby="approach-title">
         <div className="wrap grid items-stretch gap-14 lg:grid-cols-2">
           <div className="card photo-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">
             <Image

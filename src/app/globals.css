@@ -68,7 +68,7 @@ body {
     @apply transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:bg-white/[0.05];
   }
   .btn {
-    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold transition focus-visible:outline-offset-4;
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-7 py-3 text-base font-semibold leading-tight transition focus-visible:outline-offset-4;
   }
   .btn-primary {
     @apply btn bg-gradient-to-r from-brand-500 to-accent-500 text-white shadow-glowBlue hover:brightness-110;

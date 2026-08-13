@@ -45,7 +45,7 @@ export const PAGE_DEFAULTS: Record<
       heroImage: {
         label: "Hero image URL (leave blank to show the built-in dashboard visual)",
         type: "text",
-        value: "",
+        value: "/hero-aerospace.png",
       },
       heroImageAlt: {
         label: "Hero image alt text",
