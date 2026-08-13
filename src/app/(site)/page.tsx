@@ -116,7 +116,7 @@ export default async function HomePage() {
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-brand-500/25 bg-brand-500/10 text-brand-300">
                   <Icon name="check" className="h-4 w-4" />
                 </span>
-                <span className="text-sm leading-relaxed text-ink">{a}</span>
+                <span className="text-base leading-relaxed text-ink">{a}</span>
               </li>
             ))}
           </ul>

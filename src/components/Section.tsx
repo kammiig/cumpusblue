@@ -34,7 +34,7 @@ export function SectionHead({
       >
         {title}
       </Tag>
-      {sub && <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">{sub}</p>}
+      {sub && <p className="mt-5 text-base leading-relaxed text-muted">{sub}</p>}
     </div>
   );
 }
