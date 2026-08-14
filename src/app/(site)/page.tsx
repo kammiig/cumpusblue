@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -64,8 +65,12 @@ export default async function HomePage() {
         <div className="wrap relative pb-10 pt-14 text-center sm:pt-20">
           {showHeroLabel && (
             <p className="pill mx-auto mb-5 cursor-default select-none animate-fadeUp" aria-hidden="true">
-              <span className="pill-dot" aria-hidden="true" />
-              {FOCUS_TERMS.join(" · ")}
+              {FOCUS_TERMS.map((term, i) => (
+                <Fragment key={term}>
+                  {i > 0 && <span className="pill-dot" aria-hidden="true" />}
+                  <span>{term}</span>
+                </Fragment>
+              ))}
             </p>
           )}
           <h1
