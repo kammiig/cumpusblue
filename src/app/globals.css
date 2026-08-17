@@ -156,19 +156,19 @@ select.field option {
 .photo-frame {
   position: relative;
   overflow: hidden;
-  --photo-frame-blur: 30px;
-  --photo-frame-spread: 8px;
-  --photo-frame-color: rgba(0, 0, 0, 0.55);
+  --photo-frame-blur: 34px;
+  --photo-frame-spread: 12px;
+  --photo-frame-color: rgba(0, 0, 0, 0.72);
 }
 .photo-frame-sm {
-  --photo-frame-blur: 18px;
-  --photo-frame-spread: 4px;
-  --photo-frame-color: rgba(0, 0, 0, 0.45);
+  --photo-frame-blur: 20px;
+  --photo-frame-spread: 6px;
+  --photo-frame-color: rgba(0, 0, 0, 0.62);
 }
 .photo-frame-lg {
-  --photo-frame-blur: 45px;
-  --photo-frame-spread: 12px;
-  --photo-frame-color: rgba(0, 0, 0, 0.58);
+  --photo-frame-blur: 50px;
+  --photo-frame-spread: 16px;
+  --photo-frame-color: rgba(0, 0, 0, 0.75);
 }
 .photo-frame::after {
   content: "";
@@ -184,16 +184,16 @@ select.field option {
  * are restated because they share specificity with the rules above. */
 @media (max-width: 640px) {
   .photo-frame {
-    --photo-frame-blur: 22px;
-    --photo-frame-spread: 4px;
+    --photo-frame-blur: 24px;
+    --photo-frame-spread: 6px;
   }
   .photo-frame-sm {
-    --photo-frame-blur: 16px;
-    --photo-frame-spread: 2px;
+    --photo-frame-blur: 17px;
+    --photo-frame-spread: 3px;
   }
   .photo-frame-lg {
-    --photo-frame-blur: 28px;
-    --photo-frame-spread: 6px;
+    --photo-frame-blur: 30px;
+    --photo-frame-spread: 8px;
   }
 }
 
