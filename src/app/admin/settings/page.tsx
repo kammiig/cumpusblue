@@ -12,7 +12,7 @@ const GROUPS: { title: string; hint?: string; fields: { key: string; label: stri
       { key: "siteUrl", label: "Site URL", hint: "Used for canonical URLs, sitemap and Open Graph." },
       { key: "contactEmail", label: "Public contact email" },
       { key: "contactPhone", label: "Public contact phone" },
-      { key: "address", label: "Public address", hint: "Shown in the footer and on the contact page." },
+      { key: "address", label: "Public address", hint: "Shown in the footer and on the contact page. Each line renders on its own row.", rows: 3 },
       { key: "defaultOgImage", label: "Default social sharing image URL", hint: "1200×630px. Used when a page has no specific OG image." },
     ],
   },

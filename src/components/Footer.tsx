@@ -38,7 +38,7 @@ export function Footer({
             </li>
             <li className="flex items-start gap-2.5 text-muted">
               <Icon name="pin" className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
-              <address className="not-italic leading-relaxed">{contact.address}</address>
+              <address className="not-italic leading-relaxed whitespace-pre-line">{contact.address}</address>
             </li>
           </ul>
         </div>

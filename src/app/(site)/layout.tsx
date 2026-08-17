@@ -24,7 +24,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         contact={{
           email: settings.contactEmail || "contact@compublue.com",
           phone: settings.contactPhone || "+1 (818) 662-8800",
-          address: settings.address || "1827 West Verdugo Ave., Suite 205, Burbank, CA 91506",
+          address: settings.address || "1827 West Verdugo Ave.\nSuite 205\nBurbank, CA 91506",
         }}
       />
     </>

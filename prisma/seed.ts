@@ -133,7 +133,7 @@ async function main() {
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://compublue.com",
     contactEmail: "contact@compublue.com",
     contactPhone: "+1 (818) 662-8800",
-    address: "1827 West Verdugo Ave., Suite 205, Burbank, CA 91506",
+    address: "1827 West Verdugo Ave.\nSuite 205\nBurbank, CA 91506",
     leadNotifyEmail: process.env.LEAD_NOTIFY_EMAIL || "contact@compublue.com",
     // Decorative labels: only the home hero is on by default.
     labelsHero: "true",

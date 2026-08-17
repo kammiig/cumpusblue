@@ -21,7 +21,7 @@ export default async function ContactPage() {
   ]);
   const email = settings.contactEmail || "contact@compublue.com";
   const phone = settings.contactPhone || "+1 (818) 662-8800";
-  const address = settings.address || "1827 West Verdugo Ave., Suite 205, Burbank, CA 91506";
+  const address = settings.address || "1827 West Verdugo Ave.\nSuite 205\nBurbank, CA 91506";
   const showLabels = labelsOn(settings, "labelsContact");
 
   return (
@@ -73,7 +73,7 @@ export default async function ContactPage() {
                 </span>
                 <span>
                   <span className="block font-semibold text-ink">Address</span>
-                  <address className="not-italic leading-relaxed">{address}</address>
+                  <address className="not-italic leading-relaxed whitespace-pre-line">{address}</address>
                 </span>
               </li>
             </ul>
