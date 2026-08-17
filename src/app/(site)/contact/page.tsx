@@ -72,7 +72,7 @@ export default async function ContactPage() {
                   <Icon name="pin" className="h-5 w-5" />
                 </span>
                 <span>
-                  <span className="block font-semibold text-ink">Visit us</span>
+                  <span className="block font-semibold text-ink">Address</span>
                   <address className="not-italic leading-relaxed">{address}</address>
                 </span>
               </li>
