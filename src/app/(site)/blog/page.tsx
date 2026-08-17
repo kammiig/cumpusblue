@@ -43,7 +43,7 @@ export default async function BlogPage() {
       <section className="wrap py-12 sm:py-16" aria-label="Articles">
         {featured && (
           <article className="card card-hover group relative mb-12 grid overflow-hidden lg:grid-cols-2">
-            <div className="relative aspect-[16/9] lg:aspect-auto">
+            <div className="photo-frame relative aspect-[16/9] rounded-t-2xl lg:aspect-auto lg:rounded-bl-2xl lg:rounded-tr-none">
               <Image
                 src={featured.image}
                 alt={featured.imageAlt}
@@ -74,7 +74,7 @@ export default async function BlogPage() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((p) => (
             <article key={p.slug} className="card card-hover group relative overflow-hidden">
-              <div className="relative aspect-[16/9] overflow-hidden">
+              <div className="photo-frame photo-frame-sm relative aspect-[16/9] overflow-hidden rounded-t-2xl">
                 <Image
                   src={p.image}
                   alt={p.imageAlt}

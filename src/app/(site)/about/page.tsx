@@ -191,7 +191,7 @@ function AltSection({
   return (
     <div className="wrap grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
       <div
-        className={`card photo-overlay relative aspect-[3/2] overflow-hidden lg:aspect-auto ${
+        className={`card photo-frame relative aspect-[3/2] overflow-hidden lg:aspect-auto ${
           imageLeft ? "" : "lg:order-2"
         }`}
       >
@@ -247,7 +247,7 @@ export default async function AboutPage() {
       <div className="space-y-12 py-12 sm:space-y-16 sm:py-16">
         {/* 1 — Experience-Informed Perspective (image left, image height matches text column) */}
         <section className="wrap grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14" aria-labelledby="perspective-title">
-          <div className="card photo-overlay relative aspect-[3/2] overflow-hidden lg:aspect-auto">
+          <div className="card photo-frame relative aspect-[3/2] overflow-hidden lg:aspect-auto">
             <Image
               src={c.imgPerspective || IMAGES.aboutTeam.src}
               alt={IMAGES.aboutTeam.alt}

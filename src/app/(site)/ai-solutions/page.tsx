@@ -128,7 +128,7 @@ export default async function AiSolutionsPage() {
               ))}
             </dl>
           </div>
-          <div className="card overflow-hidden">
+          <div className="card photo-frame overflow-hidden">
             <Image
               src={IMAGES.aiRobot.src}
               alt={IMAGES.aiRobot.alt}

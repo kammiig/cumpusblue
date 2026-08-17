@@ -16,7 +16,7 @@ export function HeroVisual({ src, alt }: { src: string; alt: string }) {
   if (!src || failed) return <DashboardMock />;
 
   return (
-    <div className="card relative aspect-[16/9] overflow-hidden">
+    <div className="card photo-frame photo-frame-lg relative aspect-[16/9] overflow-hidden">
       <Image
         src={src}
         alt={alt}

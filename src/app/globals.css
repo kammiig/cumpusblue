@@ -135,19 +135,66 @@ select.field option {
 }
 
 /*
- * Photographic-image overlay. Add `photo-overlay` to a wrapper (which clips its
- * overflow) around a photo to apply a consistent dark tint for visual harmony.
- * Not applied to the logo, favicon, icons, charts or the dashboard mock.
+ * Photographic-image inner frame. Add `photo-frame` to the wrapper around a
+ * photo; a non-interactive pseudo-element draws a soft black shadow on the
+ * inner edges only, so the photo keeps its original colours, contrast and
+ * brightness through the centre (no tint, no gradient, no filter).
+ *
+ * The wrapper owns the border radius and the shadow inherits it, so the
+ * vignette follows rounded corners. If the wrapper is only partly rounded
+ * (e.g. an image at the top of a card), give it the matching radius utilities
+ * — `border-radius: inherit` then traces the same shape.
+ *
+ * Sizes, so the band stays proportionate to the image:
+ *   .photo-frame-sm  small card thumbnails
+ *   .photo-frame     default — half-width content images
+ *   .photo-frame-lg  hero and full-width content images
+ *
+ * Never applied to the logo, favicon, icons, charts, form controls or the
+ * dashboard mock.
  */
-.photo-overlay {
+.photo-frame {
   position: relative;
+  overflow: hidden;
+  --photo-frame-blur: 30px;
+  --photo-frame-spread: 8px;
+  --photo-frame-color: rgba(0, 0, 0, 0.55);
 }
-.photo-overlay::after {
+.photo-frame-sm {
+  --photo-frame-blur: 18px;
+  --photo-frame-spread: 4px;
+  --photo-frame-color: rgba(0, 0, 0, 0.45);
+}
+.photo-frame-lg {
+  --photo-frame-blur: 45px;
+  --photo-frame-spread: 12px;
+  --photo-frame-color: rgba(0, 0, 0, 0.58);
+}
+.photo-frame::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(10, 16, 31, 0.55);
+  border-radius: inherit;
+  box-shadow: inset 0 0 var(--photo-frame-blur) var(--photo-frame-spread) var(--photo-frame-color);
   pointer-events: none;
+}
+
+/* Narrow viewports: images are physically smaller, so pull the band in to keep
+ * it an edge treatment rather than a wash over the subject. All three variants
+ * are restated because they share specificity with the rules above. */
+@media (max-width: 640px) {
+  .photo-frame {
+    --photo-frame-blur: 22px;
+    --photo-frame-spread: 4px;
+  }
+  .photo-frame-sm {
+    --photo-frame-blur: 16px;
+    --photo-frame-spread: 2px;
+  }
+  .photo-frame-lg {
+    --photo-frame-blur: 28px;
+    --photo-frame-spread: 6px;
+  }
 }
 
 /*

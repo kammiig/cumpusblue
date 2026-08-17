@@ -119,7 +119,7 @@ export default async function SaasSolutionsPage() {
 
       <section className="border-y border-white/[0.06] bg-night-900/60 py-12 sm:py-16" aria-labelledby="saas-stages-title">
         <div className="wrap grid items-center gap-14 lg:grid-cols-2">
-          <div className="card order-2 overflow-hidden lg:order-1">
+          <div className="card photo-frame order-2 overflow-hidden lg:order-1">
             <Image
               src={IMAGES.devTeam.src}
               alt={IMAGES.devTeam.alt}

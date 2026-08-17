@@ -80,7 +80,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
 
         <div className="wrap grid gap-14 py-12 sm:py-16 lg:grid-cols-[1fr_380px]">
           <div>
-            <div className="card overflow-hidden">
+            <div className="card photo-frame photo-frame-lg overflow-hidden">
               <Image
                 src={cs.image}
                 alt={cs.imageAlt}

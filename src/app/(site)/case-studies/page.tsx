@@ -46,7 +46,7 @@ export default async function CaseStudiesPage() {
         <div className="grid gap-6 md:grid-cols-2">
           {studies.map((cs) => (
             <article key={cs.slug} className="card card-hover group relative overflow-hidden">
-              <div className="relative aspect-[16/9] overflow-hidden">
+              <div className="photo-frame relative aspect-[16/9] overflow-hidden rounded-t-2xl">
                 <Image
                   src={cs.image}
                   alt={cs.imageAlt}
@@ -54,8 +54,9 @@ export default async function CaseStudiesPage() {
                   className="object-cover transition duration-500 group-hover:scale-105"
                   sizes="(min-width: 768px) 560px, 100vw"
                 />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-night-950/80 to-transparent" />
-                <p className="absolute bottom-4 left-5 text-xs font-semibold uppercase tracking-wider text-brand-300">
+                {/* Sits above the inner-edge shadow on its own small backdrop, so
+                 * the label stays legible without tinting the whole photo. */}
+                <p className="absolute bottom-4 left-4 z-10 rounded-full border border-white/15 bg-night-950/75 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-300 backdrop-blur-sm">
                   {cs.industry}
                 </p>
               </div>

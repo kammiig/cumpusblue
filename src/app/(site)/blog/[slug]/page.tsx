@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </header>
 
         <div className="wrap max-w-4xl py-14">
-          <div className="card overflow-hidden">
+          <div className="card photo-frame photo-frame-lg overflow-hidden">
             <Image
               src={post.image}
               alt={post.imageAlt}

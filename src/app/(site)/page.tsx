@@ -186,7 +186,7 @@ export default async function HomePage() {
       {/* ===== Our Approach ===== */}
       <section className="pb-6 pt-12 sm:pb-10 sm:pt-16" aria-labelledby="approach-title">
         <div className="wrap grid items-stretch gap-14 lg:grid-cols-2">
-          <div className="card photo-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">
+          <div className="card photo-frame relative aspect-[4/3] overflow-hidden lg:aspect-auto">
             <Image
               src={IMAGES.heroOffice.src}
               alt={IMAGES.heroOffice.alt}

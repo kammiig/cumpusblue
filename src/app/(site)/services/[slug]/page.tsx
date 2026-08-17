@@ -94,7 +94,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
           )}
         </div>
         <aside className="lg:sticky lg:top-24">
-          <div className="card photo-overlay relative aspect-[4/3] overflow-hidden">
+          <div className="card photo-frame relative aspect-[4/3] overflow-hidden">
             <Image
               src={svc.image}
               alt={svc.imageAlt}
@@ -106,7 +106,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
             />
           </div>
           {svc.image2 && (
-            <div className="card photo-overlay relative mt-6 aspect-[4/3] overflow-hidden">
+            <div className="card photo-frame relative mt-6 aspect-[4/3] overflow-hidden">
               <Image
                 src={svc.image2}
                 alt={svc.image2Alt || svc.imageAlt}
