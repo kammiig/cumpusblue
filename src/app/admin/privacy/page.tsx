@@ -29,7 +29,7 @@ export default async function AdminPrivacy({
     const digits = q.replace(/[^\d]/g, "");
     const or: Prisma.LeadWhereInput[] = [
       { id: q },
-      { email: { equals: q, mode: "insensitive" } },
+      { email: { equals: q } },
     ];
     if (digits.length >= 7) or.push({ phone: { contains: digits } });
     leads = await db.lead.findMany({ where: { OR: or }, orderBy: { createdAt: "desc" } });

@@ -3,6 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { DarkSelect } from "./DarkSelect";
 
+/** Sub-path the app is mounted under (e.g. "/new"); "" when served from root.
+ *  next/link and next/image apply basePath automatically -- a raw fetch does not. */
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 /** Interest options, grouped into three categories (see content brief). */
 const INTEREST_GROUPS: { label: string; options: string[] }[] = [
   {
@@ -136,7 +140,7 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(`${BASE_PATH}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

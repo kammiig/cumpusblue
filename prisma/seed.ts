@@ -37,7 +37,7 @@ async function main() {
       where: { slug },
       // On a version bump, refresh copy + SEO from code; otherwise leave edits alone.
       update: refresh ? { name: def.name, content, seoTitle: def.seoTitle, seoDesc: def.seoDesc } : {},
-      create: { slug, name: def.name, content, seoTitle: def.seoTitle, seoDesc: def.seoDesc },
+      create: { slug, name: def.name, content, seoTitle: def.seoTitle, seoDesc: def.seoDesc, schemaJson: "" },
     });
   }
   console.log(`✔ ${Object.keys(PAGE_DEFAULTS).length} pages`);
