@@ -1,124 +1,114 @@
 // Compublue CMS schema
-// Production (cPanel / phpMyAdmin): MySQL or MariaDB.
-//
-// MySQL portability rule enforced below: a BLOB/TEXT column cannot carry a
-// DEFAULT on MySQL 8 (which demands the parenthesised `DEFAULT ('')` form that
-// Prisma does not emit) or on MySQL 5.7. Meanwhile the three content-heavy
-// tables cannot be expressed with wide VarChars at all, because InnoDB caps a
-// row's declared VarChar bytes at 65535 and utf8mb4 counts 4 bytes per char.
-//
-// So: unbounded fields are Text/LongText and carry NO default -- every create
-// site supplies them explicitly -- while short fields stay sized VarChars and
-// keep their defaults.
+// Local dev: SQLite. Production: switch provider to "postgresql" and set DATABASE_URL.
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
   id           String   @id @default(cuid())
-  email        String   @unique @db.VarChar(191)
-  passwordHash String   @db.VarChar(191)
-  name         String   @default("Admin") @db.VarChar(191)
+  email        String   @unique
+  passwordHash String
+  name         String   @default("Admin")
   createdAt    DateTime @default(now())
 }
 
 model Page {
   id          String   @id @default(cuid())
-  slug        String   @unique @db.VarChar(191) // "" for home
-  name        String   @db.VarChar(191) // label in admin
+  slug        String   @unique // "" for home
+  name        String // label in admin
   // Editable content fields as JSON: { key: { label, type: "text"|"textarea", value } }
-  content     String   @db.LongText
+  content     String   @default("{}")
   // SEO
-  seoTitle    String   @default("") @db.VarChar(255)
-  seoDesc     String   @default("") @db.VarChar(500)
-  ogImage     String   @default("") @db.VarChar(1000)
-  canonical   String   @default("") @db.VarChar(1000)
-  schemaJson  String   @db.Text // extra JSON-LD to inject (optional)
+  seoTitle    String   @default("")
+  seoDesc     String   @default("")
+  ogImage     String   @default("")
+  canonical   String   @default("")
+  schemaJson  String   @default("") // extra JSON-LD to inject (optional)
   noindex     Boolean  @default(false)
   updatedAt   DateTime @updatedAt
 }
 
 model Service {
   id         String   @id @default(cuid())
-  slug       String   @unique @db.VarChar(191)
-  title      String   @db.VarChar(255)
-  excerpt    String   @db.Text
-  body       String   @db.LongText // markdown-ish paragraphs, split on blank lines
-  bullets    String   @db.Text // JSON array of "What you get" bullets
-  icon       String   @default("spark") @db.VarChar(64) // icon key
-  image      String   @default("") @db.VarChar(1000)
-  imageAlt   String   @default("") @db.VarChar(500)
-  imageFocal String   @default("center") @db.VarChar(64) // CSS object-position focal point for the primary image
-  image2     String   @default("") @db.VarChar(1000) // optional secondary image (shown below the primary when text is long)
-  image2Alt  String   @default("") @db.VarChar(500)
-  faqs       String   @db.Text // JSON [{q,a}]
+  slug       String   @unique
+  title      String
+  excerpt    String
+  body       String // markdown-ish paragraphs, split on blank lines
+  bullets    String   @default("[]") // JSON array of "What you get" bullets
+  icon       String   @default("spark") // icon key
+  image      String   @default("")
+  imageAlt   String   @default("")
+  imageFocal String   @default("center") // CSS object-position focal point for the primary image
+  image2     String   @default("") // optional secondary image (shown below the primary when text is long)
+  image2Alt  String   @default("")
+  faqs       String   @default("[]") // JSON [{q,a}]
   order      Int      @default(0)
   published  Boolean  @default(true)
   showWhatYouGet Boolean @default(true) // toggle the "What you get" box on the service page
-  seoTitle   String   @default("") @db.VarChar(255)
-  seoDesc    String   @default("") @db.VarChar(500)
-  ogImage    String   @default("") @db.VarChar(1000)
-  canonical  String   @default("") @db.VarChar(1000)
+  seoTitle   String   @default("")
+  seoDesc    String   @default("")
+  ogImage    String   @default("")
+  canonical  String   @default("")
   updatedAt  DateTime @updatedAt
 }
 
 model CaseStudy {
   id        String   @id @default(cuid())
-  slug      String   @unique @db.VarChar(191)
-  title     String   @db.VarChar(255)
-  client    String   @default("") @db.VarChar(191)
-  industry  String   @default("") @db.VarChar(191)
-  summary   String   @db.Text
-  challenge String   @db.Text
-  solution  String   @db.Text
-  results   String   @db.Text // JSON array of result bullets
-  image     String   @default("") @db.VarChar(1000)
-  imageAlt  String   @default("") @db.VarChar(500)
-  tags      String   @default("[]") @db.VarChar(1000)
+  slug      String   @unique
+  title     String
+  client    String   @default("")
+  industry  String   @default("")
+  summary   String
+  challenge String   @default("")
+  solution  String   @default("")
+  results   String   @default("[]") // JSON array of result bullets
+  image     String   @default("")
+  imageAlt  String   @default("")
+  tags      String   @default("[]")
   order     Int      @default(0)
   published Boolean  @default(true)
-  seoTitle  String   @default("") @db.VarChar(255)
-  seoDesc   String   @default("") @db.VarChar(500)
+  seoTitle  String   @default("")
+  seoDesc   String   @default("")
   updatedAt DateTime @updatedAt
 }
 
 model Post {
   id        String    @id @default(cuid())
-  slug      String    @unique @db.VarChar(191)
-  title     String    @db.VarChar(255)
-  excerpt   String    @db.Text
-  body      String    @db.LongText
-  image     String    @default("") @db.VarChar(1000)
-  imageAlt  String    @default("") @db.VarChar(500)
-  author    String    @default("Compublue Team") @db.VarChar(191)
-  tags      String    @default("[]") @db.VarChar(1000)
+  slug      String    @unique
+  title     String
+  excerpt   String
+  body      String
+  image     String    @default("")
+  imageAlt  String    @default("")
+  author    String    @default("Compublue Team")
+  tags      String    @default("[]")
   published Boolean   @default(true)
   publishedAt DateTime @default(now())
-  seoTitle  String    @default("") @db.VarChar(255)
-  seoDesc   String    @default("") @db.VarChar(500)
-  ogImage   String    @default("") @db.VarChar(1000)
-  canonical String    @default("") @db.VarChar(1000)
+  seoTitle  String    @default("")
+  seoDesc   String    @default("")
+  ogImage   String    @default("")
+  canonical String    @default("")
   updatedAt DateTime  @updatedAt
 }
 
 model Lead {
   id         String   @id @default(cuid())
-  name       String   @db.VarChar(191)
-  email      String   @db.VarChar(191)
-  phone      String   @default("") @db.VarChar(64)
-  company    String   @default("") @db.VarChar(191)
-  service    String   @default("") @db.VarChar(191)
-  budget     String   @default("") @db.VarChar(191)
-  message    String   @db.Text
-  page       String   @default("") @db.VarChar(500)
-  ip         String   @default("") @db.VarChar(64)
-  status     String   @default("new") @db.VarChar(32) // new | contacted | closed
+  name       String
+  email      String
+  phone      String   @default("")
+  company    String   @default("")
+  service    String   @default("")
+  budget     String   @default("")
+  message    String
+  page       String   @default("")
+  ip         String   @default("")
+  status     String   @default("new") // new | contacted | closed
   redacted   Boolean  @default(false) // true once de-identified for a privacy request
   createdAt  DateTime @default(now())
 }
@@ -128,23 +118,23 @@ model Lead {
 model PrivacyRequest {
   id            String   @id @default(cuid())
   createdAt     DateTime @default(now())
-  adminEmail    String   @db.VarChar(191) // administrator who actioned the request
-  identifier    String   @db.VarChar(191) // the verified search identifier used (email / phone / reference)
-  action        String   @db.VarChar(32) // "delete" | "deidentify"
-  scope         String   @db.VarChar(32) // "single" | "all"
+  adminEmail    String // administrator who actioned the request
+  identifier    String // the verified search identifier used (email / phone / reference)
+  action        String // "delete" | "deidentify"
+  scope         String // "single" | "all"
   affectedCount Int      @default(0)
-  retainedReason String  @default("") @db.VarChar(2000) // lawful reason anything was retained / de-identified rather than deleted
+  retainedReason String  @default("") // lawful reason anything was retained / de-identified rather than deleted
 }
 
 model Setting {
-  key   String @id @db.VarChar(191)
-  value String @db.Text
+  key   String @id
+  value String @default("")
 }
 
 model MediaImage {
   id        String   @id @default(cuid())
-  url       String   @db.VarChar(1000)
-  alt       String   @default("") @db.VarChar(500)
-  credit    String   @default("") @db.VarChar(500)
+  url       String
+  alt       String   @default("")
+  credit    String   @default("")
   createdAt DateTime @default(now())
 }

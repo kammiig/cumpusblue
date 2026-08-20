@@ -302,15 +302,14 @@ export async function privacyDeidentifyAction(formData: FormData) {
   redirect(`/admin/privacy?done=deidentified-1&q=${encodeURIComponent(identifier)}`);
 }
 
-/** Match leads by a verified email or exact phone.
- *  Email comparison is case-insensitive via the table's utf8mb4_unicode_ci collation. */
+/** Match leads by a verified email (case-insensitive) or exact phone. */
 function identifierWhere(identifier: string) {
   if (identifier.includes("@")) {
-    return { email: { equals: identifier } };
+    return { email: { equals: identifier, mode: "insensitive" as const } };
   }
   const digits = identifier.replace(/[^\d]/g, "");
   if (digits.length >= 7) return { phone: { contains: digits } };
-  return { email: { equals: identifier } };
+  return { email: { equals: identifier, mode: "insensitive" as const } };
 }
 
 /* ---------- Media ---------- */
