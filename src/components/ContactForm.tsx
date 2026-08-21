@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { DarkSelect } from "./DarkSelect";
+import { PhoneField } from "./PhoneField";
+import { DEFAULT_COUNTRY, digitsOnly, toE164, validateNationalNumber } from "@/lib/countries";
 
 /** Sub-path the app is mounted under (e.g. "/new"); "" when served from root.
  *  next/link and next/image apply basePath automatically -- a raw fetch does not. */
@@ -38,7 +40,16 @@ const INTEREST_GROUPS: { label: string; options: string[] }[] = [
   },
 ];
 
+/**
+ * Preferred contact methods. Phone and Either are only offered when the phone
+ * field's country is the United States -- we only place calls to US numbers --
+ * so everyone else is contacted by email. The same rule is enforced again in
+ * `/api/contact`, so it cannot be bypassed by editing the page.
+ */
 const PREFERRED_CONTACT = ["Email", "Phone", "Either"];
+const PREFERRED_CONTACT_NON_US = ["Email"];
+/** Country whose numbers may be contacted by phone. */
+const PHONE_CONTACT_COUNTRY = "US";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
@@ -63,8 +74,21 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
   const [interestsOpen, setInterestsOpen] = useState(false);
   const interestsRef = useRef<HTMLDivElement>(null);
 
+  // International phone number: ISO country + national digits, combined into
+  // E.164 on submit.
+  const [phoneCountry, setPhoneCountry] = useState<string>(DEFAULT_COUNTRY);
+  const [phoneNational, setPhoneNational] = useState("");
+  const [phoneError, setPhoneError] = useState<string | null>(null);
+  const phoneCanBeCalled = phoneCountry === PHONE_CONTACT_COUNTRY;
+
   // Preferred contact method (custom dark single-select)
   const [preferredContact, setPreferredContact] = useState("");
+
+  // Outside the US, email is the only method -- force it as soon as the
+  // country changes so the shown value always matches what will be submitted.
+  useEffect(() => {
+    if (!phoneCanBeCalled) setPreferredContact("Email");
+  }, [phoneCanBeCalled]);
 
   function toggleInterest(value: string) {
     setInterests((prev) =>
@@ -120,17 +144,32 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Phone is optional, but anything typed has to be a valid number for the
+    // selected country before we build the E.164 value.
+    if (digitsOnly(phoneNational)) {
+      const problem = validateNationalNumber(phoneCountry, phoneNational);
+      if (problem) {
+        setPhoneError(problem);
+        form.querySelector<HTMLInputElement>("#cf-phone")?.focus();
+        return;
+      }
+    }
+    setPhoneError(null);
+
     setStatus("sending");
     setError("");
-    const form = e.currentTarget;
     const fd = new FormData(form);
 
     const payload = {
       firstName: String(fd.get("firstName") || ""),
       lastName: String(fd.get("lastName") || ""),
       email: String(fd.get("email") || ""),
-      phone: String(fd.get("phone") || ""),
-      preferredContact,
+      phone: toE164(phoneCountry, phoneNational),
+      phoneCountry,
+      // Never submit Phone/Either for a non-US number, whatever is in state.
+      preferredContact: phoneCanBeCalled ? preferredContact : "Email",
       interests,
       message: String(fd.get("message") || ""),
       website: String(fd.get("website") || ""), // honeypot
@@ -151,6 +190,9 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
       form.reset();
       setInterests([]);
       setPreferredContact("");
+      setPhoneCountry(DEFAULT_COUNTRY);
+      setPhoneNational("");
+      setPhoneError(null);
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -201,19 +243,47 @@ export function ContactForm({ defaultInterest = "" }: { defaultInterest?: string
         </div>
         <div>
           <label htmlFor="cf-phone" className="label">Phone number</label>
-          <input id="cf-phone" name="phone" type="tel" autoComplete="tel" className="field" placeholder="+1 (555) 000-0000" />
+          <PhoneField
+            id="cf-phone"
+            country={phoneCountry}
+            onCountryChange={(iso2) => {
+              setPhoneCountry(iso2);
+              setPhoneError(null);
+            }}
+            value={phoneNational}
+            onValueChange={(digits) => {
+              setPhoneNational(digits);
+              setPhoneError(null);
+            }}
+            invalid={Boolean(phoneError)}
+            describedBy={phoneError ? "cf-phone-error" : undefined}
+          />
+          {phoneError && (
+            <p id="cf-phone-error" role="alert" className="mt-1.5 text-xs text-red-300">
+              {phoneError}
+            </p>
+          )}
         </div>
         <div>
           <span className="label" id="cf-preferred-label">Preferred contact method</span>
           <DarkSelect
             labelId="cf-preferred-label"
-            value={preferredContact}
+            value={phoneCanBeCalled ? preferredContact : "Email"}
             onChange={setPreferredContact}
-            options={[
-              { value: "", label: "Select a method…" },
-              ...PREFERRED_CONTACT.map((p) => ({ value: p, label: p })),
-            ]}
+            options={
+              phoneCanBeCalled
+                ? [
+                    { value: "", label: "Select a method…" },
+                    ...PREFERRED_CONTACT.map((p) => ({ value: p, label: p })),
+                  ]
+                : PREFERRED_CONTACT_NON_US.map((p) => ({ value: p, label: p }))
+            }
           />
+          {!phoneCanBeCalled && (
+            <p className="mt-1.5 text-xs text-muted">
+              We contact numbers outside the United States by email.
+            </p>
+          )}
         </div>
 
         {/* Interest(s) — themed multi-select dropdown */}

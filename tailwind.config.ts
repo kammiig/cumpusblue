@@ -6,7 +6,8 @@ const config: Config = {
     extend: {
       colors: {
         night: {
-          950: "#04060D",
+          // Site-wide base background colour.
+          950: "#0A101F",
           900: "#060A14",
           850: "#0A101F",
           800: "#0D1526",

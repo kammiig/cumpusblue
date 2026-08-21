@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { sendLeadNotification } from "@/lib/mail";
+import { getCountry, validateNationalNumber } from "@/lib/countries";
 
 export const dynamic = "force-dynamic";
 
@@ -85,6 +86,41 @@ export async function POST(req: NextRequest) {
     const service = (interests.length ? interests.join(", ") : String(body.service || "")).slice(0, 300);
     const preferredContact = String(body.preferredContact || body.budget || "").slice(0, 100);
 
+    // Phone is optional. The current form sends an E.164 number plus the ISO
+    // country picked in the phone field; legacy payloads send a free-text
+    // number and no country, so they are accepted as-is.
+    const phone = String(body.phone || "").trim().slice(0, 50);
+    const phoneCountry = String(body.phoneCountry || "").trim().toUpperCase().slice(0, 2);
+    const country = phoneCountry ? getCountry(phoneCountry) : undefined;
+
+    if (phoneCountry && !country) {
+      return NextResponse.json(
+        { error: "Please choose a valid country for your phone number." },
+        { status: 400 }
+      );
+    }
+    if (phone && country) {
+      if (!/^\+[1-9]\d{6,14}$/.test(phone) || !phone.startsWith(`+${country.dial}`)) {
+        return NextResponse.json({ error: "Please enter a valid phone number." }, { status: 400 });
+      }
+      const problem = validateNationalNumber(country.iso2, phone.slice(country.dial.length + 1));
+      if (problem) {
+        return NextResponse.json({ error: problem }, { status: 400 });
+      }
+    }
+
+    // Phone/Either are only available to US numbers. The form hides them, but
+    // enforce it here too so a direct POST cannot submit them.
+    const phoneContactAllowed = country
+      ? country.iso2 === "US"
+      : !(phone.startsWith("+") && !phone.startsWith("+1"));
+    if (!phoneContactAllowed && preferredContact && preferredContact !== "Email") {
+      return NextResponse.json(
+        { error: "Phone contact is only available for United States numbers." },
+        { status: 400 }
+      );
+    }
+
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Please fill in your name, email and message." },
@@ -99,7 +135,7 @@ export async function POST(req: NextRequest) {
       data: {
         name,
         email,
-        phone: String(body.phone || "").slice(0, 50),
+        phone,
         company: String(body.company || "").slice(0, 200),
         service,
         budget: preferredContact, // repurposed column: preferred contact method
