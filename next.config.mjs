@@ -28,6 +28,20 @@ const nextConfig = {
       { protocol: "https", hostname: "images.pexels.com" },
     ],
   },
+  /**
+   * URLs from the old WordPress site that are still in Google's index.
+   * Permanent (308) so search engines transfer the ranking to the new pages.
+   */
+  async redirects() {
+    return [
+      { source: "/our-company", destination: "/about", permanent: true },
+      ...[
+        "/vendor-management",
+        "/software-development",
+        "/solution-selection",
+      ].map((source) => ({ source, destination: "/services", permanent: true })),
+    ];
+  },
   async headers() {
     return [
       {
