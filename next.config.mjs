@@ -39,6 +39,8 @@ const nextConfig = {
         "/vendor-management",
         "/software-development",
         "/solution-selection",
+        "/membership-management-e-solution",
+        "/cad-system-database-application-development",
       ].map((source) => ({ source, destination: "/services", permanent: true })),
     ];
   },
